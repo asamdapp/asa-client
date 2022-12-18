@@ -1,0 +1,12 @@
+{
+    "locales": [
+      "ro",
+      "ru"
+    ],
+    "defaultLocale": "ro",
+    "pages": {
+      "*": [
+        "common"
+      ]
+    }
+  }

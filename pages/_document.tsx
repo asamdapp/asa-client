@@ -1,11 +1,11 @@
 import React, { ReactElement } from "react";
 import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
   DocumentContext,
   DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
 } from "next/document";
 
 export default class MyDocument extends Document {
@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
 
   render(): ReactElement {
     return (
-      <Html>
+      <Html className="darkwww">
         <Head>
           <link
             rel="apple-touch-icon"
