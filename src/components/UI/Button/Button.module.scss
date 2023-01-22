@@ -1,3 +1,23 @@
-.body {
-  @apply bg-green-400;
+.btn {
+  @apply bg-cardinal
+    text-white
+    font-semibold
+    uppercase
+    rounded-full transition-all
+    shadow-2xl;
+  &:hover {
+    @apply bg-jelly-bean
+    text-white;
+  }
+
+  // Button size
+  &.normal {
+    @apply py-4 px-8
+      shadow-2xl;
+  }
+
+  &.small {
+    @apply py-1 px-4
+      shadow-xl;
+  }
 }
