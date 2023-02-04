@@ -8,7 +8,6 @@ import { Link, useRouter } from "next-translate-routes";
 const Services = () => {
   const { locales } = useRouter();
 
-  // @ts-ignore
   return (
     <MainLayout>
       <Container>
@@ -17,18 +16,6 @@ const Services = () => {
             <h1>services</h1>
             <>
               <Link href="/">Current locale</Link>
-              {/*@ts-ignore*/}
-              {locales.map((locale) => (
-                <Link
-                  href={{
-                    pathname: "/services",
-                  }}
-                  locale={locale}
-                  key={locale}
-                >
-                  {locale} services
-                </Link>
-              ))}
             </>
             <div className="">
               <Button>button</Button>

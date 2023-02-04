@@ -5,3 +5,8 @@
 body {
   @apply font-open-sans leading-relaxed;
 }
+
+.padding-container {
+  @apply px-4 #{!important};
+  @apply xl:px-0 #{!important};
+}

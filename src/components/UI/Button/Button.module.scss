@@ -1,13 +1,23 @@
 .btn {
-  @apply bg-cardinal
-    text-white
+  @apply text-white
     font-semibold
     uppercase
     rounded-full transition-all
     shadow-2xl;
-  &:hover {
-    @apply bg-jelly-bean
-    text-white;
+
+  // Button variant
+  &.red {
+    @apply bg-cardinal;
+    &:hover {
+      @apply bg-jelly-bean;
+    }
+  }
+
+  &.green {
+    @apply bg-atoll;
+    &:hover {
+      @apply bg-jelly-bean;
+    }
   }
 
   // Button size

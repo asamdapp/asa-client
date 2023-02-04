@@ -9,7 +9,7 @@ export const Navigation: FC = (): JSX.Element => {
   return (
     <div className="relative h-16 w-screen gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver">
       <div className="fixed z-50 h-16 w-screen border-b border-white/5 gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver backdrop-blur-sm">
-        <Container lg>
+        <Container fluid>
           <Row>
             <Col>
               <div className="">

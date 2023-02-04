@@ -12,7 +12,7 @@ import "assets/fonts/NotoSerif/stylesheet.css";
 // Styles
 import "styles/globals.scss";
 
-setConfiguration({ maxScreenClass: "xxl" });
+setConfiguration({ maxScreenClass: "xxl", gutterWidth: 20 });
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

@@ -16,13 +16,18 @@ export const Section: FC<IProps> = ({
   return (
     <div
       className={clsx(
-        "py-36",
-        "text-white",
-        withGradient &&
-          "gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver",
-        withGradient &&
-          isGradientReverse &&
-          "gradient-jelly-bean-to-downriver dark:gradient-downriver-to-firefly",
+        "py-28",
+        {
+          "bg-gray-100 dark:bg-firefly": !withGradient,
+        },
+        {
+          "text-white gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver":
+            withGradient,
+        },
+        {
+          "text-white gradient-jelly-bean-to-downriver dark:gradient-downriver-to-firefly":
+            withGradient && isGradientReverse,
+        },
         className
       )}
       {...props}

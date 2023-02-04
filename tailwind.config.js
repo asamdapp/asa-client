@@ -22,27 +22,35 @@ module.exports = {
         zircon: "rgb(252,253,255)",
       },
     },
+    screens: {
+      sm: "576px",
+      md: "768px",
+      lg: "992px",
+      xl: "1200px",
+      xxl: "1600px",
+      xxxl: "1920px",
+    },
   },
   plugins: [
     plugin(function ({ addComponents, theme }) {
       addComponents({
         ".gradient-downriver-to-jelly-bean": {
-          	"background-image": `linear-gradient(90deg, ${theme(
+          "background-image": `linear-gradient(90deg, ${theme(
             "colors.downriver"
           )} 0%, ${theme("colors.jelly-bean")} 100%)`,
         },
         ".gradient-jelly-bean-to-downriver": {
-          	"background-image": `linear-gradient(90deg, ${theme(
+          "background-image": `linear-gradient(90deg, ${theme(
             "colors.jelly-bean"
           )} 0%, ${theme("colors.downriver")} 100%)`,
         },
         ".gradient-firefly-to-downriver": {
-          	"background-image": `linear-gradient(90deg, ${theme(
+          "background-image": `linear-gradient(90deg, ${theme(
             "colors.firefly"
           )} 0%, ${theme("colors.downriver")} 100%)`,
         },
         ".gradient-downriver-to-firefly": {
-          	"background-image": `linear-gradient(90deg, ${theme(
+          "background-image": `linear-gradient(90deg, ${theme(
             "colors.downriver"
           )} 0%, ${theme("colors.firefly")} 100%)`,
         },

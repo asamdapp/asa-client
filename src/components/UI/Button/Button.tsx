@@ -11,6 +11,7 @@ export const Button = <E extends ElementType = typeof defaultElement>({
   className,
   as,
   size = "normal",
+  variant = "red",
   ...otherProps
 }: ButtonProps<E>): JSX.Element => {
   const TagName = as || defaultElement;
@@ -22,6 +23,10 @@ export const Button = <E extends ElementType = typeof defaultElement>({
         {
           [styles.normal]: size === "normal",
           [styles.small]: size === "small",
+        },
+        {
+          [styles.red]: variant === "red",
+          [styles.green]: variant === "green",
         },
         className
       )}

@@ -3,6 +3,7 @@ import { ComponentProps, ElementType } from "react";
 type ButtonOwnProps<E extends ElementType = ElementType> = {
   as?: E;
   size?: "small" | "normal";
+  variant?: "red" | "green";
 };
 
 export type ButtonProps<E extends ElementType> = ButtonOwnProps<E> &
