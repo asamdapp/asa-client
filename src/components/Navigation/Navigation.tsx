@@ -1,24 +1,18 @@
 import React, { FC } from "react";
-import Link from "next/link";
 import { Col, Container, Row } from "react-grid-system";
 
-import { ThemeSwitch } from "components";
-import { Button } from "UI";
+import { Logo, OfferButton, ThemeSwitch } from "components";
 
 export const Navigation: FC = (): JSX.Element => {
   return (
-    <div className="relative h-16 w-screen gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver">
-      <div className="fixed z-50 h-16 w-screen border-b border-white/5 gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver backdrop-blur-sm">
-        <Container fluid>
+    <div className="relative h-14 w-screen gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver">
+      <div className="fixed z-50 h-14 w-screen border-b border-white/5 gradient-downriver-to-jelly-bean-with-opacity dark:gradient-firefly-to-downriver-with-opacity backdrop-blur-md">
+        <Container fluid className="padding-container xl:!px-5">
           <Row>
-            <Col>
-              <div className="">
-                <Link href="/">LOGO</Link>
-                <Button>button</Button>
-              </div>
-            </Col>
-            <Col>
-              <div className="flex items-center">
+            <Col xxl={12}>
+              <div className="flex items-center h-14">
+                <Logo />
+                <OfferButton size="small" />
                 <ThemeSwitch />
               </div>
             </Col>

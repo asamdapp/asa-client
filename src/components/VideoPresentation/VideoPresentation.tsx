@@ -2,7 +2,9 @@ import React, { FC, useState } from "react";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
 import { IconPlayerPlay, IconX } from "@tabler/icons";
+
 import { Button } from "UI";
+import { OfferButton } from "components";
 import { useLockedBody } from "hooks";
 
 import styles from "./VideoPresentation.module.scss";
@@ -56,7 +58,7 @@ export const VideoPresentation: FC = (): JSX.Element => {
                 </span>
               </Button>
 
-              <Button className="w-max">SOLICITA OFERTA</Button>
+              <OfferButton />
             </div>
           </div>
         </div>

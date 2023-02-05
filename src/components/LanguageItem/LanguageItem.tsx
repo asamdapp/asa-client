@@ -1,16 +1,16 @@
 import React, { FC } from "react";
 
-export const LanguageItem: FC = (): JSX.Element => {
+interface IProps {
+  flag: string;
+}
+
+export const LanguageItem: FC<IProps> = ({ flag }): JSX.Element => {
   return (
-    <div className="flex flex-col items-center text-downriver dark:text-white/50 font-medium p-3 gap-2 bg-white dark:bg-black/20 rounded-lg">
-      <div className="h-8 w-12 rounded-md overflow-hidden">
-        <img
-          src="https://asa.md/img/flag/Flag_of_Portugal.svg"
-          alt=""
-          className="object-cover w-full h-full"
-        />
+    <div className="flex flex-col items-center text-downriver dark:text-white/50 font-medium gap-2 rounded-lg my-3">
+      <div className="h-14 w-14 rounded-full overflow-hidden">
+        <img src={flag} alt="" className="object-cover w-full h-full" />
       </div>
-      <span>Romana</span>
+      <span>Нидерландский</span>
     </div>
   );
 };

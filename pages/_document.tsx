@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
 
   render(): ReactElement {
     return (
-      <Html className="darkwww">
+      <Html>
         <Head>
           <link
             rel="apple-touch-icon"

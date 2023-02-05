@@ -8,6 +8,9 @@ const nextConfig = {
   i18n: {
     localeDetection: false,
   },
+  images: {
+    domains: ["www.wetranslate.ro"],
+  },
 };
 
 module.exports = withTranslateRoutes(nextTranslate({ ...nextConfig }));

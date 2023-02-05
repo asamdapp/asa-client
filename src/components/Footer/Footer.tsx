@@ -1,7 +1,9 @@
 import React, { FC } from "react";
-import { Col, Container, Row } from "react-grid-system";
+import { Col, Row } from "react-grid-system";
 import Trans from "next-translate/Trans";
 import useTranslation from "next-translate/useTranslation";
+
+import { CustomContainer } from "components";
 
 export const Footer: FC = (): JSX.Element => {
   const { t, lang } = useTranslation("common");
@@ -9,7 +11,7 @@ export const Footer: FC = (): JSX.Element => {
   console.log(lang);
   return (
     <div className="bg-green-200">
-      <Container>
+      <CustomContainer>
         <Row>
           <Col>
             <Trans i18nKey={"common:title"} />
@@ -18,7 +20,7 @@ export const Footer: FC = (): JSX.Element => {
           </Col>
           <Col>footer</Col>
         </Row>
-      </Container>
+      </CustomContainer>
     </div>
   );
 };

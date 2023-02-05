@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-grid-system";
+import { Col, Row } from "react-grid-system";
 
 import { Button } from "components/UI";
 import { MainLayout } from "layouts";
@@ -11,7 +11,7 @@ const Thanks = () => {
   // @ts-ignore
   return (
     <MainLayout>
-      <Container>
+      <CustomContainer>
         <Row>
           <Col>
             <h1>services</h1>
@@ -155,7 +155,7 @@ const Thanks = () => {
             dignissimos iure laboriosam non optio quaerat?
           </Col>
         </Row>
-      </Container>
+      </CustomContainer>
     </MainLayout>
   );
 };

@@ -27,8 +27,7 @@ module.exports = {
       md: "768px",
       lg: "992px",
       xl: "1200px",
-      xxl: "1600px",
-      xxxl: "1920px",
+      xxl: "1400px",
     },
   },
   plugins: [
@@ -39,6 +38,9 @@ module.exports = {
             "colors.downriver"
           )} 0%, ${theme("colors.jelly-bean")} 100%)`,
         },
+        ".gradient-downriver-to-jelly-bean-with-opacity": {
+          "background-image": `linear-gradient(90deg, rgba(16,52,100,0.85) 0%, rgba(40,113,145,0.85) 100%)`,
+        },
         ".gradient-jelly-bean-to-downriver": {
           "background-image": `linear-gradient(90deg, ${theme(
             "colors.jelly-bean"
@@ -48,6 +50,9 @@ module.exports = {
           "background-image": `linear-gradient(90deg, ${theme(
             "colors.firefly"
           )} 0%, ${theme("colors.downriver")} 100%)`,
+        },
+        ".gradient-firefly-to-downriver-with-opacity": {
+          "background-image": `linear-gradient(90deg, rgba(13,26,44,0.85) 0%, rgba(16,52,100,0.85) 100%)`,
         },
         ".gradient-downriver-to-firefly": {
           "background-image": `linear-gradient(90deg, ${theme(

@@ -16,7 +16,7 @@ export const Section: FC<IProps> = ({
   return (
     <div
       className={clsx(
-        "py-28",
+        "py-16 xl:py-28",
         {
           "bg-gray-100 dark:bg-firefly": !withGradient,
         },

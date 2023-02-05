@@ -4,4 +4,8 @@ export { Footer } from "./Footer/Footer";
 export { ThemeSwitch } from "./ThemeSwitch/ThemeSwitch";
 export { VideoPresentation } from "./VideoPresentation/VideoPresentation";
 export { LanguageItem } from "./LanguageItem/LanguageItem";
+export { MainTitle } from "./MainTitle/MainTitle";
 export { SectionTitle } from "./SectionTitle/SectionTitle";
+export { CustomContainer } from "./CustomContainer/CustomContainer";
+export { OfferButton } from "./OfferButton/OfferButton";
+export { Logo } from "./Logo/Logo";
