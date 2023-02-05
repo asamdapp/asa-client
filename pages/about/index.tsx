@@ -1,41 +1,13 @@
 import React from "react";
 import { Col, Row } from "react-grid-system";
 
-import { Button } from "components/UI";
 import { MainLayout } from "layouts";
-import { Link, useRouter } from "next-translate-routes";
+import { CustomContainer } from "components";
 
 const About = () => {
-  const { locales } = useRouter();
-
-  // @ts-ignore
   return (
     <MainLayout>
       <CustomContainer>
-        <Row>
-          <Col>
-            <h1>About</h1>
-            <>
-              <Link href="/">Current locale</Link>
-              {/*@ts-ignore*/}
-              {locales.map((locale) => (
-                <Link
-                  href={{
-                    pathname: "/services",
-                  }}
-                  locale={locale}
-                  key={locale}
-                >
-                  {locale} services
-                </Link>
-              ))}
-            </>
-            <div className="">
-              <Button>button</Button>
-            </div>
-          </Col>
-        </Row>
-
         <Row>
           <Col>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
