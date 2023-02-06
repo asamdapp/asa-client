@@ -9,3 +9,4 @@ export { SectionTitle } from "./SectionTitle/SectionTitle";
 export { CustomContainer } from "./CustomContainer/CustomContainer";
 export { OfferButton } from "./OfferButton/OfferButton";
 export { Logo } from "./Logo/Logo";
+export { HowToGetOnlineTranslation } from "./HowToGetOnlineTranslation/HowToGetOnlineTranslation";

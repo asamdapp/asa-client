@@ -7,8 +7,6 @@ import { CustomContainer } from "components";
 
 export const Footer: FC = (): JSX.Element => {
   const { t, lang } = useTranslation("common");
-
-  console.log(lang);
   return (
     <div className="bg-green-200">
       <CustomContainer>

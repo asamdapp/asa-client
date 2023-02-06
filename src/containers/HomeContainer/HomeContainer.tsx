@@ -6,6 +6,7 @@ import { Button } from "components/UI";
 import { MainLayout } from "layouts";
 import {
   CustomContainer,
+  HowToGetOnlineTranslation,
   MainTitle,
   OfferButton,
   Section,
@@ -72,6 +73,8 @@ export const HomeContainer: FC = (): JSX.Element => {
       <ServicesSection />
 
       <LanguagesSection />
+
+      <HowToGetOnlineTranslation />
 
       <Section withGradient isGradientReverse={true}>
         <CustomContainer>
