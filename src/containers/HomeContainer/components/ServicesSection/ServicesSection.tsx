@@ -23,6 +23,7 @@ export const ServicesSection: FC = (): JSX.Element => {
                   pathname: "/services/[serviceSlug]",
                   query: { serviceSlug: "123" },
                 }}
+                passHref
                 locale={locale}
               >
                 <a
