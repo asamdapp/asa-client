@@ -1,7 +1,13 @@
 import React, { FC } from "react";
 import { Col, Row } from "react-grid-system";
+import { IconInfoCircle } from "@tabler/icons";
 
-import { CustomContainer, Section, SectionTitle } from "components";
+import {
+  CustomContainer,
+  OfferButton,
+  Section,
+  SectionTitle,
+} from "components";
 import Image from "next/image";
 
 import image from "assets/images/sync_files.svg";
@@ -49,6 +55,23 @@ export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
               </div>
             </Col>
           ))}
+        </Row>
+
+        <Row>
+          <Col xxl={12}>
+            <div className="flex text-sm text-gray-600 mt-5">
+              <IconInfoCircle className="flex-none mt-1 mr-2" size={24} />
+              <p>
+                Dumneavoastră transmiteți documentele, noi analizăm textul, vă
+                contactăm și confirmăm comanda! După confirmarea comenzii
+                achitați suma stabilită. Apoi traducem documentele solicitate și
+                vă transmitem traducerea solicitată.
+              </p>
+            </div>
+          </Col>
+          <Col xxl={12}>
+            <OfferButton className="flex mx-auto mt-8" />
+          </Col>
         </Row>
       </CustomContainer>
     </Section>

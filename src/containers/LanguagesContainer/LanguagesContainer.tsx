@@ -7,7 +7,7 @@ import { CustomContainer, Section } from "components";
 export const LanguagesContainer: FC = (): JSX.Element => {
   return (
     <MainLayout>
-      <Section withGradient>
+      <Section withGradient withSmallPadding>
         <CustomContainer>
           <Row>
             <Col>LanguagesContainer</Col>

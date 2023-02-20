@@ -4,6 +4,7 @@
 
 body {
   @apply font-open-sans leading-relaxed;
+  @apply bg-gray-100 dark:bg-firefly;
 }
 
 .padding-container {

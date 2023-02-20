@@ -61,6 +61,7 @@ export const LanguagesSection: FC = (): JSX.Element => {
                 className="
                 flex w-full flex-col items-center font-medium text-sm
                 text-white/70 gap-2 rounded-lg my-3 bg-white/5
+                dark:bg-black/20
                 pb-2
                 hover:text-cardinal hover:bg-white
                 transition

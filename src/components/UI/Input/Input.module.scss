@@ -1,0 +1,14 @@
+.input {
+  @apply text-black
+  bg-transparent
+  border border-gray-200
+  p-3
+  w-full
+  font-semibold
+  rounded-xl
+  focus:border-downriver
+  focus:ring-1
+  focus:ring-downriver
+  outline-none
+  transition-all;
+}

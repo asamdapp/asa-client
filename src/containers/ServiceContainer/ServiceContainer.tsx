@@ -8,7 +8,7 @@ import { CustomContainer, MainTitle, OfferButton, Section } from "components";
 export const ServiceContainer: FC = (): JSX.Element => {
   return (
     <MainLayout>
-      <Section withGradient className="!py-20">
+      <Section withGradient withSmallPadding>
         <CustomContainer>
           <Row>
             <Col lg={12} xl={6}>
@@ -40,6 +40,41 @@ export const ServiceContainer: FC = (): JSX.Element => {
                   className="rounded-xl"
                 />
               </div>
+            </Col>
+          </Row>
+        </CustomContainer>
+      </Section>
+
+      <Section>
+        <CustomContainer>
+          <Row>
+            <Col xxl={8}>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
+                deleniti eum impedit incidunt ipsa itaque molestiae molestias
+                natus placeat, quas quos repellendus sint tenetur unde ut veniam
+                voluptates. In, quidem.
+              </p>
+
+              <ul className="list-disc">
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+                <li>Doloremque esse molestias nam non unde voluptatem!</li>
+                <li>
+                  Cupiditate earum possimus quo reprehenderit repudiandae sed.
+                </li>
+                <li>Accusantium deserunt est nostrum odit, pariatur rerum.</li>
+                <li>
+                  Adipisci aliquid aperiam maiores tenetur veritatis
+                  voluptatibus!
+                </li>
+                <li>Aperiam consequuntur iste neque? Deserunt, minus modi.</li>
+                <li>Aliquam eligendi ex illum maiores recusandae saepe.</li>
+                <li>Animi ipsam, iste nam odio totam voluptas.</li>
+                <li>
+                  Aliquid architecto autem distinctio ducimus inventore iusto?
+                </li>
+                <li>Commodi earum hic minus odio? Consectetur, porro.</li>
+              </ul>
             </Col>
           </Row>
         </CustomContainer>

@@ -10,7 +10,7 @@ export const ServicesSection: FC = (): JSX.Element => {
 
   return (
     <Section>
-      <CustomContainer className="padding-container">
+      <CustomContainer>
         <SectionTitle>
           Oferim o gamă largă de servicii complete și profesionale
         </SectionTitle>

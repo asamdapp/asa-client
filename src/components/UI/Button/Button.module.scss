@@ -6,7 +6,7 @@
     rounded-full transition-all
     shadow-2xl;
 
-  // Button variant
+  // Label variant
   &.red {
     @apply bg-cardinal;
     &:hover {
@@ -21,7 +21,14 @@
     }
   }
 
-  // Button size
+  &.white {
+    @apply ring-1 ring-jelly-bean text-jelly-bean;
+    &:hover {
+      @apply bg-jelly-bean text-white;
+    }
+  }
+
+  // Label size
   &.normal {
     @apply py-4 px-8
       shadow-2xl;

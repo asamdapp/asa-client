@@ -4,6 +4,7 @@ import clsx from "clsx";
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   isGradientReverse?: boolean;
   withGradient?: boolean;
+  withSmallPadding?: boolean;
 }
 
 export const Section: FC<IProps> = ({
@@ -11,15 +12,14 @@ export const Section: FC<IProps> = ({
   withGradient,
   isGradientReverse,
   className,
+  withSmallPadding,
   ...props
 }): JSX.Element => {
   return (
     <div
       className={clsx(
-        "py-16 xl:py-28",
-        {
-          "bg-gray-100 dark:bg-firefly": !withGradient,
-        },
+        { "py-16 xl:py-28": !withSmallPadding },
+        { "py-12 lg:py-16 xl:py-20": withSmallPadding },
         {
           "text-white gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver":
             withGradient,
