@@ -8,7 +8,7 @@ export const FormNavigation: FC = (): JSX.Element => {
   console.log(step);
 
   return (
-    <div className="flex items-center pt-6 border-t border-gray-200 dark:border-gray-800 gap-6 mt-2">
+    <div className="flex items-center pt-6 border-t border-gray-200 dark:border-gray-800 gap-6">
       {step !== 1 && (
         <Button
           onClick={() => setStep((prevStep) => prevStep - 1)}
