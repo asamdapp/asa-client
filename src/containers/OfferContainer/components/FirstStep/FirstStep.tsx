@@ -13,10 +13,10 @@ export const FirstStep: FC = (): JSX.Element => {
             <label
               htmlFor="radio"
               className="
-                          text-gray-700 flex items-center p-4 bg-white rounded-xl border border-gray-200
-                          dark:bg-black/20
-                          dark:border-gray-800 dark:text-gray-400
-                        "
+                text-gray-700 flex items-center p-4 bg-white rounded-xl border border-gray-200
+                dark:bg-black/20
+                dark:border-gray-800 dark:text-gray-400
+              "
             >
               <span className="flex h-5 w-5 flex-none bg-gray-100 dark:bg-gray-800 rounded-full mr-3" />
               <span>Traduceri Autorizate</span>
