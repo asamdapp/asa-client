@@ -12,6 +12,33 @@ body {
   @apply xl:px-0 #{!important};
 }
 
+.word-break {
+  word-break: break-word;
+}
+
+.rich-text {
+  @apply text-gray-700 dark:text-gray-300 text-lg leading-relaxed;
+
+  p {
+    @apply my-4 first:mt-0;
+  }
+
+  ol {
+    @apply list-decimal my-4 first:mt-0 ml-4;
+  }
+
+  ul {
+    @apply list-disc my-4 first:mt-0 ml-4;
+  }
+
+  a {
+    @apply text-downriver dark:text-white underline underline-offset-4 transition;
+    &:hover {
+      @apply dark:text-cardinal text-cardinal;
+    }
+  }
+}
+
 .rdrCalendarWrapper {
   background: transparent !important;
   @apply rounded-xl
@@ -58,7 +85,7 @@ body {
 }
 
 .rdrDayToday .rdrDayNumber span:after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -419,7 +446,7 @@ body {
 .rdrInRange,
 .rdrStartEdge,
 .rdrEndEdge {
-  background: currentColor;
+  background: green !important;
   position: absolute;
   top: 5px;
   left: 0;
@@ -593,7 +620,7 @@ body {
 .rdrCalendarWrapper:not(.rdrDateRangeWrapper)
   .rdrDayHovered
   .rdrDayNumber:after {
-  content: "";
+  content: '';
   border: 1px solid currentColor;
   border-radius: 1.333em;
   position: absolute;

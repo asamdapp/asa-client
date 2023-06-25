@@ -1,5 +1,5 @@
-import React, { FC, ReactNode } from "react";
-import clsx from "clsx";
+import React, { FC, ReactNode } from 'react';
+import clsx from 'clsx';
 
 interface IProps
   extends React.DetailedHTMLProps<
@@ -18,7 +18,7 @@ export const MainTitle: FC<IProps> = ({
     <h1
       {...props}
       className={clsx(
-        "font-noto-serif text-3xl sm:text-4xl md:text-5xl leading-tight border-l-4 pl-3 border-cardinal",
+        'font-noto-serif text-3xl sm:text-4xl md:text-5xl leading-tight border-l-4 pl-3 border-cardinal word-break',
         className
       )}
     >

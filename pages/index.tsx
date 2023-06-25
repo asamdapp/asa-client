@@ -1,26 +1,31 @@
-import { NextPage } from "next";
-import { HomeContainer } from "containers";
-import { getServices } from "services";
+import { NextPage } from 'next';
+import { SWRConfig } from 'swr';
 
-const HomePage: NextPage = ({ services }: any) => {
-  console.log(services);
+import { HomeContainer } from 'containers';
+import { getHowGetTranslation, getLanguages, getServices } from 'services';
 
+const HomePage: NextPage = ({ fallback }: any) => {
   return (
-    <>
-      {/*<PortableText value={services[0]?.body} />*/}
+    <SWRConfig value={{ fallback }}>
       <HomeContainer />
-    </>
+    </SWRConfig>
   );
 };
 
 export default HomePage;
 
-export async function getStaticProps({ locale }: any) {
+export async function getServerSideProps({ locale }: any) {
   const services = await getServices(locale);
+  const languages = await getLanguages(locale);
+  const howGetTranslation = await getHowGetTranslation(locale);
 
   return {
     props: {
-      services,
+      fallback: {
+        ['services']: services,
+        ['languages']: languages,
+        ['how-get-translation']: howGetTranslation,
+      },
     },
   };
 }

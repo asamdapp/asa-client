@@ -1,11 +1,10 @@
-import React, { FC, useContext } from "react";
-import { OfferContext } from "context";
-import { Button } from "UI";
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons";
+import React, { FC, useContext } from 'react';
+import { OfferContext } from 'context';
+import { Button } from 'UI';
+import { IconArrowLeft, IconArrowRight } from '@tabler/icons';
 
 export const FormNavigation: FC = (): JSX.Element => {
   const { step, setStep } = useContext(OfferContext);
-  console.log(step);
 
   return (
     <div className="flex items-center pt-6 border-t border-gray-200 dark:border-gray-800 gap-6">

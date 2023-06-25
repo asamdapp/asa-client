@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import Image from "next/image";
-import { Col, Row } from "react-grid-system";
+import React, { FC } from 'react';
+import Image from 'next/image';
+import { Col, Row } from 'react-grid-system';
 
-import { Button } from "components/UI";
-import { MainLayout } from "layouts";
+import { Button } from 'components/UI';
+import { MainLayout } from 'layouts';
 import {
   CustomContainer,
   HowToGetOnlineTranslation,
@@ -11,10 +11,11 @@ import {
   OfferButton,
   Section,
   VideoPresentation,
-} from "components";
+} from 'components';
 
-import { LanguagesSection, ServicesSection } from "./components";
-import heroImage from "assets/images/woman/hero.png";
+import { LanguagesSection, ServicesSection } from './components';
+import heroImage from 'assets/images/woman/hero.png';
+import Trans from 'next-translate/Trans';
 
 export const HomeContainer: FC = (): JSX.Element => {
   return (
@@ -23,11 +24,15 @@ export const HomeContainer: FC = (): JSX.Element => {
         <CustomContainer>
           <Row>
             <Col lg={7} xl={6}>
-              <div className="flex items-center min-h-[70vh]">
-                <div className="py-12 md:py-20">
+              <div className="flex items-center">
+                <div className="py-5 sm:py-12 md:py-20">
                   <MainTitle className="flex flex-col gap-2">
-                    <span>Agenția</span>
-                    <span>Servicii Autorizate</span>
+                    <span>
+                      <Trans i18nKey={'common:agency'} />
+                    </span>
+                    <span className="word-break">
+                      <Trans i18nKey={'common:authorized_services'} />
+                    </span>
                   </MainTitle>
 
                   <p className="relative text-white/60 text-xl font-light mt-5 leading-loose">
@@ -44,8 +49,8 @@ export const HomeContainer: FC = (): JSX.Element => {
                     pentru comenzile online, indiferent de suma tranzacției.
                   </p>
 
-                  <div className="flex items-center gap-12 mt-10">
-                    <OfferButton />
+                  <div className="flex items-center gap-6 mt-10 flex-col sm:flex-row sm:gap-12">
+                    <OfferButton className="!max-w-full w-full sm:!max-w-max sm:!w-auto" />
                     <VideoPresentation />
                   </div>
                 </div>
@@ -53,7 +58,7 @@ export const HomeContainer: FC = (): JSX.Element => {
             </Col>
 
             <Col lg={5} xl={6}>
-              <div className="relative w-full h-full min-h-[70vh]">
+              <div className="relative w-full h-full min-h-[50vh] sm:min-h-[60vh] lg:min-h-[70vh]">
                 <Image
                   src={heroImage.src}
                   alt="hero image"

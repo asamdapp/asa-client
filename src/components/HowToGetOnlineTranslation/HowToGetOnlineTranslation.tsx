@@ -1,25 +1,28 @@
-import React, { FC } from "react";
-import { Col, Row } from "react-grid-system";
-import { IconInfoCircle } from "@tabler/icons";
+import React, { FC } from 'react';
+import { Col, Row } from 'react-grid-system';
+import { IconInfoCircle } from '@tabler/icons';
 
 import {
   CustomContainer,
   OfferButton,
   Section,
   SectionTitle,
-} from "components";
-import Image from "next/image";
+} from 'components';
+import Image from 'next/image';
 
-import image from "assets/images/sync_files.svg";
+import useSWR from 'swr';
+import { urlFor } from 'utils';
 
 export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
+  const { data: howGetTranslation } = useSWR('how-get-translation');
+
   return (
     <Section>
       <CustomContainer>
         <SectionTitle>Cum Obții Traducerea Online? Simplu!</SectionTitle>
 
         <Row className="gap-y-3 sm:gap-y-5">
-          {[...Array(6)].map((_, index) => (
+          {howGetTranslation.map((item: any, index: number) => (
             <Col key={index} xl={2} sm={4}>
               <div
                 className="
@@ -31,16 +34,16 @@ export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
               >
                 <div className="relative w-16 h-16 sm:w-36 sm:h-36 flex-none">
                   <Image
-                    src={image.src}
-                    alt="hero image"
+                    src={urlFor(item?.image).url()}
                     layout="fill"
                     objectFit="contain"
                     objectPosition="center"
                     className="bg-no-repeat"
+                    alt={item?.name}
                   />
                 </div>
-                <strong className="text-base sm:text-sm text-downriver dark:text-white/70 text-left sm:text-center font-semibold">
-                  Transmiteți documentele
+                <strong className="word-break text-base sm:text-sm text-downriver dark:text-white/70 text-left sm:text-center font-semibold">
+                  {item?.name}
                 </strong>
 
                 <div

@@ -1,12 +1,16 @@
-import React, { FC } from "react";
-import { IconArrowRight } from "@tabler/icons";
-import { Col, Row } from "react-grid-system";
-import { Link, useRouter } from "next-translate-routes";
+import React, { FC } from 'react';
+import { IconArrowRight } from '@tabler/icons';
+import { Col, Row } from 'react-grid-system';
+import { Link, useRouter } from 'next-translate-routes';
+import Image from 'next/image';
+import useSWR from 'swr';
 
-import { CustomContainer, Section, SectionTitle } from "components";
+import { CustomContainer, Section, SectionTitle } from 'components';
+import { urlFor } from 'utils';
 
 export const ServicesSection: FC = (): JSX.Element => {
   const { locale } = useRouter();
+  const { data } = useSWR('services');
 
   return (
     <Section>
@@ -16,12 +20,12 @@ export const ServicesSection: FC = (): JSX.Element => {
         </SectionTitle>
 
         <Row className="gap-y-5">
-          {[...Array(8)].map((_, index) => (
-            <Col key={index} lg={6} xl={4}>
+          {data?.map((item: any) => (
+            <Col key={item._id} lg={6} xl={4}>
               <Link
                 href={{
-                  pathname: "/services/[serviceSlug]",
-                  query: { serviceSlug: "123" },
+                  pathname: '/services/[serviceSlug]',
+                  query: { serviceSlug: item?.slug?.current },
                 }}
                 passHref
                 locale={locale}
@@ -35,12 +39,16 @@ export const ServicesSection: FC = (): JSX.Element => {
                       text-downriver hover:text-cardinal
                     "
                 >
-                  <img
-                    src="https://www.wetranslate.ro/wp-content/uploads/2020/11/traduceri-autorizate-wetranslate.jpg"
-                    alt=""
-                    className="w-36 h-26 object-cover flex-none"
-                  />
-                  <span>Traduceri Autorizate</span>
+                  <div className="w-28 h-20 md:w-36 md:h-28 flex-none relative">
+                    <Image
+                      layout="fill"
+                      src={urlFor(item?.image).url()}
+                      alt={item?.name}
+                    />
+                  </div>
+
+                  <span className="word-break">{item?.name}</span>
+
                   <IconArrowRight className="flex-none ml-auto text-gray-200 dark:text-white/70 group-hover:text-cardinal transition" />
                 </a>
               </Link>

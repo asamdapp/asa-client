@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement } from 'react';
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -6,7 +6,7 @@ import Document, {
   Html,
   Main,
   NextScript,
-} from "next/document";
+} from 'next/document';
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -19,6 +19,17 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+          />
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"

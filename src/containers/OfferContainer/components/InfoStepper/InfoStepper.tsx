@@ -1,11 +1,30 @@
-import React, { FC, useContext } from "react";
-import { OfferContext } from "context";
-import clsx from "clsx";
-import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import React, { FC, useContext } from 'react';
+import { OfferContext } from 'context';
+import clsx from 'clsx';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 export const InfoStepper: FC = (): JSX.Element => {
-  const { step } = useContext(OfferContext);
+  const { step, setStep, completedSteps } = useContext(OfferContext);
+
+  const steps = [
+    {
+      id: 1,
+      title: 'First step',
+    },
+    {
+      id: 2,
+      title: 'Second step',
+    },
+    {
+      id: 3,
+      title: 'Third step',
+    },
+    {
+      id: 4,
+      title: 'Fourth step',
+    },
+  ];
 
   return (
     <div
@@ -14,16 +33,25 @@ export const InfoStepper: FC = (): JSX.Element => {
         border-b border-gray-200 dark:border-gray-800
       "
     >
-      {[...Array(4)].map((_, index) => (
-        <button key={index} className={clsx("flex items-center gap-2")}>
+      {steps.map(({ id, title }) => (
+        <button
+          key={id}
+          className={clsx('flex items-center gap-2', {
+            'bg-red-500': step === id,
+          })}
+          onClick={() => setStep(id)}
+          disabled={
+            !completedSteps.includes(id) || !completedSteps.includes(id - 1)
+          }
+        >
           <span
             className={clsx(
-              "flex items-center justify-center h-7 w-7 bg-red-200 rounded-full"
+              'flex items-center justify-center h-7 w-7 bg-red-200 rounded-full'
             )}
           >
-            {++index}
+            {id}
           </span>
-          <span>Tipul de serviciu</span>
+          <span>{title}</span>
         </button>
       ))}
 
@@ -33,9 +61,9 @@ export const InfoStepper: FC = (): JSX.Element => {
           text={`${77}%`}
           styles={buildStyles({
             textSize: 24,
-            pathColor: "rgb(11,98,107)",
-            textColor: "rgb(16,52,100)",
-            trailColor: "#efefef",
+            pathColor: 'rgb(11,98,107)',
+            textColor: 'rgb(16,52,100)',
+            trailColor: '#efefef',
           })}
         />
       </div>

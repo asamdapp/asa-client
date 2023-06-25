@@ -9,7 +9,7 @@ const nextConfig = {
     localeDetection: false,
   },
   images: {
-    domains: ["www.wetranslate.ro"],
+    domains: ["cdn.sanity.io"],
   },
 };
 

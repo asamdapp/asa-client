@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { Footer, Navigation } from "components";
+import React, { FC } from 'react';
+import { Footer, Navigation } from 'components';
 
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {}
 
