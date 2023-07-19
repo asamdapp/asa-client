@@ -10,6 +10,7 @@ import {
 } from 'components';
 import { Link, useRouter } from 'next-translate-routes';
 import useSWR from 'swr';
+import Trans from 'next-translate/Trans';
 
 export const LanguagesSection: FC = (): JSX.Element => {
   const { locale } = useRouter();
@@ -18,7 +19,9 @@ export const LanguagesSection: FC = (): JSX.Element => {
   return (
     <Section withGradient isGradientReverse>
       <CustomContainer>
-        <SectionTitle withGradient>Limbi de traducere</SectionTitle>
+        <SectionTitle withGradient>
+          <Trans i18nKey={'common:section_title.languages'} />
+        </SectionTitle>
         <Row>
           {languages?.map((item: any) => (
             <Col
@@ -41,7 +44,7 @@ export const LanguagesSection: FC = (): JSX.Element => {
                 flex w-full flex-col items-center font-medium text-sm
                 text-white/70 gap-2 rounded-lg my-3 bg-white/5
                 dark:bg-black/20
-                pb-2
+                pb-2 text-center
                 hover:text-cardinal hover:bg-white
                 transition
               "
@@ -49,7 +52,9 @@ export const LanguagesSection: FC = (): JSX.Element => {
                 <span className="flex items-end justify-center h-12 w-12">
                   <IconSquareArrowRight size={32} />
                 </span>
-                <span>Vezi toate limbile</span>
+                <span>
+                  <Trans i18nKey={'common:buttons.show_all_languages'} />
+                </span>
               </a>
             </Link>
           </Col>

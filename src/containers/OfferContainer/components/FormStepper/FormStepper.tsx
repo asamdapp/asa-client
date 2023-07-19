@@ -30,7 +30,7 @@ export const FormStepper: FC = (): JSX.Element => {
         >
           {/*<InfoStepper />*/}
 
-          <div className="flex flex-col gap-4 py-6">
+          <div className="flex flex-col gap-4 pb-6">
             {step === 1 && <FirstStep />}
             {step === 2 && <SecondStep />}
             {step === 3 && <ThirdStep />}

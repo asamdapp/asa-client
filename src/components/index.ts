@@ -11,3 +11,4 @@ export { OfferButton } from './OfferButton/OfferButton';
 export { Logo } from './Logo/Logo';
 export { HowToGetOnlineTranslation } from './HowToGetOnlineTranslation/HowToGetOnlineTranslation';
 export { GroupedRepeatingComponents } from './GroupedRepeatingComponents/GroupedRepeatingComponents';
+export { LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';

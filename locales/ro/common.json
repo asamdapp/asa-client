@@ -1,5 +1,29 @@
 {
   "agency": "Agenția",
   "authorized_services": "Servicii Autorizate",
-  "main_subtitle": "Servicii profesionale de traducere în peste 28 limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției."
+  "agency_authorized_services": "Agenția Servicii Autorizate",
+  "main_subtitle": "Servicii profesionale de traducere în peste 22 limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine <discount_first><discount_second><discount_third>10% REDUCERE</discount_third></discount_second></discount_first> pentru comenzile online, indiferent de suma tranzacției.",
+  "about": "Despre noi",
+  "services": "Servicii",
+  "languages_of_translation": "Limbi de traducere",
+  "faq": "Întrebări frecvente",
+  "contacts": "Contacte",
+  "company_mission": "Misiunea companiei",
+  "job_vacancies": "Posturi vacante",
+  "offer_button": "Solicită oferta",
+  "video_presentation": "Video prezentare",
+  "close_video_presentation": "Închide prezentarea",
+  "section_title": {
+    "services": "Oferim o gamă largă de servicii complete și profesionale",
+    "languages": "Limbi de traducere",
+    "how_to_get_translation": "Cum Obții Traducerea Online? Simplu!",
+    "description": "Descriere"
+  },
+  "buttons": {
+    "show_all_languages": "Vezi toate limbile"
+  },
+  "in_over_N_languages_of_the_world": "în peste {{ n }} limbi ale lumii",
+  "discount_info": "<h2>10% reducere</h2><p> pentru comenzile online, indiferent de suma tranzacției</p>",
+  "text_test": "",
+  "text_test_last": ""
 }

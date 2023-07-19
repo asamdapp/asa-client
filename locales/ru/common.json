@@ -1,5 +1,29 @@
 {
   "agency": "Агентство",
   "authorized_services": "Авторизированных Услуг",
-  "main_subtitle": "Компания предлагает услуги профессионального перевода более чем на 22 языка мира с абсолютно бесплатными консультациями."
+  "agency_authorized_services": "Агентство Авторизированных Услуг",
+  "main_subtitle": "Услуги профессионального перевода более чем на 22 языков мира с абсолютно бесплатными консультациями. Закажите сейчас и получите <discount_first><discount_second><discount_third>СКИДКУ 10%</discount_third></discount_second></discount_first> на онлайн-заказы, независимо от суммы транзакции.",
+  "about": "О нас",
+  "services": "Услуги",
+  "languages_of_translation": "Языки перевода",
+  "faq": "Часто задаваемые вопросы",
+  "contacts": "Контакты",
+  "company_mission": "Миссия компании",
+  "job_vacancies": "Вакансии",
+  "offer_button": "Запросить предложение",
+  "video_presentation": "Видеопрезентация",
+  "close_video_presentation": "Закрыть презентацию",
+  "section_title": {
+    "services": "Мы предлагаем широкий спектр профессиональных услуг",
+    "languages": "Языки перевода",
+    "how_to_get_translation": "Как получить онлайн-перевод? Легко!",
+    "description": "Описание"
+  },
+  "buttons": {
+    "show_all_languages": "Посмотреть все языки"
+  },
+  "in_over_N_languages_of_the_world": "на более чем {{ n }} языках мира",
+  "discount_info": "<h2>Скидка 10%</h2><p>для онлайн-заказов, независимо от суммы транзакции</p>",
+  "text_test": "",
+  "text_test_last": ""
 }

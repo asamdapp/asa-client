@@ -26,8 +26,8 @@ export const SecondStep: FC = (): JSX.Element => {
   }, [sourceLanguage]);
 
   return (
-    <div className="flex gap-16">
-      <div>
+    <div className="flex gap-8 md:gap-10 lg:gap-16 sm:flex-row-reverse flex-col-reverse">
+      <div className="sm:w-1/2">
         <Label isRequired className="mb-2">
           Termen livrare
         </Label>
@@ -39,6 +39,7 @@ export const SecondStep: FC = (): JSX.Element => {
           showMonthAndYearPickers={false}
           showDateDisplay={false}
           minDate={new Date()}
+          className="scale-[0.8] md:scale-100 origin-top-left"
         />
       </div>
 

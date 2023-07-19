@@ -28,7 +28,9 @@
     "react-dropzone": "^14.2.3",
     "react-grid-system": "^8.1.6",
     "react-hook-form": "^7.44.2",
+    "react-modern-drawer": "^1.2.0",
     "react-player": "^2.11.0",
+    "react-responsive-modal": "^6.4.2",
     "swr": "^2.1.5"
   },
   "devDependencies": {

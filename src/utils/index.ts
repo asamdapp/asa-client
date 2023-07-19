@@ -13,3 +13,8 @@ const builder = imageUrlBuilder(sanityClient);
 export const urlFor = (source: string) => {
   return builder.image(source);
 };
+
+export const LANGUAGES = {
+  RO: 'ro',
+  RU: 'ru',
+} as const

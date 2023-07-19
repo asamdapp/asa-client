@@ -1,10 +1,15 @@
 .btn {
   @apply text-white
     font-semibold
+    text-center
     max-w-max
     uppercase
     rounded-full transition-all
     shadow-2xl;
+
+  @apply disabled:bg-gray-100 #{!important};
+  @apply disabled:text-gray-300 #{!important};
+  @apply shadow-none #{!important};
 
   // Label variant
   &.red {

@@ -14,11 +14,10 @@ import {
 import useSWR from 'swr';
 import { urlFor } from 'utils';
 import { PortableText } from '@portabletext/react';
+import Trans from 'next-translate/Trans';
 
 export const ServiceContainer: FC = (): JSX.Element => {
   const { data } = useSWR('service');
-
-  console.log('data service => ', data);
 
   return (
     <MainLayout>
@@ -28,19 +27,23 @@ export const ServiceContainer: FC = (): JSX.Element => {
             <Col lg={12} xl={6}>
               <div className="flex flex-col justify-center h-full">
                 <MainTitle>{data?.name}</MainTitle>
+
                 <span className="text-white py-1 px-2 bg-jelly-bean max-w-max mt-5 rounded-md">
-                  în peste 28 limbi ale lumii
+                  <Trans
+                    i18nKey={'common:in_over_N_languages_of_the_world'}
+                    values={{ n: 22 }}
+                  />
                 </span>
 
                 <p className="relative text-white/60 text-xl font-light mt-5 leading-loose">
                   {data?.description}
                 </p>
 
-                <OfferButton className="mt-10" />
+                <OfferButton className="mt-10 xl:block hidden" />
               </div>
             </Col>
             <Col lg={12} xl={6}>
-              <div className="relative bg-red p-10 aspect-[16/9]">
+              <div className="relative bg-red p-10 aspect-[16/9] mt-10 xl:mt-0">
                 <Image
                   src={urlFor(data?.image).url()}
                   alt={data?.name}
@@ -50,6 +53,9 @@ export const ServiceContainer: FC = (): JSX.Element => {
                   className="rounded-xl"
                 />
               </div>
+              <div className="w-full flex">
+                <OfferButton className="xl:hidden block mt-10 mx-auto" />
+              </div>
             </Col>
           </Row>
         </CustomContainer>
@@ -57,7 +63,9 @@ export const ServiceContainer: FC = (): JSX.Element => {
 
       <Section>
         <CustomContainer>
-          <SectionTitle>Descriere</SectionTitle>
+          <SectionTitle>
+            <Trans i18nKey={'common:section_title.description'} />
+          </SectionTitle>
 
           <Row>
             <Col xxl={8}>

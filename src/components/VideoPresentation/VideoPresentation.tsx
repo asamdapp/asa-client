@@ -8,6 +8,7 @@ import { OfferButton } from 'components';
 import { useLockedBody } from 'hooks';
 
 import styles from './VideoPresentation.module.scss';
+import Trans from 'next-translate/Trans';
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
@@ -54,7 +55,9 @@ export const VideoPresentation: FC = (): JSX.Element => {
               >
                 <span className="flex items-center gap-2">
                   <IconX size={24} />
-                  <span>Închide prezentarea</span>
+                  <span>
+                    <Trans i18nKey={'common:close_video_presentation'} />
+                  </span>
                 </span>
               </Button>
 
@@ -76,7 +79,9 @@ export const VideoPresentation: FC = (): JSX.Element => {
         >
           <IconPlayerPlay size={24} />
         </span>
-        <span>Video prezentare</span>
+        <span>
+          <Trans i18nKey={'common:video_presentation'} />
+        </span>
       </button>
     </>
   );

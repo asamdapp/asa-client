@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 import type { ButtonProps } from './Button.types';
 import styles from './Button.module.scss';
+import { useRouter } from 'next-translate-routes';
 
 const defaultElement = 'button' as const;
 
@@ -14,6 +15,8 @@ export const Button = <E extends ElementType = typeof defaultElement>({
   variant = 'red',
   ...otherProps
 }: ButtonProps<E>): JSX.Element => {
+  const { locale } = useRouter();
+
   const TagName = as || defaultElement;
   return (
     <TagName
@@ -28,6 +31,9 @@ export const Button = <E extends ElementType = typeof defaultElement>({
           [styles.red]: variant === 'red',
           [styles.green]: variant === 'green',
           [styles.white]: variant === 'white',
+        },
+        {
+          'text-sm': locale === 'ru',
         },
         className
       )}

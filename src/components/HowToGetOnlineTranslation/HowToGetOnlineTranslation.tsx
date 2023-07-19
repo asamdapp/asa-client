@@ -12,6 +12,7 @@ import Image from 'next/image';
 
 import useSWR from 'swr';
 import { urlFor } from 'utils';
+import Trans from 'next-translate/Trans';
 
 export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
   const { data: howGetTranslation } = useSWR('how-get-translation');
@@ -19,7 +20,9 @@ export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
   return (
     <Section>
       <CustomContainer>
-        <SectionTitle>Cum Obții Traducerea Online? Simplu!</SectionTitle>
+        <SectionTitle>
+          <Trans i18nKey={'common:section_title.how_to_get_translation'} />
+        </SectionTitle>
 
         <Row className="gap-y-3 sm:gap-y-5">
           {howGetTranslation.map((item: any, index: number) => (

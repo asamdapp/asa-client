@@ -6,6 +6,7 @@ import {
   Section,
 } from 'components';
 import { Col, Row } from 'react-grid-system';
+import Trans from 'next-translate/Trans';
 
 interface IProps {}
 
@@ -25,12 +26,17 @@ export const GroupedRepeatingComponents: FC<IProps> = (): JSX.Element => {
                 </div>
 
                 <div>
-                  <h2 className="font-noto-serif md:text-4xl text-3xl leading-tight mb-2  text-center sm:text-left">
-                    10% reducere
-                  </h2>
-                  <p className="relative text-white/60 text-xl font-light  text-center sm:text-left">
-                    pentru comenzile online, indiferent de suma tranzacției
-                  </p>
+                  <Trans
+                    i18nKey={'common:discount_info'}
+                    components={{
+                      h2: (
+                        <h2 className="font-noto-serif md:text-4xl text-3xl leading-tight mb-2  text-center sm:text-left" />
+                      ),
+                      p: (
+                        <p className="relative text-white/60 text-xl font-light  text-center sm:text-left" />
+                      ),
+                    }}
+                  />
                 </div>
               </div>
             </Col>

@@ -7,6 +7,7 @@ import useSWR from 'swr';
 
 import { CustomContainer, Section, SectionTitle } from 'components';
 import { urlFor } from 'utils';
+import Trans from 'next-translate/Trans';
 
 export const ServicesSection: FC = (): JSX.Element => {
   const { locale } = useRouter();
@@ -16,7 +17,7 @@ export const ServicesSection: FC = (): JSX.Element => {
     <Section>
       <CustomContainer>
         <SectionTitle>
-          Oferim o gamă largă de servicii complete și profesionale
+          <Trans i18nKey={'common:section_title.services'} />
         </SectionTitle>
 
         <Row className="gap-y-5">

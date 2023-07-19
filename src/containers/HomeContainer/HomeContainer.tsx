@@ -36,17 +36,20 @@ export const HomeContainer: FC = (): JSX.Element => {
                   </MainTitle>
 
                   <p className="relative text-white/60 text-xl font-light mt-5 leading-loose">
-                    Servicii profesionale de traducere în peste 28 limbi ale
-                    lumii cu consultații absolut gratuite. Comanda acum si
-                    obtine
-                    <span className="relative inline-block">
-                      <span className="mx-2.5 before:block before:absolute before:-inset-1.5 before:-skew-y-2 before:bg-jelly-bean relative">
-                        <span className="relative text-white font-normal">
-                          10% REDUCERE
-                        </span>
-                      </span>
-                    </span>
-                    pentru comenzile online, indiferent de suma tranzacției.
+                    <Trans
+                      i18nKey="common:main_subtitle"
+                      components={{
+                        discount_first: (
+                          <span className="relative inline-block" />
+                        ),
+                        discount_second: (
+                          <span className="mx-2.5 before:block before:absolute before:-inset-1.5 before:-skew-y-2 before:bg-jelly-bean relative" />
+                        ),
+                        discount_third: (
+                          <span className="relative text-white font-normal" />
+                        ),
+                      }}
+                    />
                   </p>
 
                   <div className="flex items-center gap-6 mt-10 flex-col sm:flex-row sm:gap-12">
