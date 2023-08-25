@@ -2,7 +2,15 @@ import { NextPage } from 'next';
 import { SWRConfig } from 'swr';
 
 import { HomeContainer } from 'containers';
-import { getHowGetTranslation, getLanguages, getServices } from 'services';
+import {
+  getAdvantages,
+  getFeedbacks,
+  getGuarantees,
+  getHowGetTranslation,
+  getLanguages,
+  getPartners,
+  getServices,
+} from 'services';
 
 const HomePage: NextPage = ({ fallback }: any) => {
   return (
@@ -18,6 +26,10 @@ export async function getServerSideProps({ locale }: any) {
   const services = await getServices(locale);
   const languages = await getLanguages(locale);
   const howGetTranslation = await getHowGetTranslation(locale);
+  const advantages = await getAdvantages(locale);
+  const guarantees = await getGuarantees(locale);
+  const partners = await getPartners();
+  const feedbacks = await getFeedbacks();
 
   return {
     props: {
@@ -25,6 +37,10 @@ export async function getServerSideProps({ locale }: any) {
         ['services']: services,
         ['languages']: languages,
         ['how-get-translation']: howGetTranslation,
+        ['advantages']: advantages,
+        ['guarantees']: guarantees,
+        ['partners']: partners,
+        ['feedbacks']: feedbacks,
       },
     },
   };

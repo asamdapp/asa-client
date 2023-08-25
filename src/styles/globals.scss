@@ -30,19 +30,38 @@ body {
   word-break: break-word;
 }
 
+.carousel.carousel-slider .control-arrow {
+  padding: 2px!important;
+  border-radius: 999px
+}
+
+.EZDrawer .EZDrawer__overlay {
+  @apply backdrop-blur-md;
+  @apply bg-black/50 #{!important};
+  @apply opacity-100 #{!important};
+}
+
 .rich-text {
-  @apply text-gray-700 dark:text-gray-300 text-lg leading-relaxed;
+  @apply text-gray-700 dark:text-gray-300 text-base leading-relaxed;
+
+  h3 {
+    @apply font-noto-serif lg:text-xl text-lg mb-10 leading-tight;
+  }
 
   p {
     @apply my-4 first:mt-0;
   }
 
   ol {
-    @apply list-decimal my-4 first:mt-0 ml-4;
+    @apply list-decimal my-4 first:mt-0 ml-7;
   }
 
   ul {
-    @apply list-disc my-4 first:mt-0 ml-4;
+    @apply list-disc my-4 first:mt-0 ml-7;
+    ul {
+      @apply my-2;
+      list-style: circle;
+    }
   }
 
   a {
@@ -89,9 +108,6 @@ body {
   justify-content: center;
   color: transparent;
   height: 1.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .rdrDayToday .rdrDayNumber span {

@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import { useRouter } from 'next/router';
 
 import { Col, Row } from 'react-grid-system';
 import Trans from 'next-translate/Trans';
-import { Link } from 'next-translate-routes';
+import { Link, useRouter } from 'next-translate-routes';
 import useSWR from 'swr';
 
-import { CustomContainer, LanguageSwitch, Logo, Section } from 'components';
+import { CustomContainer, LanguageSwitcher, Logo, Section } from 'components';
 
 export const Footer: FC = (): JSX.Element => {
   const { locale } = useRouter();
@@ -64,14 +63,14 @@ export const Footer: FC = (): JSX.Element => {
             <Col>
               <div>
                 <div className="mb-2">
-                  <Trans i18nKey={'common:about'} />
+                  <Trans i18nKey="common:about" />
                 </div>
 
                 <ul>
                   <li className="py-1 last:pb-0">
                     <Link
                       href={{
-                        pathname: '/about',
+                        pathname: '/mission',
                       }}
                       passHref
                       locale={locale}
@@ -91,7 +90,7 @@ export const Footer: FC = (): JSX.Element => {
                       locale={locale}
                     >
                       <a className="flex transition text-sm text-white/50 hover:text-white">
-                        <Trans i18nKey={'common:job_vacancies'} />
+                        <Trans i18nKey={'common:company_jobs'} />
                       </a>
                     </Link>
                   </li>
@@ -109,18 +108,14 @@ export const Footer: FC = (): JSX.Element => {
           <Row>
             <Col>
               <div className="flex items-center justify-between py-2">
-                <Link href="/">
-                  <a className="w-fit">
-                    <Logo />
-                  </a>
-                </Link>
+                <Logo />
 
                 <div className="text-sm">
                   © 2021 Agenția Servicii Autorizate. Toate drepturile
                   rezervate.
                 </div>
 
-                <LanguageSwitch />
+                <LanguageSwitcher />
               </div>
             </Col>
           </Row>

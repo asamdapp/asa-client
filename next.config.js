@@ -9,7 +9,7 @@ const nextConfig = {
     localeDetection: false,
   },
   images: {
-    domains: ["cdn.sanity.io"],
+    domains: ["cdn.sanity.io", "asa.md"],
   },
 };
 

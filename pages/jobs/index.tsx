@@ -1,38 +1,39 @@
 import { NextPage } from 'next';
 import { SWRConfig } from 'swr';
+import { JobsContainer } from 'containers';
 
-import { Col, Row } from 'react-grid-system';
+import {
+  getAdvantages,
+  getFeedbacks,
+  getGuarantees,
+  getHowGetTranslation,
+  getJobs,
+  getLanguages,
+  getMission,
+  getPartners,
+  getServices,
+} from 'services';
 
-import { MainLayout } from 'layouts';
-import { CustomContainer } from 'components';
-
-import { getHowGetTranslation, getLanguages, getServices } from 'services';
-
-const Jobs: NextPage = ({ fallback }: any) => {
+const JobsPage: NextPage = ({ fallback }: any) => {
   return (
     <SWRConfig value={{ fallback }}>
-      <MainLayout>
-        <CustomContainer>
-          <Row>
-            <Col>
-              Distinctio eveniet necessitatibus nisi quis! Ad est necessitatibus
-              neque nisi officia quasi quia reiciendis sequi voluptates. Aliquid
-              architecto beatae consequatur error eum id, in ipsa labore laborum
-              nihil nobis praesentium quis quod sapiente sed veniam voluptate.
-              Ab dignissimos iure laboriosam non optio quaerat?
-            </Col>
-          </Row>
-        </CustomContainer>
-      </MainLayout>
+      <JobsContainer />
     </SWRConfig>
   );
 };
-export default Jobs;
+export default JobsPage;
 
 export async function getServerSideProps({ locale }: any) {
   const services = await getServices(locale);
   const languages = await getLanguages(locale);
   const howGetTranslation = await getHowGetTranslation(locale);
+  const advantages = await getAdvantages(locale);
+  const guarantees = await getGuarantees(locale);
+  const partners = await getPartners();
+  const feedbacks = await getFeedbacks();
+  const mission = await getMission(locale);
+  const jobs = await getJobs(locale);
+
 
   return {
     props: {
@@ -40,6 +41,12 @@ export async function getServerSideProps({ locale }: any) {
         ['services']: services,
         ['languages']: languages,
         ['how-get-translation']: howGetTranslation,
+        ['advantages']: advantages,
+        ['guarantees']: guarantees,
+        ['partners']: partners,
+        ['feedbacks']: feedbacks,
+        ['mission']: mission,
+        ['jobs']: jobs,
       },
     },
   };

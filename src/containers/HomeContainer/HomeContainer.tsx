@@ -1,21 +1,19 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 import { Col, Row } from 'react-grid-system';
+import Trans from 'next-translate/Trans';
 
-import { Button } from 'components/UI';
 import { MainLayout } from 'layouts';
 import {
   CustomContainer,
-  HowToGetOnlineTranslation,
+  GroupedRepeatingComponents,
   MainTitle,
   OfferButton,
   Section,
   VideoPresentation,
 } from 'components';
 
-import { LanguagesSection, ServicesSection } from './components';
 import heroImage from 'assets/images/woman/hero.png';
-import Trans from 'next-translate/Trans';
 
 export const HomeContainer: FC = (): JSX.Element => {
   return (
@@ -24,7 +22,7 @@ export const HomeContainer: FC = (): JSX.Element => {
         <CustomContainer>
           <Row>
             <Col lg={7} xl={6}>
-              <div className="flex items-center">
+              <div className="flex items-center h-full">
                 <div className="py-5 sm:py-12 md:py-20">
                   <MainTitle className="flex flex-col gap-2">
                     <span>
@@ -53,7 +51,8 @@ export const HomeContainer: FC = (): JSX.Element => {
                   </p>
 
                   <div className="flex items-center gap-6 mt-10 flex-col sm:flex-row sm:gap-12">
-                    <OfferButton className="!max-w-full w-full sm:!max-w-max sm:!w-auto" />
+                    {/*<OfferButton className="!max-w-full w-full sm:!max-w-max sm:!w-auto" />*/}
+                    <OfferButton />
                     <VideoPresentation />
                   </div>
                 </div>
@@ -70,7 +69,7 @@ export const HomeContainer: FC = (): JSX.Element => {
                   objectPosition="bottom"
                   placeholder="blur"
                   blurDataURL={heroImage.blurDataURL}
-                  className="drop-shadow-2xl bg-no-repeat"
+                  className="bg-no-repeat"
                 />
               </div>
             </Col>
@@ -78,21 +77,7 @@ export const HomeContainer: FC = (): JSX.Element => {
         </CustomContainer>
       </Section>
 
-      <ServicesSection />
-
-      <LanguagesSection />
-
-      <HowToGetOnlineTranslation />
-
-      <Section withGradient isGradientReverse={true}>
-        <CustomContainer>
-          <Row>
-            <Col>
-              <Button>button</Button>
-            </Col>
-          </Row>
-        </CustomContainer>
-      </Section>
+      <GroupedRepeatingComponents />
     </MainLayout>
   );
 };

@@ -17,39 +17,32 @@ export const LanguagesSection: FC = (): JSX.Element => {
   const { data: languages } = useSWR('languages');
 
   return (
-    <Section withGradient isGradientReverse>
+    <Section withGradient>
       <CustomContainer>
         <SectionTitle withGradient>
           <Trans i18nKey={'common:section_title.languages'} />
         </SectionTitle>
         <Row>
-          {languages?.map((item: any) => (
-            <Col
-              xs={4}
-              sm={3}
-              md={12 / 5}
-              lg={2}
-              xl={2}
-              xxl={12 / 8}
-              key={item._id}
-            >
+          {languages?.slice(0, 6).map((item: any) => (
+            <Col xs={4} sm={3} md={12 / 5} lg={12 / 7} key={item._id}>
               <LanguageItem item={item} />
             </Col>
           ))}
 
-          <Col xs={12} lg={4} xl={2} xxl={12 / 8}>
+          <Col xs={12} sm={5} md={4} lg={12 / 7}>
             <Link href={{ pathname: '/languages' }} passHref locale={locale}>
               <a
                 className="
-                flex w-full flex-col items-center font-medium text-sm
-                text-white/70 gap-2 rounded-lg my-3 bg-white/5
+                flex w-full flex-col items-center justify-center font-medium text-sm
+                text-white/70 gap-1 rounded-lg bg-white/5
                 dark:bg-black/20
-                pb-2 text-center
+                p-2 text-center
                 hover:text-cardinal hover:bg-white
                 transition
+                min-h-full
               "
               >
-                <span className="flex items-end justify-center h-12 w-12">
+                <span className="flex items-end justify-center">
                   <IconSquareArrowRight size={32} />
                 </span>
                 <span>

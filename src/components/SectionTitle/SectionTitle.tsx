@@ -1,6 +1,6 @@
-import React, { FC, ReactNode } from "react";
-import clsx from "clsx";
-import { Col, Row } from "react-grid-system";
+import React, { FC, ReactNode } from 'react';
+import clsx from 'clsx';
+import { Col, Row } from 'react-grid-system';
 
 interface IProps
   extends React.DetailedHTMLProps<
@@ -23,7 +23,7 @@ export const SectionTitle: FC<IProps> = ({
         <h2
           {...props}
           className={clsx(
-            "font-noto-serif md:text-4xl text-3xl mb-10  leading-tight",
+            "font-noto-serif lg:text-4xl md:text-3xl text-2xl mb-10 leading-tight",
             className,
             { "text-downriver dark:text-white": !withGradient },
             { "text-white": withGradient }

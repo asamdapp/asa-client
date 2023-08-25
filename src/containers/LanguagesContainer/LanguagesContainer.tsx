@@ -31,7 +31,7 @@ export const LanguagesContainer: FC = (): JSX.Element => {
                 xxl={12 / 8}
                 key={item._id}
               >
-                <LanguageItem item={item} />
+                <LanguageItem item={item} colorClassName="text-gray-600" />
               </Col>
             ))}
           </Row>

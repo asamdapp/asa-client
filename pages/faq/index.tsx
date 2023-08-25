@@ -1,27 +1,43 @@
+import React from 'react';
 import { NextPage } from 'next';
 import { SWRConfig } from 'swr';
 
-import { getHowGetTranslation, getLanguages, getServices } from 'services';
+import {
+  getAdvantages,
+  getFaq,
+  getFeedbacks,
+  getGuarantees,
+  getHowGetTranslation,
+  getJobs,
+  getLanguages,
+  getMission,
+  getPartners,
+  getServices,
+} from 'services';
+import { FaqContainer } from 'containers';
 
-const FAQPage: NextPage = ({ fallback }: any) => {
+const FaqPage: NextPage = ({ fallback }: any) => {
   return (
     <SWRConfig value={{ fallback }}>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis
-      consequatur dignissimos est fuga nam obcaecati saepe. Accusamus ad
-      architecto corporis culpa, cupiditate doloremque eaque eos excepturi harum
-      impedit laborum minus modi molestias nihil nobis obcaecati pariatur
-      possimus praesentium quae quas quasi quibusdam quis reiciendis rem sit
-      totam velit voluptate voluptatum!
+      <FaqContainer />
     </SWRConfig>
   );
 };
 
-export default FAQPage;
+export default FaqPage;
 
 export async function getServerSideProps({ locale }: any) {
   const services = await getServices(locale);
   const languages = await getLanguages(locale);
   const howGetTranslation = await getHowGetTranslation(locale);
+  const advantages = await getAdvantages(locale);
+  const guarantees = await getGuarantees(locale);
+  const partners = await getPartners();
+  const feedbacks = await getFeedbacks();
+  const mission = await getMission(locale);
+  const jobs = await getJobs(locale);
+  const faq = await getFaq(locale);
+
 
   return {
     props: {
@@ -29,6 +45,13 @@ export async function getServerSideProps({ locale }: any) {
         ['services']: services,
         ['languages']: languages,
         ['how-get-translation']: howGetTranslation,
+        ['advantages']: advantages,
+        ['guarantees']: guarantees,
+        ['partners']: partners,
+        ['feedbacks']: feedbacks,
+        ['mission']: mission,
+        ['jobs']: jobs,
+        ['faq']: faq,
       },
     },
   };

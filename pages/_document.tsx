@@ -55,6 +55,15 @@ export default class MyDocument extends Document {
           />
           <meta name="msapplication-TileColor" content="#2b5797" />
           <meta name="theme-color" content="#ffffff" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          />
+          <script
+            defer
+            async
+            src="https://frecautan.github.io/made-with-love/min.js"
+          />
         </Head>
 
         <body>

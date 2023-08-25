@@ -27,6 +27,8 @@ export async function getServerSideProps({
   const languages = await getLanguages(locale);
   const howGetTranslation = await getHowGetTranslation(locale);
 
+  console.log(services);
+
   return {
     props: {
       fallback: {

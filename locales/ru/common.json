@@ -9,7 +9,7 @@
   "faq": "Часто задаваемые вопросы",
   "contacts": "Контакты",
   "company_mission": "Миссия компании",
-  "job_vacancies": "Вакансии",
+  "company_jobs": "Вакансии",
   "offer_button": "Запросить предложение",
   "video_presentation": "Видеопрезентация",
   "close_video_presentation": "Закрыть презентацию",
@@ -17,6 +17,10 @@
     "services": "Мы предлагаем широкий спектр профессиональных услуг",
     "languages": "Языки перевода",
     "how_to_get_translation": "Как получить онлайн-перевод? Легко!",
+    "advantages": "Почему вам стоит работать с нами",
+    "guarantees": "Наши гарантии",
+    "feedback": "Отзывы",
+    "partners": "Наши партнеры",
     "description": "Описание"
   },
   "buttons": {

@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { Col, Row } from 'react-grid-system';
-import { IconInfoCircle } from '@tabler/icons';
 
 import {
   CustomContainer,
@@ -29,10 +28,11 @@ export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
             <Col key={index} xl={2} sm={4}>
               <div
                 className="
-                  flex flex-row sm:flex-col items-center
+                  flex flex-row sm:flex-col items-center gap-2
                   bg-white p-2 sm:p-4 rounded-xl
                   dark:bg-black/20
                   relative
+                  h-full
                 "
               >
                 <div className="relative w-16 h-16 sm:w-36 sm:h-36 flex-none">
@@ -56,7 +56,7 @@ export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
                     static sm:absolute sm:top-2 sm:right-2
                   "
                 >
-                  {++index}
+                  {item?.step}
                 </div>
               </div>
             </Col>
@@ -64,7 +64,7 @@ export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
         </Row>
 
         <Row>
-          <Col xxl={12}>
+          {/*<Col xxl={12}>
             <div className="flex text-sm text-gray-600 mt-5">
               <IconInfoCircle className="flex-none mt-1 mr-2" size={24} />
               <p>
@@ -74,7 +74,7 @@ export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
                 vă transmitem traducerea solicitată.
               </p>
             </div>
-          </Col>
+          </Col>*/}
           <Col xxl={12}>
             <OfferButton className="flex mx-auto mt-8" />
           </Col>

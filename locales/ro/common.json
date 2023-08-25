@@ -9,7 +9,7 @@
   "faq": "Întrebări frecvente",
   "contacts": "Contacte",
   "company_mission": "Misiunea companiei",
-  "job_vacancies": "Posturi vacante",
+  "company_jobs": "Posturi vacante",
   "offer_button": "Solicită oferta",
   "video_presentation": "Video prezentare",
   "close_video_presentation": "Închide prezentarea",
@@ -17,6 +17,10 @@
     "services": "Oferim o gamă largă de servicii complete și profesionale",
     "languages": "Limbi de traducere",
     "how_to_get_translation": "Cum Obții Traducerea Online? Simplu!",
+    "advantages": "Avantajele colaborării cu noi",
+    "guarantees": "Garanțiile noastre",
+    "feedback": "Recenzii",
+    "partners": "Partenerii noștri",
     "description": "Descriere"
   },
   "buttons": {

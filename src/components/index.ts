@@ -12,3 +12,4 @@ export { Logo } from './Logo/Logo';
 export { HowToGetOnlineTranslation } from './HowToGetOnlineTranslation/HowToGetOnlineTranslation';
 export { GroupedRepeatingComponents } from './GroupedRepeatingComponents/GroupedRepeatingComponents';
 export { LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';
+export { DiscountSection } from './DiscountSection/DiscountSection';

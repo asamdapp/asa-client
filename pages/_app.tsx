@@ -25,7 +25,7 @@ setConfiguration({
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <ThemeProvider attribute="class">
+      <ThemeProvider attribute="class" enableSystem={false} defaultTheme="light">
         <NextProgress color="#B91F2E" />
         <AppProvider>
           <Component {...pageProps} />

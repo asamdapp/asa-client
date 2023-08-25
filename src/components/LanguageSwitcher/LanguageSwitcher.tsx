@@ -33,5 +33,3 @@ export const LanguageSwitcher = () => {
     </Link>
   );
 };
-
-export default LanguageSwitcher;

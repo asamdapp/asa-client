@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { IconArrowRight } from '@tabler/icons';
 import { Col, Row } from 'react-grid-system';
 import { Link, useRouter } from 'next-translate-routes';
@@ -8,10 +8,14 @@ import useSWR from 'swr';
 import { CustomContainer, Section, SectionTitle } from 'components';
 import { urlFor } from 'utils';
 import Trans from 'next-translate/Trans';
+import clsx from 'clsx';
+import { Button } from 'UI';
 
 export const ServicesSection: FC = (): JSX.Element => {
   const { locale } = useRouter();
   const { data } = useSWR('services');
+
+  const [more, setMore] = useState(false);
 
   return (
     <Section>
@@ -20,7 +24,11 @@ export const ServicesSection: FC = (): JSX.Element => {
           <Trans i18nKey={'common:section_title.services'} />
         </SectionTitle>
 
-        <Row className="gap-y-5">
+        <Row
+          className={clsx('gap-y-5 relative', {
+            'overflow-hidden max-h-[400px]': !more,
+          })}
+        >
           {data?.map((item: any) => (
             <Col key={item._id} lg={6} xl={4}>
               <Link
@@ -37,24 +45,39 @@ export const ServicesSection: FC = (): JSX.Element => {
                       bg-white hover:scale-[1.02]
                       dark:bg-black/20 dark:text-white/70 hover:dark:bg-black/40 hover:dark:text-cardinal
                       font-medium
-                      text-downriver hover:text-cardinal
+                      text-downriver hover:text-cardinal h-full
                     "
                 >
-                  <div className="w-28 h-20 md:w-36 md:h-28 flex-none relative">
+                  <div className="w-28 min-h-[theme(spacing.20)] h-full md:w-36 md:h-28 flex-none relative">
                     <Image
-                      layout="fill"
                       src={urlFor(item?.image).url()}
                       alt={item?.name}
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="top"
                     />
                   </div>
 
-                  <span className="word-break">{item?.name}</span>
+                  <span className="word-break py-2">{item?.name}</span>
 
                   <IconArrowRight className="flex-none ml-auto text-gray-200 dark:text-white/70 group-hover:text-cardinal transition" />
                 </a>
               </Link>
             </Col>
           ))}
+
+          {!more && (
+            <div className="absolute bottom-0 flex justify-center pt-20 text-sm text-cardinal font-semibold w-full bg-gradient-to-t from-gray-100 via-gray-100 to-gray-100/0">
+              <Button
+                size="small"
+                variant="white"
+                className="my-1 !mx-auto"
+                onClick={() => setMore(true)}
+              >
+                Vezi toate serviciile
+              </Button>
+            </div>
+          )}
         </Row>
       </CustomContainer>
     </Section>
