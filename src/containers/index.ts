@@ -5,3 +5,4 @@ export { LanguagesContainer } from "./LanguagesContainer/LanguagesContainer";
 export { MissionContainer } from "./MissionContainer/MissionContainer";
 export { JobsContainer } from "./JobsContainer/JobsContainer";
 export { FaqContainer } from "./FaqContainer/FaqContainer";
+export { ContactContainer } from "./ContactContainer/ContactContainer";
