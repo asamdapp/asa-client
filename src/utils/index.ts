@@ -48,10 +48,11 @@ export const CONTACTS = {
       position: [47.02531, 28.84062],
       routes: {
         googleMaps: 'https://goo.gl/maps/mVt5pGfKhKAxXcLPA',
-        mapMd: 'https://map.md/ro/street/660427978?number=62&embed=1#17.71/47.025283/28.840324',
+        mapMd:
+          'https://map.md/ro/street/660427978?number=62&embed=1#17.71/47.025283/28.840324',
         waze: 'https://www.waze.com/en-GB/live-map/directions/chisinau?to=place.ws.row.24065581.62',
         yandex: 'https://yandex.ru/maps/-/CDQZqELQ',
-      }
+      },
     },
   },
 
@@ -65,11 +66,8 @@ export const CONTACTS = {
       city_ru: 'Яловены',
       address_ro: 'Ialoveni, str. Alexandru cel Bun 78/1, et. 2, of. 5 ',
       address_ru: 'Яловены, Александру чел Бун 78/1, эт. 2, из 5 ',
-      timetable_ro: ['09:00 - 16:00, Luni - Vineri', '09:00 - 14:00, Sâmbătă'],
-      timetable_ru: [
-        '09:00 - 16:00, Понедельник - Пятница',
-        '09:00 - 14:00, Суббота',
-      ],
+      timetable_ro: ['09:00 - 16:00, Luni - Vineri'],
+      timetable_ru: ['09:00 - 16:00, Понедельник - Пятница'],
       email: 'proadricrissrl@mail.ru',
       position: [46.9471321, 28.7740134],
       routes: {
@@ -77,7 +75,7 @@ export const CONTACTS = {
         mapMd: '',
         waze: '',
         yandex: '',
-      }
+      },
     },
   },
 } as any;

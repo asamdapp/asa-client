@@ -13,6 +13,10 @@ import Image from 'next/image';
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 import viberIcon from '../../assets/images/icons/viber.svg';
 import telegramIcon from '../../assets/images/icons/telegram.svg';
+import mapMarkerImage from '../../assets/images/icons/map-marker.svg';
+import timeImage from '../../assets/images/icons/time.svg';
+import phoneImage from '../../assets/images/icons/phone.svg';
+import emailImage from '../../assets/images/icons/email.svg';
 
 const Map = dynamic(() => import('./Map'), { ssr: false });
 
@@ -55,13 +59,14 @@ export const ContactContainer: FC = (): JSX.Element => {
             <Row>
               <Col>
                 <div>
-                  <div className="flex items-center justify-center gap-10 z-10 relative p-5">
+                  <div className="flex flex-wrap items-center justify-center gap-5 z-10 relative p-5">
                     <Button
                       variant={activeCity === 'chisinau' ? 'red' : 'white'}
                       onClick={() => setActiveCity('chisinau')}
                       className={
                         'flex gap-4 items-center !h-12 !p-4' +
-                        (activeCity === 'chisinau' && '!p-4 !pl-5 !pr-8 !pointer-events-none')
+                        (activeCity === 'chisinau' &&
+                          '!p-4 !pl-5 !pr-8 !pointer-events-none')
                       }
                     >
                       {activeCity === 'chisinau' && (
@@ -77,7 +82,8 @@ export const ContactContainer: FC = (): JSX.Element => {
                       onClick={() => setActiveCity('ialoveni')}
                       className={
                         'flex gap-4 items-center !h-12 !p-4' +
-                        (activeCity === 'ialoveni' && '!p-4 !pl-5 !pr-8 !pointer-events-none')
+                        (activeCity === 'ialoveni' &&
+                          '!p-4 !pl-5 !pr-8 !pointer-events-none')
                       }
                     >
                       {activeCity === 'ialoveni' && (
@@ -94,8 +100,16 @@ export const ContactContainer: FC = (): JSX.Element => {
                       <div className="font-semibold text-downriver mb-1">
                         Adresa:
                       </div>
-                      <div className="text-gray-500">
-                        {CONTACTS[activeCity]?.map['address_' + lang]}
+
+                      <div className="flex gap-2 text-gray-500">
+                        <img
+                          src={mapMarkerImage.src}
+                          alt=""
+                          className="h-5 flex-none relative top-[3px]"
+                        />
+                        <span>
+                          {CONTACTS[activeCity]?.map['address_' + lang]}
+                        </span>
                       </div>
                     </div>
 
@@ -106,8 +120,13 @@ export const ContactContainer: FC = (): JSX.Element => {
 
                       {CONTACTS[activeCity]?.map['timetable_' + lang]?.map(
                         (item: string, index: number) => (
-                          <div className="text-gray-500" key={index}>
-                            {item}
+                          <div className="flex gap-2 text-gray-500" key={index}>
+                            <img
+                              src={timeImage.src}
+                              alt=""
+                              className="h-5 flex-none relative top-[3px]"
+                            />
+                            <span>{item}</span>
                           </div>
                         )
                       )}
@@ -119,24 +138,36 @@ export const ContactContainer: FC = (): JSX.Element => {
                       </div>
 
                       <a
-                        href={CONTACTS[activeCity]?.phone?.value}
-                        className="text-gray-500 transition hover:text-cardinal"
+                        href={`tel:${CONTACTS[activeCity]?.phone?.value}`}
+                        className="flex gap-2 text-gray-500 transition hover:text-cardinal"
                       >
-                        {CONTACTS[activeCity]?.phone?.toShow}
+                        <img
+                          src={phoneImage.src}
+                          alt=""
+                          className="h-5 flex-none relative top-[3px]"
+                        />
+                        <span>{CONTACTS[activeCity]?.phone?.toShow}</span>
                       </a>
 
                       {CONTACTS[activeCity]?.additionalPhone && (
                         <div className="flex gap-5">
                           <a
-                            href={CONTACTS[activeCity]?.additionalPhone?.value}
-                            className="text-gray-500 transition hover:text-cardinal"
+                            href={`tel:${CONTACTS[activeCity]?.additionalPhone?.value}`}
+                            className="flex gap-2 text-gray-500 transition hover:text-cardinal"
                           >
-                            {CONTACTS[activeCity]?.additionalPhone?.toShow}
+                            <img
+                              src={phoneImage.src}
+                              alt=""
+                              className="h-5 flex-none relative top-[3px]"
+                            />
+                            <span>
+                              {CONTACTS[activeCity]?.additionalPhone?.toShow}
+                            </span>
                           </a>
 
                           {CONTACTS[activeCity]?.additionalPhone
                             ?.messengers && (
-                            <div className="flex gap-5 justify-center">
+                            <div className="flex gap-2 justify-center">
                               <a
                                 href={
                                   CONTACTS[activeCity]?.additionalPhone
@@ -194,9 +225,18 @@ export const ContactContainer: FC = (): JSX.Element => {
                       <div className="font-semibold text-downriver mb-1">
                         E-mail:
                       </div>
-                      <div className="text-gray-500">
-                        {CONTACTS[activeCity]?.map?.email}
-                      </div>
+
+                      <a
+                        href={`mailto:${CONTACTS[activeCity]?.map?.email}`}
+                        className="flex gap-2 text-gray-500 transition hover:text-cardinal"
+                      >
+                        <img
+                          src={emailImage.src}
+                          alt=""
+                          className="h-5 flex-none relative top-[3px]"
+                        />
+                        <span>{CONTACTS[activeCity]?.map?.email}</span>
+                      </a>
                     </div>
                   </div>
                 </div>
