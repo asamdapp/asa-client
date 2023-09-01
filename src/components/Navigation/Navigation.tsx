@@ -53,6 +53,7 @@ export const Navigation: FC = (): JSX.Element => {
               <Col xxl={12}>
                 <div className="flex items-center justify-between h-14 gap-5">
                   <button
+                    type="button"
                     className="w-[44px] h-[44px] group xxl:hidden flex bg-black/10 flex-none p-2 rounded-md hover:bg-black/20 transition"
                     onClick={toggleDrawer}
                   >
@@ -84,10 +85,13 @@ export const Navigation: FC = (): JSX.Element => {
                         alt="Phone icon"
                         className="rounded-md"
                       />
-                      <span className="flex-none">{CONTACTS.chisinau.phone.toShow}</span>
+                      <span className="flex-none">
+                        {CONTACTS.chisinau.phone.toShow}
+                      </span>
                     </a>
 
                     <button
+                      type="button"
                       className="flex gap-2 items-center text-white text-sm flex-none no-underline hover:underline underline-offset-4 decoration-cardinal decoration-2"
                       onClick={onOpenModal}
                     >
@@ -125,7 +129,9 @@ export const Navigation: FC = (): JSX.Element => {
                           />
                         </div>
                       </div>
-                      <span className="flex-none">{CONTACTS.chisinau.additionalPhone.toShow}</span>
+                      <span className="flex-none">
+                        {CONTACTS.chisinau.additionalPhone.toShow}
+                      </span>
                     </button>
                   </div>
 
@@ -156,11 +162,14 @@ export const Navigation: FC = (): JSX.Element => {
                   alt="Phone icon"
                   className="rounded-md"
                 />
-                <span className="flex-none">{CONTACTS.chisinau.phone.toShow}</span>
+                <span className="flex-none">
+                  {CONTACTS.chisinau.phone.toShow}
+                </span>
               </a>
             </div>
             <div className="flex justify-center items-center w-full h-full">
               <button
+                type="button"
                 className="flex w-full h-full gap-2 items-center justify-center text-white text-sm flex-none no-underline hover:underline underline-offset-4 decoration-cardinal decoration-2"
                 onClick={onOpenModal}
               >
@@ -198,7 +207,9 @@ export const Navigation: FC = (): JSX.Element => {
                     />
                   </div>
                 </div>
-                <span className="flex-none">{CONTACTS.chisinau.additionalPhone.toShow}</span>
+                <span className="flex-none">
+                  {CONTACTS.chisinau.additionalPhone.toShow}
+                </span>
               </button>
             </div>
           </div>
@@ -242,7 +253,7 @@ export const Navigation: FC = (): JSX.Element => {
         <div className="p-4 flex flex-col gap-4">
           <div className="flex items-center justify-between pb-4 border-gray-100 border-b">
             <Logo color="dark" />
-            <button onClick={toggleDrawer}>
+            <button type="button" onClick={toggleDrawer}>
               <svg
                 width="28"
                 height="28"
@@ -266,7 +277,9 @@ export const Navigation: FC = (): JSX.Element => {
                 alt="Phone icon"
                 className="rounded-md"
               />
-              <span className="flex-none">{CONTACTS.chisinau.phone.toShow}</span>
+              <span className="flex-none">
+                {CONTACTS.chisinau.phone.toShow}
+              </span>
             </a>
 
             <a
@@ -280,7 +293,9 @@ export const Navigation: FC = (): JSX.Element => {
                 alt="Phone icon"
                 className="rounded-md"
               />
-              <span className="flex-none">{CONTACTS.chisinau.additionalPhone.toShow}</span>
+              <span className="flex-none">
+                {CONTACTS.chisinau.additionalPhone.toShow}
+              </span>
             </a>
           </div>
 
@@ -291,7 +306,7 @@ export const Navigation: FC = (): JSX.Element => {
               <AccordionItem className="my-2">
                 <AccordionItemHeading>
                   <AccordionItemButton className="flex justify-between text-downriver font-semibold bg-gray-50 px-3 py-2 rounded-xl hover:bg-gray-100">
-                    <Trans i18nKey='common:about' />
+                    <Trans i18nKey="common:about" />
                     <svg viewBox="0 0 20 12" className="w-3 fill-downriver">
                       <path d="M.94.94a1.5 1.5 0 0 1 2.12 0L10 7.878l6.94-6.94a1.5 1.5 0 0 1 2.12 2.122l-8 8a1.5 1.5 0 0 1-2.12 0l-8-8a1.5 1.5 0 0 1 0-2.122Z" />
                     </svg>

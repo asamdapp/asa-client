@@ -27,11 +27,6 @@ export const ContactContainer: FC = (): JSX.Element => {
     'chisinau'
   );
 
-  console.log(
-    'CONTACTS[activeCity]?.additionalPhone',
-    CONTACTS[activeCity]?.additionalPhone
-  );
-
   return (
     <>
       <Head>
@@ -61,6 +56,7 @@ export const ContactContainer: FC = (): JSX.Element => {
                 <div>
                   <div className="flex flex-wrap items-center justify-center gap-5 z-10 relative p-5">
                     <Button
+                      type="button"
                       variant={activeCity === 'chisinau' ? 'red' : 'white'}
                       onClick={() => setActiveCity('chisinau')}
                       className={
@@ -78,6 +74,7 @@ export const ContactContainer: FC = (): JSX.Element => {
                     </Button>
 
                     <Button
+                      type="button"
                       variant={activeCity === 'ialoveni' ? 'red' : 'white'}
                       onClick={() => setActiveCity('ialoveni')}
                       className={

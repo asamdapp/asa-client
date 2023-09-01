@@ -9,6 +9,7 @@ import {
 
 export type OfferContextType = {
   step: number;
+  totalSteps: number;
   setStep: Dispatch<SetStateAction<number>>;
   completedSteps: number[];
   setCompletedSteps: Dispatch<SetStateAction<number[]>>;
@@ -16,6 +17,7 @@ export type OfferContextType = {
 
 const initialState: OfferContextType = {
   step: 1,
+  totalSteps: 5,
   setStep: () => {},
   completedSteps: [],
   setCompletedSteps: () => {},
@@ -31,7 +33,13 @@ export const OfferProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <OfferContext.Provider
-      value={{ step, setStep, completedSteps, setCompletedSteps }}
+      value={{
+        totalSteps: initialState.totalSteps,
+        step,
+        setStep,
+        completedSteps,
+        setCompletedSteps,
+      }}
     >
       {children}
     </OfferContext.Provider>

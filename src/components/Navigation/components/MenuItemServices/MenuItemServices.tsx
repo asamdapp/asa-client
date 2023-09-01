@@ -12,7 +12,10 @@ export const MenuItemServices: FC<IProps> = (): JSX.Element => {
   return (
     <>
       <li className="group relative h-full flex items-center">
-        <button className="flex items-center gap-3 text-sm group-hover:bg-jelly-bean rounded-lg transition py-1 px-2">
+        <button
+          type="button"
+          className="flex items-center gap-3 text-sm group-hover:bg-jelly-bean rounded-lg transition py-1 px-2"
+        >
           <span>
             <Trans i18nKey={'common:services'} />
           </span>

@@ -5,9 +5,18 @@ import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 export const InfoStepper: FC = (): JSX.Element => {
-  const { step, setStep, completedSteps } = useContext(OfferContext);
+  const { step, totalSteps } = useContext(OfferContext);
 
-  const steps = [
+  return (
+    <div className="bg-gray-200 rounded-full mb-4">
+      <div
+        className="bg-cardinal h-2 rounded-full transition-all"
+        style={{ width: `${(100 / totalSteps) * step}%` }}
+      />
+    </div>
+  );
+
+  /*const steps = [
     {
       id: 1,
       title: 'First step',
@@ -68,7 +77,7 @@ export const InfoStepper: FC = (): JSX.Element => {
         />
       </div>
 
-      {/*<button className="flex items-center gap-2">
+      {/!*<button className="flex items-center gap-2">
         <span className="flex items-center justify-center h-7 w-7 bg-red-200 rounded-full">
           1
         </span>
@@ -94,7 +103,7 @@ export const InfoStepper: FC = (): JSX.Element => {
           4
         </span>
         <span>Date personale</span>
-      </button>*/}
+      </button>*!/}
     </div>
-  );
+  );*/
 };

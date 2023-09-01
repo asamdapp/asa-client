@@ -69,6 +69,7 @@ export const ServicesSection: FC = (): JSX.Element => {
           {!more && (
             <div className="absolute bottom-0 flex justify-center pt-20 text-sm text-cardinal font-semibold w-full bg-gradient-to-t from-gray-100 via-gray-100 to-gray-100/0">
               <Button
+                type="button"
                 size="small"
                 variant="white"
                 className="my-1 !mx-auto"

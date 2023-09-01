@@ -25,6 +25,7 @@ export const ThirdStep: FC = (): JSX.Element => {
         Atașează fișierele
       </Label>
       <button
+        type="button"
         className={clsx(
           'p-5 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl transition hover:border-downriver hover:bg-downriver/5',
           { '!border-downriver !bg-downriver/5': isDragActive }

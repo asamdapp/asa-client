@@ -32,7 +32,7 @@ export const Footer: FC = (): JSX.Element => {
           <Row className="gap-y-10" gutterWidth={40}>
             <Col lg={7.5}>
               <div>
-                <div className="font-semibold text-lg mb-2">
+                <div className="font-semibold text-base mb-2">
                   <Trans i18nKey={'common:contacts'} />
                 </div>
 
@@ -41,21 +41,25 @@ export const Footer: FC = (): JSX.Element => {
                     <div className="bg-white/10 rounded-t-xl p-1 text-center mb-4">
                       {CONTACTS?.chisinau?.map['city_' + lang]}
                     </div>
-                    <div className="flex flex-col gap-2 px-3">
+                    <div className="flex flex-col gap-5 px-3">
                       <div className="flex flex-col">
                         <div className="text-sm font-semibold text-white/80 mb-1">
                           Adresa:
                         </div>
-                        <div className="flex gap-2 text-white/50">
+
+                        <a
+                          href={CONTACTS?.chisinau?.map?.routes?.googleMaps}
+                          className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
+                        >
                           <img
                             src={mapMarkerImage.src}
                             alt=""
-                            className="h-4 flex-none relative top-[5px]"
+                            className="h-4 flex-none relative top-[3px]"
                           />
                           <span>
                             {CONTACTS?.chisinau?.map['address_' + lang]}
                           </span>
-                        </div>
+                        </a>
                       </div>
 
                       <div className="flex flex-col">
@@ -65,26 +69,26 @@ export const Footer: FC = (): JSX.Element => {
 
                         <a
                           href={`tel:${CONTACTS?.chisinau?.phone?.value}`}
-                          className="flex gap-2 text-white/50 transition hover:text-cardinal"
+                          className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
                           <img
                             src={phoneImage.src}
                             alt=""
-                            className="h-4 flex-none relative top-[5px]"
+                            className="h-4 flex-none relative top-[3px]"
                           />
                           <span>{CONTACTS?.chisinau?.phone?.toShow}</span>
                         </a>
 
                         {CONTACTS?.chisinau?.additionalPhone && (
-                          <div className="flex gap-5">
+                          <div className="flex items-center gap-5">
                             <a
                               href={`tel:${CONTACTS?.chisinau?.additionalPhone?.value}`}
-                              className="flex gap-2 text-white/50 transition hover:text-cardinal"
+                              className="flex gap-2 text-white/50 text-sm transition hover:text-cardinal"
                             >
                               <img
                                 src={phoneImage.src}
                                 alt=""
-                                className="h-4 flex-none relative top-[5px]"
+                                className="h-4 flex-none relative top-[3px]"
                               />
                               <span>
                                 {CONTACTS?.chisinau?.additionalPhone?.toShow}
@@ -93,13 +97,13 @@ export const Footer: FC = (): JSX.Element => {
 
                             {CONTACTS?.chisinau?.additionalPhone
                               ?.messengers && (
-                              <div className="flex gap-2 justify-center">
+                              <div className="flex gap-2">
                                 <a
                                   href={
                                     CONTACTS?.chisinau?.additionalPhone
                                       .messengers?.whatsapp
                                   }
-                                  className="hover:scale-110 transition"
+                                  className="hover:scale-110 transition flex items-center"
                                 >
                                   <Image
                                     className="rounded-lg"
@@ -115,7 +119,7 @@ export const Footer: FC = (): JSX.Element => {
                                     CONTACTS?.chisinau?.additionalPhone
                                       ?.messengers?.viber
                                   }
-                                  className="hover:scale-110 transition"
+                                  className="hover:scale-110 transition flex items-center"
                                 >
                                   <Image
                                     className="rounded-lg"
@@ -131,7 +135,7 @@ export const Footer: FC = (): JSX.Element => {
                                     CONTACTS?.chisinau?.additionalPhone
                                       ?.messengers?.telegram
                                   }
-                                  className="hover:scale-110 transition"
+                                  className="hover:scale-110 transition flex items-center"
                                 >
                                   <Image
                                     className="rounded-lg"
@@ -153,12 +157,12 @@ export const Footer: FC = (): JSX.Element => {
                         </div>
                         <a
                           href={`mailto:${CONTACTS?.chisinau?.map?.email}`}
-                          className="flex gap-2 text-white/50 transition hover:text-cardinal"
+                          className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
                           <img
                             src={emailImage.src}
                             alt=""
-                            className="h-4 flex-none relative top-[5px]"
+                            className="h-4 flex-none relative top-[3px]"
                           />
                           <span>{CONTACTS?.chisinau?.map?.email}</span>
                         </a>
@@ -169,21 +173,25 @@ export const Footer: FC = (): JSX.Element => {
                     <div className="bg-white/10 rounded-t-xl p-1 text-center mb-4">
                       {CONTACTS?.ialoveni?.map['city_' + lang]}
                     </div>
-                    <div className="flex flex-col gap-2 px-3">
+                    <div className="flex flex-col gap-5 px-3">
                       <div className="flex flex-col">
                         <div className="text-sm font-semibold text-white/80 mb-1">
                           Adresa:
                         </div>
-                        <div className="flex gap-2 text-white/50">
+
+                        <a
+                          href={CONTACTS?.ialoveni?.map?.routes?.googleMaps}
+                          className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
+                        >
                           <img
                             src={mapMarkerImage.src}
                             alt=""
-                            className="h-4 flex-none relative top-[5px]"
+                            className="h-4 flex-none relative top-[3px]"
                           />
                           <span>
                             {CONTACTS?.ialoveni?.map['address_' + lang]}
                           </span>
-                        </div>
+                        </a>
                       </div>
 
                       <div className="flex flex-col">
@@ -193,12 +201,12 @@ export const Footer: FC = (): JSX.Element => {
 
                         <a
                           href={`tel:${CONTACTS?.ialoveni?.phone?.value}`}
-                          className="flex gap-2 text-white/50 transition hover:text-cardinal"
+                          className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
                           <img
                             src={phoneImage.src}
                             alt=""
-                            className="h-4 flex-none relative top-[5px]"
+                            className="h-4 flex-none relative top-[3px]"
                           />
                           <span>{CONTACTS?.ialoveni?.phone?.toShow}</span>
                         </a>
@@ -207,12 +215,12 @@ export const Footer: FC = (): JSX.Element => {
                           <div className="flex gap-5">
                             <a
                               href={`tel:${CONTACTS?.ialoveni?.additionalPhone?.value}`}
-                              className="flex gap-2 text-white/50 transition hover:text-cardinal"
+                              className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                             >
                               <img
                                 src={phoneImage.src}
                                 alt=""
-                                className="h-4 flex-none relative top-[5px]"
+                                className="h-4 flex-none relative top-[3px]"
                               />
                               <span>
                                 {CONTACTS?.ialoveni?.additionalPhone?.toShow}
@@ -227,7 +235,7 @@ export const Footer: FC = (): JSX.Element => {
                                     CONTACTS?.ialoveni?.additionalPhone
                                       .messengers?.whatsapp
                                   }
-                                  className="hover:scale-110 transition"
+                                  className="hover:scale-110 transition flex items-center"
                                 >
                                   <Image
                                     className="rounded-lg"
@@ -243,7 +251,7 @@ export const Footer: FC = (): JSX.Element => {
                                     CONTACTS?.ialoveni?.additionalPhone
                                       ?.messengers?.viber
                                   }
-                                  className="hover:scale-110 transition"
+                                  className="hover:scale-110 transition flex items-center"
                                 >
                                   <Image
                                     className="rounded-lg"
@@ -259,7 +267,7 @@ export const Footer: FC = (): JSX.Element => {
                                     CONTACTS?.ialoveni?.additionalPhone
                                       ?.messengers?.telegram
                                   }
-                                  className="hover:scale-110 transition"
+                                  className="hover:scale-110 transition flex items-center"
                                 >
                                   <Image
                                     className="rounded-lg"
@@ -281,12 +289,12 @@ export const Footer: FC = (): JSX.Element => {
                         </div>
                         <a
                           href={`mailto:${CONTACTS?.ialoveni?.map?.email}`}
-                          className="flex gap-2 text-white/50 transition hover:text-cardinal"
+                          className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
                           <img
                             src={emailImage.src}
                             alt=""
-                            className="h-4 flex-none relative top-[5px]"
+                            className="h-4 flex-none relative top-[3px]"
                           />
                           <span>{CONTACTS?.ialoveni?.map?.email}</span>
                         </a>
@@ -299,7 +307,7 @@ export const Footer: FC = (): JSX.Element => {
 
             <Col width={'auto'} lg={2.25}>
               <div>
-                <div className="font-semibold text-lg mb-2">
+                <div className="font-semibold text-base mb-2">
                   <Trans i18nKey={'common:services'} />
                 </div>
 
@@ -314,7 +322,7 @@ export const Footer: FC = (): JSX.Element => {
                         passHref
                         locale={locale}
                       >
-                        <a className="flex gap-1 transition text-sm text-white/50 hover:text-white">
+                        <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
                           <IconMinus
                             size={12}
                             className="flex-none relative top-1"
@@ -330,7 +338,7 @@ export const Footer: FC = (): JSX.Element => {
 
             <Col width={'auto'} lg={2.25}>
               <div>
-                <div className="font-semibold text-lg mb-2">
+                <div className="font-semibold text-base mb-2">
                   Află mai multe:
                   {/*<Trans i18nKey="common:about" />*/}
                 </div>
@@ -344,7 +352,7 @@ export const Footer: FC = (): JSX.Element => {
                       passHref
                       locale={locale}
                     >
-                      <a className="flex gap-1 transition text-sm text-white/50 hover:text-white">
+                      <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
                         <IconMinus
                           size={12}
                           className="flex-none relative top-1"
@@ -364,7 +372,7 @@ export const Footer: FC = (): JSX.Element => {
                       passHref
                       locale={locale}
                     >
-                      <a className="flex gap-1 transition text-sm text-white/50 hover:text-white">
+                      <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
                         <IconMinus
                           size={12}
                           className="flex-none relative top-1"
@@ -384,7 +392,7 @@ export const Footer: FC = (): JSX.Element => {
                       passHref
                       locale={locale}
                     >
-                      <a className="flex gap-1 transition text-sm text-white/50 hover:text-white">
+                      <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
                         <IconMinus
                           size={12}
                           className="flex-none relative top-1"
@@ -404,7 +412,7 @@ export const Footer: FC = (): JSX.Element => {
                       passHref
                       locale={locale}
                     >
-                      <a className="flex gap-1 transition text-sm text-white/50 hover:text-white">
+                      <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
                         <IconMinus
                           size={12}
                           className="flex-none relative top-1"

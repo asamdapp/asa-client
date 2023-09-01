@@ -4,29 +4,30 @@ import { useFormContext } from 'react-hook-form';
 
 import { Label } from 'UI';
 import { OfferContext } from 'context';
+import { FORM_SERVICES } from '../../../../utils';
+import useTranslation from 'next-translate/useTranslation';
 
 export const FirstStep: FC = (): JSX.Element => {
-  const { getValues, setValue, watch } = useFormContext();
+  const { lang } = useTranslation();
+  const { getValues, setValue, watch, resetField } = useFormContext();
   const { setCompletedSteps } = useContext(OfferContext);
-
-  const { data: services } = useSWR('services');
 
   const selectedService = watch('service');
 
   useEffect(() => {
-    if (selectedService?._id) {
+    if (selectedService?.id) {
       setCompletedSteps((prevState) => [...prevState, 1]);
     }
   }, [selectedService]);
 
   return (
     <>
-      <Label>Selectează serviciile dorite</Label>
+      <Label>Selectează serviciul dorit</Label>
 
       <div className="flex flex-wrap gap-4">
-        {services.map((item: any) => (
+        {FORM_SERVICES?.map((item: any) => (
           <div
-            key={item?._id}
+            key={item?.id}
             className="
               flex
               text-gray-700 flex items-center
@@ -37,23 +38,23 @@ export const FirstStep: FC = (): JSX.Element => {
           >
             <input
               type="radio"
-              id={item?._id}
+              id={item?.id}
               name="service"
               onChange={() => setValue('service', item)}
-              defaultChecked={getValues('service')?._id === item?._id}
+              defaultChecked={getValues('service')?.id === item?.id}
               className="
                 h-5 w-5 flex-none bg-gray-100 dark:bg-gray-800 rounded-full
                 checked:bg-cardinal checked:ring-cardinal checked:hover:bg-cardinal checked:focus:bg-cardinal
               "
             />
             <label
-              htmlFor={item?._id}
+              htmlFor={item?.id}
               className="flex bg-transparent -ml-8 pl-10 pr-3 py-2
               bg-white rounded-xl border border-gray-200
               cursor-pointer
               "
             >
-              <span>{item?.name}</span>
+              <span>{item?.name[lang]}</span>
             </label>
           </div>
         ))}

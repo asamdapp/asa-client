@@ -49,6 +49,7 @@ export const FeedbackSection: FC<IProps> = (): JSX.Element => {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center mb-3">
                   <button
+                    type="button"
                     onClick={() =>
                       setSelectedItem((prevState) =>
                         prevState === 0 ? feedbacks.length - 1 : prevState - 1
@@ -67,6 +68,7 @@ export const FeedbackSection: FC<IProps> = (): JSX.Element => {
                   />
 
                   <button
+                    type="button"
                     onClick={() =>
                       setSelectedItem((prevState) =>
                         prevState === feedbacks?.length - 1 ? 0 : prevState + 1

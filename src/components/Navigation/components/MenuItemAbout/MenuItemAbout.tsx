@@ -10,11 +10,17 @@ export const MenuItemAbout: FC<IProps> = (): JSX.Element => {
   return (
     <>
       <li className="group relative h-full flex items-center xxl:flex-row flex-col">
-        <button className="flex items-center gap-3 text-sm xxl:group-hover:bg-jelly-bean rounded-lg transition py-1 px-2">
+        <button
+          type="button"
+          className="flex items-center gap-3 text-sm xxl:group-hover:bg-jelly-bean rounded-lg transition py-1 px-2"
+        >
           <span>
-            <Trans i18nKey='common:about' />
+            <Trans i18nKey="common:about" />
           </span>
-          <svg viewBox="0 0 20 12" className="w-2.5 fill-white hidden xxl:block">
+          <svg
+            viewBox="0 0 20 12"
+            className="w-2.5 fill-white hidden xxl:block"
+          >
             <path d="M.94.94a1.5 1.5 0 0 1 2.12 0L10 7.878l6.94-6.94a1.5 1.5 0 0 1 2.12 2.122l-8 8a1.5 1.5 0 0 1-2.12 0l-8-8a1.5 1.5 0 0 1 0-2.122Z" />
           </svg>
         </button>

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "asamd-396210",
+  "private_key_id": "5643fb73dca7685e4d0ecde1c2477b6ef487a675",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCb1dFrTmw2vTZ4\nrYYXI8Rb5wbrnzaEP4fdgsqvVNKaGuSAewENV16fd9fpp+GxlgpcF9rVHeVACdN3\n6oipa/u0NklyctXIzmTWgljcLQ58ZWiM8LjBdwUKuxZWK6/kCqPdUnq3joDVuBVu\nWB0Ao0MniF3rl8GVLO50fZftbN7VDmLPwU0PAeAZ8XOrayJmiIShOUKYajoL1Y/H\nSub2nb/1EkdTs0EtbzNgp4PHWfjdiw47HoR9ulsrEkW1xXH2t1dvFDv/KFWjL660\n2uuRmO9lv+tTnAGWf8CAC6KZntCqckH72iAcENITP2fELrmQolq8SAqo+bdoYSIF\nIhUvK7yPAgMBAAECggEASXYp82J0S/e1in0OpbDkO4i0r/WNnxlN5KPoBXBAmYoM\n5u5VaCMkRZuaypisIem/t3s9W1LtA9u99x02UFvJu8INrKiq1C9LxP2MgzqwRf8O\nIsbF6dnAJDdex79vetpzNf3QQOCqJlXRsINUJL1SBnxX/hw7kyWrwXmFWdUFVLzn\nb9UoKD7NGXOqBVxJebmpJBfVyhIeu7miDDN65HpHFrPwJd8fa/i9NCXSsmvjX2LW\nUV7ku997u0c6wOi/Np1Ici0jL7MTbLoJHyaYpKciIPwNY12V2KbaQvaTi5IY0RM5\ntTCJTdCE0848i9MSOEhqiYjU8urt0mrCEncVp7wqMQKBgQDPbjUupi9OsW7fQCLQ\n3jknpWieNxWyW8zRJ4OYnuLZGLV8HfO7WJFu1XngdZsMuWhQAj/3WdwNr3gzuZvC\naNv8TL9g81RmCKYnw7Qdaven2y6SrkAxsdhZSqHZ7d255VNfLBKyndAl6+FNdp/b\nspgm5vDm87cA92LKG8B0gWPNEQKBgQDAUuNefOrE8luyWl4gCds5WtE17//svFtg\njCK+gpOy7UII1zMZ725DHgb4raGoNDWWpjztR39cpx4TByaByC4E7rQFOHJ+GqwV\nBElynVdDozFq0HKLL4bmqDVU7VnuFlAx+JUr68pMQRARbYimz3rRhXlsjf9EzgkC\nBtzSm/VvnwKBgQDJn2AGRfZ50THpwteUmkyH4tm73+MxCNYe/v+E2/u39bKCQELm\n+YHzb4EV0nqxdY6VJnqynR+uFb8K2AE0iOQ7awYi4KJKw2FuCWYLqiurdvrgDIvN\nQgb/U/HaeMEqrmPJgHd0Mr1d/tdyijl8PS5zscq7Um2xfMUDmtII7LPrYQKBgENI\nvGMCMOBWKd5r3yI2UIvwSeEk5dRc0Vslq8IazLF8b+3H3AjmyxyQFMBLfpLqMRVT\nc11P9i7kCJF/nukor3DqUfDBnsyfaDSyG0AN68mt/kvwQSKQrhFkJ8RehWfWRpg0\n73s+MrgayxRNzdEOJVnH6IMh6nyX2G7tF7RW+7bhAoGAQxpDM4Wm99a1h1Lal0bf\nzKuckaByxxzh13hf1Fo1B00zJzlC7D+2/ysrsqQVVhdxyIDJ1JqmKx+FlYuA/ct8\nIFlaYuQK+KSCz2KMW613r7tBdCWfiHT7n8Whrv/aRopEvbwadrbqxEXFqRyE0nxD\n1VEJvCLsC/Cqqaozpai6vTY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "asa-service-account@asamd-396210.iam.gserviceaccount.com",
+  "client_id": "101525964807453601026",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/asa-service-account%40asamd-396210.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

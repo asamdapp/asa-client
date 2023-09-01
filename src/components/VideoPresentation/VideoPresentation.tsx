@@ -48,6 +48,7 @@ export const VideoPresentation: FC = (): JSX.Element => {
 
             <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-5 w-full">
               <Button
+                type="button"
                 size="small"
                 variant="green"
                 className="w-max"
@@ -68,6 +69,7 @@ export const VideoPresentation: FC = (): JSX.Element => {
       )}
 
       <button
+        type="button"
         className="flex items-center gap-4 group transition"
         onClick={handleShowVideoPresentation}
       >

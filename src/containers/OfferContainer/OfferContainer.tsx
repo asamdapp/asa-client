@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import { Col, Row } from "react-grid-system";
+import React, { FC } from 'react';
+import { Col, Row } from 'react-grid-system';
 
-import { MainLayout } from "layouts";
-import { CustomContainer, MainTitle, Section } from "components";
-import { OfferProvider } from "context";
+import { MainLayout } from 'layouts';
+import { CustomContainer, MainTitle, Section } from 'components';
+import { OfferProvider } from 'context';
 
-import { FormStepper } from "./components";
+import { FormStepper } from './components';
 
 export const OfferContainer: FC = (): JSX.Element => {
   return (
@@ -16,7 +16,7 @@ export const OfferContainer: FC = (): JSX.Element => {
             <Row>
               <Col xl={8}>
                 <MainTitle>Formular comandă</MainTitle>
-                <p className="relative text-white/60 text-xl font-light mt-5 leading-loose">
+                <p className="relative text-white/60 md:text-xl text-base font-light mt-5 !leading-loose">
                   Oferim 10% REDUCERE pentru comenzile online, indiferent de
                   suma tranzacției.
                 </p>
@@ -25,10 +25,10 @@ export const OfferContainer: FC = (): JSX.Element => {
           </CustomContainer>
         </Section>
 
-        <Section>
+        <Section withSmallPadding>
           <CustomContainer>
-            <Row>
-              <Col>
+            <Row justify="center">
+              <Col xl={9} xxl={8}>
                 <FormStepper />
               </Col>
             </Row>

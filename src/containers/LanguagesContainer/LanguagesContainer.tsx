@@ -21,7 +21,7 @@ export const LanguagesContainer: FC = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>{PREFIX_TITLE + t('common:contacts')}</title>
+        <title>{PREFIX_TITLE + t('common:languages_of_translation')}</title>
       </Head>
 
       <MainLayout>

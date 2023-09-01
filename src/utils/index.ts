@@ -19,6 +19,77 @@ export const LANGUAGES = {
   RU: 'ru',
 } as const;
 
+export const DELIVERY_TIME = [
+  {
+    id: '3',
+    name: {
+      ro: '3 zile lucrătoare',
+      ru: '3 рабочих дня',
+    },
+  },
+  {
+    id: '5',
+    name: {
+      ro: '5 zile lucrătoare',
+      ru: '5 рабочих дней',
+    },
+  },
+];
+
+export const FORM_SERVICES_IDS = {
+  traduceriAutorizate: 'traduceri-autorizate',
+  traduceriLegalizateNotar: 'traduceri-legalizate-notar',
+  traduceriLegalizateNotarApostila: 'traduceri-legalizate-notar-apostila',
+  apostila: 'apostila',
+  interpretariat: 'interpretariat',
+};
+
+export const FORM_SERVICES = [
+  {
+    id: FORM_SERVICES_IDS.traduceriAutorizate,
+    name: {
+      ro: 'Traduceri Autorizate',
+      ru: 'Сертифицированные переводы',
+    },
+    isServiceForLanguage: true,
+  },
+  {
+    id: FORM_SERVICES_IDS.traduceriLegalizateNotar,
+    name: {
+      ro: 'Traduceri Legalizate (Notar)',
+      ru: ' Легализованные переводы (нотариус)',
+    },
+    isServiceForLanguage: true,
+  },
+  {
+    id: FORM_SERVICES_IDS.traduceriLegalizateNotarApostila,
+    name: {
+      ro: 'Traduceri Legalizate (Notar) + Apostila',
+      ru: 'Легализованные переводы (нотариус) + Апостиль',
+    },
+    isServiceForLanguage: true,
+    isServiceWithCountryApostilleRequested: true,
+  },
+  {
+    id: FORM_SERVICES_IDS.apostila,
+    name: {
+      ro: 'Apostila',
+      ru: 'Апостиль',
+    },
+    isServiceWithCountryApostilleRequested: true,
+    isServiceWithDeliveryTime: true,
+  },
+  {
+    id: FORM_SERVICES_IDS.interpretariat,
+    name: {
+      ro: 'Interpretariat',
+      ru: 'Устный перевод',
+    },
+    isServiceForLanguage: true,
+    isServiceWithoutFiles: true,
+  },
+];
+
 export const CONTACTS = {
   chisinau: {
     phone: {
@@ -71,10 +142,11 @@ export const CONTACTS = {
       email: 'proadricrissrl@mail.ru',
       position: [46.9471321, 28.7740134],
       routes: {
-        googleMaps: '',
-        mapMd: '',
-        waze: '',
-        yandex: '',
+        googleMaps: 'https://goo.gl/maps/WyNfVaZqKWigxPW56',
+        mapMd:
+          'https://map.md/ro/street/436428079?number=78/1&embed=1#13.9/46.94714/28.774',
+        waze: 'https://ul.waze.com/ul?ll=46.94721157%2C28.77401348&navigate=yes&zoom=17&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location',
+        yandex: 'https://yandex.ru/maps/-/CDQjRC2S',
       },
     },
   },
