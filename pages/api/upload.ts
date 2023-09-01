@@ -2,12 +2,13 @@ import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 
 import { Storage } from '@google-cloud/storage';
 import { Telegraf } from 'telegraf';
+import path from 'path';
 
 import multer from 'multer';
 import { createRouter, expressWrapper } from 'next-connect';
 
 const storage = new Storage({
-  keyFilename: 'asamd-396210-5643fb73dca7.json',
+  keyFilename: path.resolve('asamd-396210-5643fb73dca7.json'),
   projectId: 'asamd-396210',
 });
 
@@ -27,7 +28,6 @@ const bot = new Telegraf('1611166208:AAG-SwtgeAf4uaNMZa1SRUuEgoOlakjjT18');
 // };
 
 import formidable from 'formidable';
-import path from 'path';
 import fs from 'fs';
 
 export const config = {
