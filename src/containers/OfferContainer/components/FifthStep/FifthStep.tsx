@@ -98,7 +98,7 @@ export const FifthStep: FC = (): JSX.Element => {
         )}
       </div>
 
-      <div className="flex items-center mt-2">
+      <div className="flex items-center mt-2 pt-4 border-t border-gray-200">
         <input
           type="checkbox"
           id="accepted"

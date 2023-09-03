@@ -1,10 +1,12 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useContext } from 'react';
 import { OfferContext } from 'context';
 import { Button } from 'UI';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons';
 import { useFormContext } from 'react-hook-form';
 
-export const FormNavigation: FC = (): JSX.Element => {
+export const FormNavigation: FC<{ isLoading?: boolean }> = ({
+  isLoading,
+}): JSX.Element => {
   const { step, setStep, totalSteps } = useContext(OfferContext);
   const { watch, getValues } = useFormContext();
 
@@ -22,14 +24,23 @@ export const FormNavigation: FC = (): JSX.Element => {
 
   const isCompletedSecondStep =
     (step === 2 &&
-      date &&
-      (getValues('service')?.isServiceForLanguage
-        ? sourceLanguage?._id && targetLanguage?._id
-        : false)) ||
-    (step === 2 &&
       (getValues('service')?.isServiceWithDeliveryTime &&
       getValues('service')?.isServiceWithCountryApostilleRequested
         ? deliveryTime?.id && countryApostilleRequested
+        : false)) ||
+    (step === 2 &&
+      date &&
+      (getValues('service')?.isServiceForLanguage &&
+      !getValues('service')?.isServiceWithCountryApostilleRequested
+        ? sourceLanguage?._id && targetLanguage?._id
+        : false)) ||
+    (step === 2 &&
+      date &&
+      (getValues('service')?.isServiceForLanguage &&
+      getValues('service')?.isServiceWithCountryApostilleRequested
+        ? sourceLanguage?._id &&
+          targetLanguage?._id &&
+          countryApostilleRequested
         : false));
 
   // Third step
@@ -97,7 +108,7 @@ export const FormNavigation: FC = (): JSX.Element => {
       {step === totalSteps && (
         <Button
           type="submit"
-          disabled={!isCompletedFifthStep}
+          disabled={isLoading || !isCompletedFifthStep}
           className="flex justify-center items-center gap-2 w-full !max-w-[320px]"
         >
           <span>Trimite cererea</span>

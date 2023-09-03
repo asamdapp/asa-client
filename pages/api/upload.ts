@@ -1,34 +1,20 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
+import { NextApiHandler, NextApiRequest } from 'next';
+import path from 'path';
+import fs from 'fs';
 
 import { Storage } from '@google-cloud/storage';
 import { Telegraf } from 'telegraf';
-import path from 'path';
-
-import multer from 'multer';
-import { createRouter, expressWrapper } from 'next-connect';
+import formidable from 'formidable';
 
 const storage = new Storage({
-  keyFilename: path.resolve('asamd-396210-5643fb73dca7.json'),
-  projectId: 'asamd-396210',
+  keyFilename: path.resolve(process.env.GOOGLE_STORAGE_KEY_FILENAME as string),
+  projectId: process.env.GOOGLE_STORAGE_PROJECT_ID,
 });
 
-const bucketName = 'asa-moldova';
-
+const bucketName = process.env.GOOGLE_STORAGE_BUCKET_NAME as string;
 const bucket = storage.bucket(bucketName);
 
-const bot = new Telegraf('1611166208:AAG-SwtgeAf4uaNMZa1SRUuEgoOlakjjT18');
-
-/* Don't miss that! */
-// export const config = {
-//   api: {
-//     bodyParser: {
-//       sizeLimit: '4mb',
-//     },
-//   },
-// };
-
-import formidable from 'formidable';
-import fs from 'fs';
+const bot = new Telegraf(process.env.TELEGRAM_TOKEN as string);
 
 export const config = {
   api: {
@@ -83,10 +69,6 @@ const handler: NextApiHandler = async (req, res) => {
             blobStream.on('error', reject);
           });
         }
-
-        res.status(200).send(urlToFiles);
-
-        // res.status(200).send('All files uploaded successfully');
       }
 
       const message =
@@ -146,6 +128,8 @@ const handler: NextApiHandler = async (req, res) => {
           }))
         );
       }
+
+      res.status(200).send({ name: fields?.name, files: urlToFiles });
     } catch (error) {
       res.status(500).send(error);
     }
