@@ -8,7 +8,7 @@ import formidable from 'formidable';
 
 const storage = new Storage({
   keyFilename: path.resolve(
-    './',
+    __dirname,
     process.env.GOOGLE_STORAGE_KEY_FILENAME as string
   ),
   projectId: process.env.GOOGLE_STORAGE_PROJECT_ID,
