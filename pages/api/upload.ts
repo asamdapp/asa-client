@@ -7,7 +7,10 @@ import { Telegraf } from 'telegraf';
 import formidable from 'formidable';
 
 const storage = new Storage({
-  keyFilename: path.resolve(process.env.GOOGLE_STORAGE_KEY_FILENAME as string),
+  keyFilename: path.resolve(
+    '/',
+    process.env.GOOGLE_STORAGE_KEY_FILENAME as string
+  ),
   projectId: process.env.GOOGLE_STORAGE_PROJECT_ID,
 });
 
