@@ -15,6 +15,7 @@ const bucketName = process.env.GOOGLE_STORAGE_BUCKET_NAME as string;
 const bucket = storage.bucket(bucketName);
 
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN as string);
+const telegramChatId = process.env.TELEGRAM_CHAT_ID as string;
 
 export const config = {
   api: {
@@ -114,13 +115,13 @@ const handler: NextApiHandler = async (req, res) => {
             : ' '
         }`;
 
-      await bot.telegram.sendMessage('-980390331', message, {
+      await bot.telegram.sendMessage(telegramChatId, message, {
         parse_mode: 'HTML',
       });
 
       if (urlToFiles.length > 0) {
         await bot.telegram.sendMediaGroup(
-          '-980390331',
+          telegramChatId,
           urlToFiles?.map((url) => ({
             type: 'document',
             media: url,
