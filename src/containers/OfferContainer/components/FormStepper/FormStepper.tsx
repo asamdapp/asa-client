@@ -1,6 +1,7 @@
 import React, { FC, useContext, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
+import { setCookie } from 'cookies-next';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -67,7 +68,7 @@ export const FormStepper: FC = (): JSX.Element => {
 
       setIsLoading(true);
 
-      fetch('api/upload', {
+      fetch('/api/offer', {
         method: 'POST',
         body: formData,
       })
@@ -81,6 +82,7 @@ export const FormStepper: FC = (): JSX.Element => {
         .then((data) => {
           // Handle the response data here
           console.log(data);
+          setCookie('thanks', true, { maxAge: 60 });
           push({
             pathname: 'thanks',
           }).then((r) => r);

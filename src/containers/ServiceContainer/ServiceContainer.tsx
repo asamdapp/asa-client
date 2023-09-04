@@ -16,8 +16,10 @@ import { PREFIX_TITLE, urlFor } from 'utils';
 import { PortableText } from '@portabletext/react';
 import Trans from 'next-translate/Trans';
 import Head from 'next/head';
+import useTranslation from 'next-translate/useTranslation';
 
 export const ServiceContainer: FC = (): JSX.Element => {
+  const { lang } = useTranslation();
   const { data } = useSWR('service');
 
   return (

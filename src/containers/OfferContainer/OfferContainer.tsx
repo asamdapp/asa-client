@@ -6,8 +6,10 @@ import { CustomContainer, MainTitle, Section } from 'components';
 import { OfferProvider } from 'context';
 
 import { FormStepper } from './components';
+import useTranslation from 'next-translate/useTranslation';
 
 export const OfferContainer: FC = (): JSX.Element => {
+  const { t } = useTranslation();
   return (
     <OfferProvider>
       <MainLayout>
@@ -17,8 +19,7 @@ export const OfferContainer: FC = (): JSX.Element => {
               <Col xl={8}>
                 <MainTitle>Formular comandă</MainTitle>
                 <p className="relative text-white/60 md:text-xl text-base font-light mt-5 !leading-loose">
-                  Oferim 10% REDUCERE pentru comenzile online, indiferent de
-                  suma tranzacției.
+                  {t('common:discount_info_text')}
                 </p>
               </Col>
             </Row>

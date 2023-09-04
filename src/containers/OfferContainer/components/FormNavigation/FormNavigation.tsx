@@ -3,6 +3,7 @@ import { OfferContext } from 'context';
 import { Button } from 'UI';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons';
 import { useFormContext } from 'react-hook-form';
+import { isValidEmail } from '../../../../utils';
 
 export const FormNavigation: FC<{ isLoading?: boolean }> = ({
   isLoading,
@@ -53,8 +54,8 @@ export const FormNavigation: FC<{ isLoading?: boolean }> = ({
   const name = watch('name');
   const email = watch('email');
   const phone = watch('phone');
-  const comment = watch('comment');
-  const isCompletedFourthStep = step === 4 && name && email && phone;
+  const isCompletedFourthStep =
+    step === 4 && name && email && phone && isValidEmail(email);
 
   // Fifth step
   const accepted = watch('accepted');
@@ -72,13 +73,14 @@ export const FormNavigation: FC<{ isLoading?: boolean }> = ({
       {step !== 1 && (
         <Button
           type="button"
-          onClick={() =>
+          onClick={() => {
             setStep((prevStep) =>
               selectedService?.isServiceWithoutFiles && step === 4
                 ? prevStep - 2
                 : prevStep - 1
-            )
-          }
+            );
+            window.scrollTo(0, 100);
+          }}
           variant="white"
           className="flex justify-center items-center gap-2 w-full !max-w-[320px]"
         >
@@ -90,13 +92,14 @@ export const FormNavigation: FC<{ isLoading?: boolean }> = ({
       {step !== totalSteps && (
         <Button
           type="button"
-          onClick={() =>
+          onClick={() => {
             setStep((prevStep) =>
               selectedService?.isServiceWithoutFiles && step === 2
                 ? prevStep + 2
                 : prevStep + 1
-            )
-          }
+            );
+            window.scrollTo(0, 100);
+          }}
           className="flex justify-center items-center gap-2 w-full !max-w-[320px]"
           disabled={isDisabledNextButton}
         >

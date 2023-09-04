@@ -46,8 +46,8 @@ export const Navigation: FC = (): JSX.Element => {
 
   return (
     <>
-      <div className="relative h-14 w-screen gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver">
-        <div className="fixed z-50 h-14 w-screen border-b border-white/5 gradient-downriver-to-jelly-bean-with-opacity dark:gradient-firefly-to-downriver-with-opacity backdrop-blur-md">
+      <div className="relative h-14 left-0 right-0 gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver">
+        <div className="fixed z-50 h-14 left-0 right-0 border-b border-white/5 gradient-downriver-to-jelly-bean-with-opacity dark:gradient-firefly-to-downriver-with-opacity backdrop-blur-md">
           <Container fluid className="padding-container xl:!px-5">
             <Row>
               <Col xxl={12}>
@@ -147,8 +147,8 @@ export const Navigation: FC = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="relative h-10 w-screen gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver block sm:hidden">
-        <div className="fixed z-50 h-10 w-screen border-b border-white/5 gradient-downriver-to-jelly-bean-with-opacity dark:gradient-firefly-to-downriver-with-opacity backdrop-blur-md">
+      <div className="relative h-10 left-0 right-0 gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver block sm:hidden">
+        <div className="fixed z-50 h-10 left-0 right-0 border-b border-white/5 gradient-downriver-to-jelly-bean-with-opacity dark:gradient-firefly-to-downriver-with-opacity backdrop-blur-md">
           <div className="flex justify-between items-center h-10">
             <div className="flex justify-center items-center w-full h-full border-r border-white/5">
               <a
@@ -222,13 +222,16 @@ export const Navigation: FC = (): JSX.Element => {
         center
         classNames={{ modal: 'rounded-xl' }}
       >
-        <h2 className="text-downriver font-noto-serif md:text-2xl text-xl mb-10  leading-tight max-w-sm pr-10">
+        <h2 className="text-downriver font-noto-serif md:text-2xl text-xl mb-5  leading-tight max-w-sm pr-10">
           Contacteaza-ne:
         </h2>
-        <div>
+
+        <div className="flex flex-col gap-2">
           <a
+            target="_blank"
+            rel="noreferrer"
             href={CONTACTS.chisinau.additionalPhone.messengers.whatsapp}
-            className="flex items-center gap-5 bg-gray-100 p-2 rounded-xl"
+            className="flex items-center gap-3 text-downriver bg-gray-100 transition p-2 rounded-xl hover:bg-gray-200 text-sm"
           >
             <Image
               src={whatsappIcon.src}
@@ -239,6 +242,38 @@ export const Navigation: FC = (): JSX.Element => {
             />
 
             <span>WhatsApp</span>
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={CONTACTS.chisinau.additionalPhone.messengers.viber}
+            className="flex items-center gap-3 text-downriver bg-gray-100 transition p-2 rounded-xl hover:bg-gray-200 text-sm"
+          >
+            <Image
+              src={viberIcon.src}
+              width={40}
+              height={40}
+              alt="Viber logo"
+              className="rounded-md"
+            />
+
+            <span>Viber</span>
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={CONTACTS.chisinau.additionalPhone.messengers.telegram}
+            className="flex items-center gap-3 text-downriver bg-gray-100 transition p-2 rounded-xl hover:bg-gray-200 text-sm"
+          >
+            <Image
+              src={telegramIcon.src}
+              width={40}
+              height={40}
+              alt="Viber logo"
+              className="rounded-md"
+            />
+
+            <span>Telegram</span>
           </a>
         </div>
       </Modal>

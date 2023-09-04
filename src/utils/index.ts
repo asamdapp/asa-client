@@ -153,3 +153,7 @@ export const CONTACTS = {
 } as any;
 
 export const PREFIX_TITLE = 'ASA.md - ';
+
+export const isValidEmail = (email: string) => {
+  return /\S+@\S+\.\S+/.test(email);
+};

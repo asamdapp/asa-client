@@ -20,7 +20,7 @@ import {
 
 export const FaqContainer: FC = (): JSX.Element => {
   const { data } = useSWR('faq');
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   return (
     <>

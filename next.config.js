@@ -1,15 +1,15 @@
 /** @type {import("next").NextConfig} */
-const nextTranslate = require("next-translate");
-const withTranslateRoutes = require("next-translate-routes/plugin");
+const nextTranslate = require('next-translate');
+const withTranslateRoutes = require('next-translate-routes/plugin');
 
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
-    localeDetection: false,
+    localeDetection: true,
   },
   images: {
-    domains: ["cdn.sanity.io", "asa.md"],
+    domains: ['cdn.sanity.io', 'asa.md'],
   },
 };
 

@@ -1,3 +1,5 @@
+import React from 'react';
+import Head from 'next/head';
 import { withTranslateRoutes } from 'next-translate-routes';
 import type { AppProps } from 'next/app';
 
@@ -25,7 +27,17 @@ setConfiguration({
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <ThemeProvider attribute="class" enableSystem={false} defaultTheme="light">
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </Head>
+      <ThemeProvider
+        attribute="class"
+        enableSystem={false}
+        defaultTheme="light"
+      >
         <NextProgress color="#B91F2E" />
         <AppProvider>
           <Component {...pageProps} />

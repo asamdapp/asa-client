@@ -16,7 +16,7 @@ import useTranslation from 'next-translate/useTranslation';
 
 export const LanguagesContainer: FC = (): JSX.Element => {
   const { data: languages } = useSWR('languages');
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   return (
     <>
