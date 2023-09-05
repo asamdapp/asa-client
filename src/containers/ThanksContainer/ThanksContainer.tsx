@@ -16,7 +16,7 @@ export const ThanksContainer: FC = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>{PREFIX_TITLE + t('common:languages_of_translation')}</title>
+        <title>{PREFIX_TITLE + t('common:thanks_title')}</title>
       </Head>
 
       <MainLayout>
