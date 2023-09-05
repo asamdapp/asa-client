@@ -169,6 +169,7 @@ const handler: NextApiHandler = async (req, res) => {
           return response.json();
         })
         .then((data) => {
+          console.error('amoCRM data: ', data);
           return data;
         })
         .catch((error) => {

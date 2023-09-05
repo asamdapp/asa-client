@@ -7,7 +7,9 @@ export function middleware(request: NextRequest) {
       request.nextUrl.pathname.startsWith('/stranica-blagodarnosti')) &&
     !request.cookies.get('thanks')
   ) {
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.redirect(
+      new URL(request.nextUrl.locale === 'ru' ? '/ru' : '/', request.url)
+    );
   }
   return NextResponse.next();
 }
