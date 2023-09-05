@@ -4,10 +4,12 @@ import { Button } from 'UI';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons';
 import { useFormContext } from 'react-hook-form';
 import { isValidEmail } from '../../../../utils';
+import useTranslation from 'next-translate/useTranslation';
 
 export const FormNavigation: FC<{ isLoading?: boolean }> = ({
   isLoading,
 }): JSX.Element => {
+  const { t } = useTranslation();
   const { step, setStep, totalSteps } = useContext(OfferContext);
   const { watch, getValues } = useFormContext();
 
@@ -85,7 +87,7 @@ export const FormNavigation: FC<{ isLoading?: boolean }> = ({
           className="flex justify-center items-center gap-2 w-full !max-w-[320px]"
         >
           <IconArrowLeft />
-          <span>Inapoi</span>
+          <span>{t('common:prev_step')}</span>
         </Button>
       )}
 
@@ -103,7 +105,7 @@ export const FormNavigation: FC<{ isLoading?: boolean }> = ({
           className="flex justify-center items-center gap-2 w-full !max-w-[320px]"
           disabled={isDisabledNextButton}
         >
-          <span>Mai departe</span>
+          <span>{t('common:next_step')}</span>
           <IconArrowRight />
         </Button>
       )}
@@ -114,7 +116,7 @@ export const FormNavigation: FC<{ isLoading?: boolean }> = ({
           disabled={isLoading || !isCompletedFifthStep}
           className="flex justify-center items-center gap-2 w-full !max-w-[320px]"
         >
-          <span>Trimite cererea</span>
+          <span>{t('common:send_request')}</span>
           <IconArrowRight />
         </Button>
       )}

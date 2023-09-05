@@ -3,8 +3,10 @@ import { useDropzone } from 'react-dropzone';
 import clsx from 'clsx';
 import { Label } from 'UI';
 import { useFormContext } from 'react-hook-form';
+import useTranslation from 'next-translate/useTranslation';
 
 export const ThirdStep: FC = (): JSX.Element => {
+  const { t } = useTranslation();
   const { setValue, watch } = useFormContext();
   const [isError, setError] = useState<boolean>(false);
 
@@ -45,7 +47,7 @@ export const ThirdStep: FC = (): JSX.Element => {
   return (
     <>
       <Label htmlFor="dropzone" isRequired>
-        Atașează fișierele
+        {t('common:attach_files')}
       </Label>
       <button
         type="button"
@@ -61,19 +63,20 @@ export const ThirdStep: FC = (): JSX.Element => {
         ) : (
           <div>
             <p className="font-medium text-sm mb-1">
-              Caută pe dispozitiv sau &apos;trage&apos; fișierele aici...
+              {t('common:select_or_drop_files')}
             </p>
             <p className="text-xs text-gray-400">
-              Se accepta doar formatele: *.JPG, *.PNG sau *.PDF. Limită: 20MB
-              per fișier / 30MB toate fișierele. Puteti atasa maxim 20 fișiere
+              {t('common:files_accept_only_format')}
             </p>
           </div>
         )}
       </button>
 
-      <p className="text-cardinal text-sm font-semibold">
-        {isError ? 'Eroare' : ''}
-      </p>
+      {isError && (
+        <p className="text-cardinal text-sm font-semibold">
+          {t('common:files_error')}
+        </p>
+      )}
 
       {files?.length > 0 && (
         <ul className="list-disc pl-5">

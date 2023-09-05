@@ -15,7 +15,7 @@ export const FourthStep: FC = (): JSX.Element => {
   return (
     <>
       <div className="grid md:grid-cols-2 w-full gap-6 flex-col md:flex-row flex-wrap">
-        <Input label="Nume / Prenume" {...register('name')} />
+        <Input label={t('common:name_surname')} {...register('name')} />
         <Input
           className={!isValidEmail(email) ? '!border-red-500' : ''}
           label="E-mail"
@@ -38,7 +38,7 @@ export const FourthStep: FC = (): JSX.Element => {
         <TextArea
           className={'resize-none'}
           isRequired={false}
-          label="Comentariu"
+          label={t('common:comment')}
           onChange={(event) => setValue('comment', event.target.value)}
           value={getValues('comment')}
         />

@@ -29,16 +29,17 @@ const Item: FC<ItemProps> = ({
 
 export const FifthStep: FC = (): JSX.Element => {
   const { getValues, register } = useFormContext();
-  const { lang } = useTranslation();
+  const { lang, t } = useTranslation();
   return (
     <>
-      <div className="text-xl text-center my-3">
-        Verificati datele inainte de a le trimite
+      <div className="text-base font-semibold text-center my-3 max-w-[450px] mx-auto text-atoll">
+        <div>{t('common:title_check_data_1')}</div>
+        <div>{t('common:title_check_data_2')}</div>
       </div>
 
       <div className="flex flex-col divide-y">
         <Item
-          title={'Serviciul selectat'}
+          title={t('common:selected_service')}
           value={getValues('service')?.name[lang]}
           isFirst
         />
@@ -46,36 +47,39 @@ export const FifthStep: FC = (): JSX.Element => {
         {getValues('service')?.isServiceForLanguage && (
           <>
             <Item
-              title={'Din ce limba traducem'}
+              title={t('common:source_language')}
               value={getValues('source_language')?.name}
             />
 
             <Item
-              title={'In ce limba traducem'}
+              title={t('common:target_language')}
               value={getValues('target_language')?.name}
             />
 
-            <Item title={'Termen livrare'} value={String(getValues('date'))} />
+            <Item
+              title={t('common:delivery_time')}
+              value={String(getValues('date'))}
+            />
           </>
         )}
 
         {getValues('service')?.isServiceWithCountryApostilleRequested && (
           <Item
-            title={'Tara'}
+            title={t('common:country_apostille_requested')}
             value={getValues('country_apostille_requested')}
           />
         )}
 
         {getValues('service')?.isServiceWithDeliveryTime && (
           <Item
-            title={'Termen livrare'}
+            title={t('common:delivery_time')}
             value={getValues('delivery_time')?.name[lang]}
           />
         )}
 
         {!getValues('service')?.isServiceWithoutFiles && (
           <Item
-            title={'Fisierele adaugate'}
+            title={t('common:added_files')}
             value={
               getValues('files') && (
                 <ul className="list-disc pl-5">
@@ -90,11 +94,11 @@ export const FifthStep: FC = (): JSX.Element => {
           />
         )}
 
-        <Item title={'Nume / Prenume'} value={getValues('name')} />
-        <Item title={'E-mail'} value={getValues('email')} />
-        <Item title={'Phone'} value={getValues('phone')} />
+        <Item title={t('common:name_surname')} value={getValues('name')} />
+        <Item title="E-mail" value={getValues('email')} />
+        <Item title={t('common:phone')} value={getValues('phone')} />
         {getValues('comment') && (
-          <Item title={'Comentariu'} value={getValues('comment')} />
+          <Item title={t('common:comment')} value={getValues('comment')} />
         )}
       </div>
 
@@ -109,7 +113,7 @@ export const FifthStep: FC = (): JSX.Element => {
           {...register('accepted')}
         />
         <Label isRequired={false} htmlFor="accepted">
-          Sunt deacord cu preclurarea datelor cu caracter personal
+          {t('common:agree_with_processing_personal_data')}
         </Label>
       </div>
     </>

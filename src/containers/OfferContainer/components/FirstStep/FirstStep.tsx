@@ -1,5 +1,4 @@
 import React, { FC, useContext, useEffect } from 'react';
-import useSWR from 'swr';
 import { useFormContext } from 'react-hook-form';
 
 import { Label } from 'UI';
@@ -8,8 +7,8 @@ import { FORM_SERVICES } from '../../../../utils';
 import useTranslation from 'next-translate/useTranslation';
 
 export const FirstStep: FC = (): JSX.Element => {
-  const { lang } = useTranslation();
-  const { getValues, setValue, watch, resetField } = useFormContext();
+  const { lang, t } = useTranslation();
+  const { getValues, setValue, watch } = useFormContext();
   const { setCompletedSteps } = useContext(OfferContext);
 
   const selectedService = watch('service');
@@ -22,7 +21,7 @@ export const FirstStep: FC = (): JSX.Element => {
 
   return (
     <>
-      <Label>Selectează serviciul dorit</Label>
+      <Label>{t('common:select_desired_service')}</Label>
 
       <div className="flex flex-wrap gap-4">
         {FORM_SERVICES?.map((item: any) => (

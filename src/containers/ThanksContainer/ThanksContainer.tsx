@@ -8,7 +8,7 @@ import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import callImage from '../../assets/images/woman/4.png';
-import { Button } from 'UI';
+import { Link } from 'next-translate-routes';
 
 export const ThanksContainer: FC = (): JSX.Element => {
   const { t, lang } = useTranslation();
@@ -41,15 +41,30 @@ export const ThanksContainer: FC = (): JSX.Element => {
               <Col>
                 <div className="h-full flex flex-col justify-center md:items-start items-center md:mt-0 mt-5 md:text-left text-center md:px-0 sm:px-10">
                   <h1 className="font-noto-serif lg:text-4xl md:text-3xl text-2xl mb-10 leading-tight text-downriver dark:text-white">
-                    Felicitări! Comanda ta a fost plasată cu succes!
+                    {t('common:thanks_title')}
                   </h1>
 
                   <p className="text-lg text-gray-500 mb-10">
-                    În cel mai scurt timp vei fi contactat de unul din managerii
-                    noștri pentru a confirma comanda.
+                    {t('common:thanks_subtitle')}
                   </p>
 
-                  <Button>Pagina principala</Button>
+                  <Link href={{ pathname: '/' }}>
+                    <a
+                      className="
+                        bg-cardinal
+                        text-white
+                        font-semibold
+                        text-center
+                        max-w-max
+                        uppercase
+                        rounded-full transition-all
+                        py-4 px-8
+                        shadow-2xl hover:bg-jelly-bean
+                      "
+                    >
+                      {t('common:home_page')}
+                    </a>
+                  </Link>
                 </div>
               </Col>
             </Row>

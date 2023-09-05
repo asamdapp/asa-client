@@ -12,7 +12,7 @@ import useSWR from 'swr';
 import { DELIVERY_TIME } from 'utils';
 
 export const SecondStep: FC = (): JSX.Element => {
-  const { lang } = useTranslation();
+  const { lang, t } = useTranslation();
   const { data: languages } = useSWR('languages');
 
   const { getValues, setValue, watch, register } = useFormContext();
@@ -41,7 +41,7 @@ export const SecondStep: FC = (): JSX.Element => {
       {!getValues('service')?.isServiceWithDeliveryTime && (
         <div className="sm:w-1/2">
           <Label isRequired className="mb-2">
-            Termen livrare
+            {t('common:delivery_time')}
           </Label>
 
           <Calendar
@@ -67,7 +67,7 @@ export const SecondStep: FC = (): JSX.Element => {
           <>
             <div>
               <Label isRequired className="mb-2">
-                Din ce limba traducem?
+                {t('common:source_language')}?
               </Label>
 
               <Select
@@ -83,7 +83,7 @@ export const SecondStep: FC = (): JSX.Element => {
 
             <div>
               <Label isRequired className="mb-2">
-                In ce limba traducem?
+                {t('common:target_language')}?
               </Label>
 
               <Select
@@ -105,7 +105,7 @@ export const SecondStep: FC = (): JSX.Element => {
         {getValues('service')?.isServiceWithDeliveryTime && (
           <div>
             <Label isRequired className="mb-2">
-              Termen livrare
+              {t('common:delivery_time')}
             </Label>
 
             <Select
@@ -121,7 +121,7 @@ export const SecondStep: FC = (): JSX.Element => {
         {getValues('service')?.isServiceWithCountryApostilleRequested && (
           <Input
             isRequired
-            label="Țara (pentru care se solicită apostila)"
+            label={t('common:country_apostille_requested')}
             {...register('country_apostille_requested')}
           />
         )}
