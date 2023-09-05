@@ -17,7 +17,7 @@ export const OfferContainer: FC = (): JSX.Element => {
           <CustomContainer>
             <Row>
               <Col xl={8}>
-                <MainTitle>Formular comandă</MainTitle>
+                <MainTitle>{t('common:form_page_title')}</MainTitle>
                 <p className="relative text-white/60 md:text-xl text-base font-light mt-5 !leading-loose">
                   {t('common:discount_info_text')}
                 </p>

@@ -6,7 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
-    localeDetection: true,
+    localeDetection: false,
   },
   images: {
     domains: ['cdn.sanity.io', 'asa.md'],

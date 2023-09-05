@@ -5,8 +5,10 @@ import { useFormContext } from 'react-hook-form';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { isValidEmail } from 'utils';
+import useTranslation from 'next-translate/useTranslation';
 
 export const FourthStep: FC = (): JSX.Element => {
+  const { t } = useTranslation();
   const { getValues, setValue, register, watch } = useFormContext();
   const email = watch('email');
 
@@ -23,7 +25,7 @@ export const FourthStep: FC = (): JSX.Element => {
 
         <div>
           <Label isRequired className="mb-2">
-            Telefon de contact
+            {t('common:phone')}
           </Label>
           <PhoneInput
             country="md"

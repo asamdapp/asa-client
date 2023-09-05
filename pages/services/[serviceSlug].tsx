@@ -3,8 +3,12 @@ import { SWRConfig } from 'swr';
 
 import { ServiceContainer } from 'containers';
 import {
+  getAdvantages,
+  getFeedbacks,
+  getGuarantees,
   getHowGetTranslation,
   getLanguages,
+  getPartners,
   getServiceBySlug,
   getServices,
 } from 'services';
@@ -22,18 +26,26 @@ export async function getServerSideProps({
   locale,
   query: { serviceSlug },
 }: any) {
-  const services = await getServices(locale);
   const service = await getServiceBySlug(serviceSlug);
+  const services = await getServices(locale);
   const languages = await getLanguages(locale);
   const howGetTranslation = await getHowGetTranslation(locale);
+  const advantages = await getAdvantages(locale);
+  const guarantees = await getGuarantees(locale);
+  const partners = await getPartners();
+  const feedbacks = await getFeedbacks();
 
   return {
     props: {
       fallback: {
-        ['services']: services,
         ['service']: service,
+        ['services']: services,
         ['languages']: languages,
         ['how-get-translation']: howGetTranslation,
+        ['advantages']: advantages,
+        ['guarantees']: guarantees,
+        ['partners']: partners,
+        ['feedbacks']: feedbacks,
       },
     },
   };

@@ -21,7 +21,7 @@ import emailImage from 'assets/images/icons/email-only-gray.svg';
 
 export const Footer: FC = (): JSX.Element => {
   const { locale } = useRouter();
-  const { lang } = useTranslation();
+  const { lang, t } = useTranslation();
 
   const { data: services } = useSWR('services');
 
@@ -44,10 +44,12 @@ export const Footer: FC = (): JSX.Element => {
                     <div className="flex flex-col gap-5 px-3">
                       <div className="flex flex-col">
                         <div className="text-sm font-semibold text-white/80 mb-1">
-                          Adresa:
+                          {t('common:address')}:
                         </div>
 
                         <a
+                          target="_blank"
+                          rel="noreferrer"
                           href={CONTACTS?.chisinau?.map?.routes?.googleMaps}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
@@ -65,10 +67,12 @@ export const Footer: FC = (): JSX.Element => {
 
                       <div className="flex flex-col">
                         <div className="text-sm font-semibold text-white/80 mb-1">
-                          Telefon:
+                          {t('common:phone')}:
                         </div>
 
                         <a
+                          target="_blank"
+                          rel="noreferrer"
                           href={`tel:${CONTACTS?.chisinau?.phone?.value}`}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
@@ -84,6 +88,8 @@ export const Footer: FC = (): JSX.Element => {
                         {CONTACTS?.chisinau?.additionalPhone && (
                           <div className="flex items-center gap-5">
                             <a
+                              target="_blank"
+                              rel="noreferrer"
                               href={`tel:${CONTACTS?.chisinau?.additionalPhone?.value}`}
                               className="flex gap-2 text-white/50 text-sm transition hover:text-cardinal"
                             >
@@ -102,6 +108,8 @@ export const Footer: FC = (): JSX.Element => {
                               ?.messengers && (
                               <div className="flex gap-2">
                                 <a
+                                  target="_blank"
+                                  rel="noreferrer"
                                   href={
                                     CONTACTS?.chisinau?.additionalPhone
                                       .messengers?.whatsapp
@@ -118,6 +126,8 @@ export const Footer: FC = (): JSX.Element => {
                                 </a>
 
                                 <a
+                                  target="_blank"
+                                  rel="noreferrer"
                                   href={
                                     CONTACTS?.chisinau?.additionalPhone
                                       ?.messengers?.viber
@@ -134,6 +144,8 @@ export const Footer: FC = (): JSX.Element => {
                                 </a>
 
                                 <a
+                                  target="_blank"
+                                  rel="noreferrer"
                                   href={
                                     CONTACTS?.chisinau?.additionalPhone
                                       ?.messengers?.telegram
@@ -159,6 +171,8 @@ export const Footer: FC = (): JSX.Element => {
                           E-mail:
                         </div>
                         <a
+                          target="_blank"
+                          rel="noreferrer"
                           href={`mailto:${CONTACTS?.chisinau?.map?.email}`}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
@@ -204,10 +218,12 @@ export const Footer: FC = (): JSX.Element => {
                     <div className="flex flex-col gap-5 px-3">
                       <div className="flex flex-col">
                         <div className="text-sm font-semibold text-white/80 mb-1">
-                          Adresa:
+                          {t('common:address')}:
                         </div>
 
                         <a
+                          target="_blank"
+                          rel="noreferrer"
                           href={CONTACTS?.ialoveni?.map?.routes?.googleMaps}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
@@ -225,10 +241,12 @@ export const Footer: FC = (): JSX.Element => {
 
                       <div className="flex flex-col">
                         <div className="text-sm font-semibold text-white/80 mb-1">
-                          Telefon:
+                          {t('common:phone')}:
                         </div>
 
                         <a
+                          target="_blank"
+                          rel="noreferrer"
                           href={`tel:${CONTACTS?.ialoveni?.phone?.value}`}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
@@ -244,6 +262,8 @@ export const Footer: FC = (): JSX.Element => {
                         {CONTACTS?.ialoveni?.additionalPhone && (
                           <div className="flex gap-5">
                             <a
+                              target="_blank"
+                              rel="noreferrer"
                               href={`tel:${CONTACTS?.ialoveni?.additionalPhone?.value}`}
                               className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                             >
@@ -262,6 +282,8 @@ export const Footer: FC = (): JSX.Element => {
                               ?.messengers && (
                               <div className="flex gap-2 justify-center">
                                 <a
+                                  target="_blank"
+                                  rel="noreferrer"
                                   href={
                                     CONTACTS?.ialoveni?.additionalPhone
                                       .messengers?.whatsapp
@@ -278,6 +300,8 @@ export const Footer: FC = (): JSX.Element => {
                                 </a>
 
                                 <a
+                                  target="_blank"
+                                  rel="noreferrer"
                                   href={
                                     CONTACTS?.ialoveni?.additionalPhone
                                       ?.messengers?.viber
@@ -294,6 +318,8 @@ export const Footer: FC = (): JSX.Element => {
                                 </a>
 
                                 <a
+                                  target="_blank"
+                                  rel="noreferrer"
                                   href={
                                     CONTACTS?.ialoveni?.additionalPhone
                                       ?.messengers?.telegram
@@ -319,6 +345,8 @@ export const Footer: FC = (): JSX.Element => {
                           E-mail:
                         </div>
                         <a
+                          target="_blank"
+                          rel="noreferrer"
                           href={`mailto:${CONTACTS?.ialoveni?.map?.email}`}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
@@ -471,8 +499,9 @@ export const Footer: FC = (): JSX.Element => {
                 </div>
 
                 <div className="text-sm text-center">
-                  Copyright © Agenția Servicii Autorizate. Toate drepturile
-                  rezervate.
+                  {`Copyright © ${t('common:agency_authorized_services')}. ${t(
+                    'common:all_rights_reserved'
+                  )}.`}
                 </div>
 
                 <div className="md:block hidden">

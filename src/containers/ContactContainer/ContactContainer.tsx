@@ -95,7 +95,7 @@ export const ContactContainer: FC = (): JSX.Element => {
                   <div className="flex sm:gap-x-20 gap-5 flex-wrap mb-5 pt-5 -top-0.5 border-t-2 relative">
                     <div className="flex flex-col">
                       <div className="font-semibold text-downriver mb-1">
-                        Adresa:
+                        {t('common:address')}:
                       </div>
 
                       <div className="flex gap-2 text-gray-500">
@@ -112,7 +112,7 @@ export const ContactContainer: FC = (): JSX.Element => {
 
                     <div className="flex flex-col">
                       <div className="font-semibold text-downriver mb-1">
-                        Program de lucru:
+                        {t('common:working_hours')}:
                       </div>
 
                       {CONTACTS[activeCity]?.map['timetable_' + lang]?.map(
@@ -131,7 +131,7 @@ export const ContactContainer: FC = (): JSX.Element => {
 
                     <div className="flex flex-col">
                       <div className="font-semibold text-downriver mb-1">
-                        Telefon:
+                        {t('common:phone')}:
                       </div>
 
                       <a
