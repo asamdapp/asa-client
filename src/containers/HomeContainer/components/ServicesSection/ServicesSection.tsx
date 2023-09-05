@@ -10,9 +10,11 @@ import { urlFor } from 'utils';
 import Trans from 'next-translate/Trans';
 import clsx from 'clsx';
 import { Button } from 'UI';
+import useTranslation from 'next-translate/useTranslation';
 
 export const ServicesSection: FC = (): JSX.Element => {
   const { locale } = useRouter();
+  const { t } = useTranslation();
   const { data } = useSWR('services');
 
   const [more, setMore] = useState(false);
@@ -75,7 +77,7 @@ export const ServicesSection: FC = (): JSX.Element => {
                 className="my-1 !mx-auto"
                 onClick={() => setMore(true)}
               >
-                Vezi toate serviciile
+                {t('common:see_all_services')}
               </Button>
             </div>
           )}

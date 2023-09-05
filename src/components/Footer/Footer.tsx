@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { IconMinus } from '@tabler/icons';
 
 import { CustomContainer, LanguageSwitcher, Logo, Section } from 'components';
-import { CONTACTS } from 'utils';
+import { CONTACTS, SOCIAL_MEDIA } from 'utils';
 
 import whatsappIcon from 'assets/images/icons/whatsapp.svg';
 import viberIcon from 'assets/images/icons/viber.svg';
@@ -51,6 +51,7 @@ export const Footer: FC = (): JSX.Element => {
                           href={CONTACTS?.chisinau?.map?.routes?.googleMaps}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={mapMarkerImage.src}
                             alt=""
@@ -71,6 +72,7 @@ export const Footer: FC = (): JSX.Element => {
                           href={`tel:${CONTACTS?.chisinau?.phone?.value}`}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={phoneImage.src}
                             alt=""
@@ -85,6 +87,7 @@ export const Footer: FC = (): JSX.Element => {
                               href={`tel:${CONTACTS?.chisinau?.additionalPhone?.value}`}
                               className="flex gap-2 text-white/50 text-sm transition hover:text-cardinal"
                             >
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img
                                 src={phoneImage.src}
                                 alt=""
@@ -159,6 +162,7 @@ export const Footer: FC = (): JSX.Element => {
                           href={`mailto:${CONTACTS?.chisinau?.map?.email}`}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={emailImage.src}
                             alt=""
@@ -169,6 +173,30 @@ export const Footer: FC = (): JSX.Element => {
                       </div>
                     </div>
                   </div>
+
+                  <div className="sm:w-[32px] flex-none flex sm:flex-col items-center sm:justify-start justify-center gap-4">
+                    <div className="sm:h-full sm:w-px w-full h-px bg-white/10" />
+
+                    {SOCIAL_MEDIA?.map((item: any) => (
+                      <a
+                        key={item.name}
+                        target="_blank"
+                        rel="noreferrer"
+                        href={item.link}
+                        className="flex-none transition hover:scale-110"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={item.logo.src}
+                          alt={item.name}
+                          className="max-h-[28px] w-[32px]"
+                        />
+                      </a>
+                    ))}
+
+                    <div className="sm:h-full sm:w-px w-full h-px bg-white/10" />
+                  </div>
+
                   <div className="sm:w-1/2 w-full pb-3 border rounded-xl border-white/10">
                     <div className="bg-white/10 rounded-t-xl p-1 text-center mb-4">
                       {CONTACTS?.ialoveni?.map['city_' + lang]}
@@ -183,6 +211,7 @@ export const Footer: FC = (): JSX.Element => {
                           href={CONTACTS?.ialoveni?.map?.routes?.googleMaps}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={mapMarkerImage.src}
                             alt=""
@@ -203,6 +232,7 @@ export const Footer: FC = (): JSX.Element => {
                           href={`tel:${CONTACTS?.ialoveni?.phone?.value}`}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={phoneImage.src}
                             alt=""
@@ -217,6 +247,7 @@ export const Footer: FC = (): JSX.Element => {
                               href={`tel:${CONTACTS?.ialoveni?.additionalPhone?.value}`}
                               className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                             >
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img
                                 src={phoneImage.src}
                                 alt=""
@@ -291,6 +322,7 @@ export const Footer: FC = (): JSX.Element => {
                           href={`mailto:${CONTACTS?.ialoveni?.map?.email}`}
                           className="flex gap-2 text-white/50  text-sm transition hover:text-cardinal"
                         >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={emailImage.src}
                             alt=""
@@ -339,8 +371,7 @@ export const Footer: FC = (): JSX.Element => {
             <Col width={'auto'} lg={2.25}>
               <div>
                 <div className="font-semibold text-base mb-2">
-                  Află mai multe:
-                  {/*<Trans i18nKey="common:about" />*/}
+                  <Trans i18nKey="common:more_info" />
                 </div>
 
                 <ul>

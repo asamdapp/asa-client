@@ -28,11 +28,13 @@ import Trans from 'next-translate/Trans';
 import { Link, useRouter } from 'next-translate-routes';
 import useSWR from 'swr';
 import { CONTACTS } from 'utils';
+import useTranslation from 'next-translate/useTranslation';
 
 const Drawer = dynamic(() => import('react-modern-drawer'), { ssr: false });
 
 export const Navigation: FC = (): JSX.Element => {
   const { locale } = useRouter();
+  const { t } = useTranslation();
   const { data: services } = useSWR('services');
 
   const [open, setOpen] = React.useState(false);
@@ -120,14 +122,6 @@ export const Navigation: FC = (): JSX.Element => {
                             alt="Telegram logo"
                           />
                         </div>
-                        <div className="slide4">
-                          <Image
-                            src={phoneIcon.src}
-                            width={40}
-                            height={40}
-                            alt="Telegram logo"
-                          />
-                        </div>
                       </div>
                       <span className="flex-none">
                         {CONTACTS.chisinau.additionalPhone.toShow}
@@ -198,14 +192,6 @@ export const Navigation: FC = (): JSX.Element => {
                       alt="Telegram logo"
                     />
                   </div>
-                  <div className="slide4">
-                    <Image
-                      src={phoneIcon.src}
-                      width={40}
-                      height={40}
-                      alt="Telegram logo"
-                    />
-                  </div>
                 </div>
                 <span className="flex-none">
                   {CONTACTS.chisinau.additionalPhone.toShow}
@@ -222,8 +208,8 @@ export const Navigation: FC = (): JSX.Element => {
         center
         classNames={{ modal: 'rounded-xl' }}
       >
-        <h2 className="text-downriver font-noto-serif md:text-2xl text-xl mb-5  leading-tight max-w-sm pr-10">
-          Contacteaza-ne:
+        <h2 className="text-downriver font-noto-serif md:text-2xl text-xl mb-5 leading-tight max-w-sm pr-10">
+          {t('common:contact_us')}
         </h2>
 
         <div className="flex flex-col gap-2">

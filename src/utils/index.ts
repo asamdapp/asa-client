@@ -1,6 +1,12 @@
 import { createClient } from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
 
+import youtubeLogo from 'assets/images/icons/youtube.svg';
+import instagramLogo from 'assets/images/icons/instagram.svg';
+import facebookLogo from 'assets/images/icons/facebook.svg';
+import tiktokLogo from 'assets/images/icons/tiktok.svg';
+import googleMapsLogo from 'assets/images/icons/google-maps.svg';
+
 export const sanityClient = createClient({
   projectId: '84ktv72i',
   dataset: 'production',
@@ -151,6 +157,34 @@ export const CONTACTS = {
     },
   },
 } as any;
+
+export const SOCIAL_MEDIA = [
+  {
+    name: 'Instagram',
+    link: 'https://www.instagram.com/asa.moldova/',
+    logo: instagramLogo,
+  },
+  {
+    name: 'TikTok',
+    link: 'https://www.tiktok.com/@asa.md',
+    logo: tiktokLogo,
+  },
+  {
+    name: 'Facebook',
+    link: 'https://www.facebook.com/serviciiautorizate.md/',
+    logo: facebookLogo,
+  },
+  {
+    name: 'YouTube',
+    link: 'https://www.youtube.com/@agentiaserviciiautorizate9951',
+    logo: youtubeLogo,
+  },
+  {
+    name: 'Google Maps',
+    link: 'https://goo.gl/maps/8rsUWA3VS9muKf4B8',
+    logo: googleMapsLogo,
+  },
+] as any;
 
 export const PREFIX_TITLE = 'ASA.md - ';
 
