@@ -4,5 +4,4 @@ export { ThirdStep } from './ThirdStep/ThirdStep';
 export { FourthStep } from './FourthStep/FourthStep';
 export { FifthStep } from './FifthStep/FifthStep';
 export { FormNavigation } from './FormNavigation/FormNavigation';
-export { FormStepper } from './FormStepper/FormStepper';
 export { InfoStepper } from './InfoStepper/InfoStepper';

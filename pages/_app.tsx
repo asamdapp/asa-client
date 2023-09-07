@@ -39,6 +39,17 @@ const App = ({ Component, pageProps }: AppProps) => {
           images: [
             {
               url: `https://www.asa.md/open-graph-${locale}.jpg`,
+              width: 1200,
+              height: 630,
+              alt: 'Og Image Alt 630',
+              type: 'image/jpg',
+            },
+            {
+              url: `https://www.asa.md/open-graph-${locale}-square.jpg`,
+              width: 1200,
+              height: 1200,
+              alt: 'Og Image Alt',
+              type: 'image/jpg',
             },
           ],
         }}

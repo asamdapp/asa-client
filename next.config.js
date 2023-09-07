@@ -2,6 +2,11 @@
 const nextTranslate = require('next-translate');
 const withTranslateRoutes = require('next-translate-routes/plugin');
 
+/*const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+module.exports = withBundleAnalyzer({});*/
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,

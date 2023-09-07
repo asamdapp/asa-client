@@ -1,14 +1,19 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
+
 import { Col, Row } from 'react-grid-system';
 import useTranslation from 'next-translate/useTranslation';
 
 import { MainLayout } from 'layouts';
 import { CustomContainer, MainTitle, Section } from 'components';
 import { OfferProvider } from 'context';
+import { PREFIX_TITLE } from 'utils';
 
-import { FormStepper } from './components';
-import { PREFIX_TITLE } from '../../utils';
+const FormStepper = dynamic(
+  () => import('./components/FormStepper/FormStepper'),
+  { ssr: false }
+);
 
 export const OfferContainer: FC = (): JSX.Element => {
   const { t } = useTranslation();
