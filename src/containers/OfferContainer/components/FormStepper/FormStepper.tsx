@@ -17,8 +17,10 @@ import {
   ThirdStep,
 } from '..';
 import { useRouter } from 'next-translate-routes';
+import useTranslation from 'next-translate/useTranslation';
 
 export const FormStepper: FC = (): JSX.Element => {
+  const { t } = useTranslation();
   const { step, totalSteps } = useContext(OfferContext);
   const formMethods = useForm();
 
@@ -28,7 +30,7 @@ export const FormStepper: FC = (): JSX.Element => {
 
   const onSubmit = (data: any) => {
     const notify = () =>
-      toast('A aparut o eroare. Mai incercati inca odata.', {
+      toast(<>{t('common:server_error')}</>, {
         type: 'error',
       });
     if (step === totalSteps) {
@@ -76,8 +78,8 @@ export const FormStepper: FC = (): JSX.Element => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
-          setIsLoading(false);
-          return response.json(); // Parse the response as JSON if applicable
+          // setIsLoading(false);
+          return response.json();
         })
         .then((data) => {
           // Handle the response data here
@@ -91,7 +93,7 @@ export const FormStepper: FC = (): JSX.Element => {
           // Handle errors here
           setIsLoading(false);
           notify();
-          console.error('There was a problem with the fetch operation:', error);
+          console.error(error);
         });
     }
   };
@@ -101,8 +103,32 @@ export const FormStepper: FC = (): JSX.Element => {
       <ToastContainer />
 
       {isLoading && (
-        <div className="fixed top-0 left-0 bottom-0 right-0 z-[999999] flex items-center justify-center bg-black/20 backdrop-blur-md h-screen w-screen text-lg text-white font-bold">
-          Loading...
+        <div className="flex flex-col gap-3 p-5 fixed top-0 left-0 bottom-0 right-0 z-[999999] flex items-center justify-center bg-firefly/50 backdrop-blur-md">
+          <svg stroke="#fff" viewBox="0 0 38 38" className="h-12 w-12">
+            <g
+              fill="none"
+              fillRule="evenodd"
+              strokeWidth="2"
+              transform="translate(1 1)"
+            >
+              <circle cx="18" cy="18" r="18" strokeOpacity=".5" />
+              <path d="M36 18C36 8 28 0 18 0">
+                <animateTransform
+                  attributeName="transform"
+                  dur="1s"
+                  from="0 18 18"
+                  repeatCount="indefinite"
+                  to="360 18 18"
+                  type="rotate"
+                />
+              </path>
+            </g>
+          </svg>
+
+          <div className="text-center text-white font-semibold ">
+            <p>{t('common:loading_message_1')}</p>
+            <p>{t('common:loading_message_2')}</p>
+          </div>
         </div>
       )}
 
