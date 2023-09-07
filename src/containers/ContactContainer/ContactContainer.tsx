@@ -134,6 +134,7 @@ export const ContactContainer: FC = (): JSX.Element => {
                       {CONTACTS[activeCity]?.map['timetable_' + lang]?.map(
                         (item: string, index: number) => (
                           <div className="flex gap-2 text-gray-500" key={index}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                               src={timeImage.src}
                               alt=""
@@ -154,6 +155,7 @@ export const ContactContainer: FC = (): JSX.Element => {
                         href={`tel:${CONTACTS[activeCity]?.phone?.value}`}
                         className="flex gap-2 text-gray-500 transition hover:text-cardinal"
                       >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={phoneImage.src}
                           alt=""
@@ -168,6 +170,7 @@ export const ContactContainer: FC = (): JSX.Element => {
                             href={`tel:${CONTACTS[activeCity]?.additionalPhone?.value}`}
                             className="flex gap-2 text-gray-500 transition hover:text-cardinal"
                           >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                               src={phoneImage.src}
                               alt=""

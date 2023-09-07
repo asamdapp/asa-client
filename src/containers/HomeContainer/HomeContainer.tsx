@@ -96,6 +96,7 @@ export const HomeContainer: FC = (): JSX.Element => {
                     objectPosition="bottom"
                     placeholder="blur"
                     blurDataURL={heroImage.blurDataURL}
+                    priority={false}
                     className="bg-no-repeat"
                   />
                 </div>
