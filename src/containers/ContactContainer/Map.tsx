@@ -1,19 +1,18 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import { LatLngExpression } from 'leaflet';
-
+import useTranslation from 'next-translate/useTranslation';
 import { IconArrowGuide } from '@tabler/icons';
+
 import googleMapsImage from 'assets/images/navigator/google-maps.png';
 import mapMdImage from 'assets/images/navigator/mapmd.png';
 import wazeImage from 'assets/images/navigator/waze.png';
 import yandexImage from 'assets/images/navigator/yandex.png';
-import useTranslation from 'next-translate/useTranslation';
 
 interface IProps {}
 
-const Map: FC<IProps> = ({position, routes}: any): JSX.Element => {
+const Map: FC<IProps> = ({ position, routes }: any): JSX.Element => {
   const { t } = useTranslation();
-
 
   const [positionState, setPosition] = useState<LatLngExpression>(position);
   const mapRef = useRef<any>();
@@ -50,19 +49,39 @@ const Map: FC<IProps> = ({position, routes}: any): JSX.Element => {
         </div>
 
         <div className="flex items-center justify-center gap-7 flex-wrap">
-          <a target="_blank" rel="noreferrer" href={routes?.googleMaps} className="flex-none transition hover:scale-110">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={routes?.googleMaps}
+            className="flex-none transition hover:scale-105"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={googleMapsImage.src} alt="Google Maps" className="h-6" />
           </a>
-          <a target="_blank" rel="noreferrer" href={routes?.mapMd} className="flex-none transition hover:scale-110">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={routes?.mapMd}
+            className="flex-none transition hover:scale-105"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={mapMdImage.src} alt="Map.md" className="h-6" />
           </a>
-          <a target="_blank" rel="noreferrer" href={routes?.waze} className="flex-none transition hover:scale-110">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={routes?.waze}
+            className="flex-none transition hover:scale-105"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={wazeImage.src} alt="Waze" className="h-6" />
           </a>
-          <a target="_blank" rel="noreferrer" href={routes?.yandex} className="flex-none transition hover:scale-110">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={routes?.yandex}
+            className="flex-none transition hover:scale-105"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={yandexImage.src} alt="Yandex Navi" className="h-6" />
           </a>

@@ -40,11 +40,6 @@ export default function Document() {
         />
         <meta name="msapplication-TileColor" content="#2b5797" />
         <meta name="theme-color" content="#ffffff" />
-        <script
-          defer
-          async
-          src={'https://frecautan.github.io/made-with-love/min.js'}
-        />
 
         <script
           async
@@ -62,6 +57,12 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+
+        <script
+          defer
+          async
+          src={'https://frecautan.github.io/made-with-love/min.js'}
+        />
 
         <noscript>
           <iframe

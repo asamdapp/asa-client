@@ -1,22 +1,24 @@
 import React, { FC, useState } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
+import dynamic from 'next/dynamic';
 import { Col, Row } from 'react-grid-system';
+import { NextSeo } from 'next-seo';
 
 import { MainLayout } from 'layouts';
 import { CustomContainer, MainTitle, Section } from 'components';
 import { CONTACTS, PREFIX_TITLE } from 'utils';
-import Head from 'next/head';
-import useTranslation from 'next-translate/useTranslation';
-import dynamic from 'next/dynamic';
 import { Button } from 'UI';
 import { IconCheck } from '@tabler/icons';
-import Image from 'next/image';
-import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
-import viberIcon from '../../assets/images/icons/viber.svg';
-import telegramIcon from '../../assets/images/icons/telegram.svg';
-import mapMarkerImage from '../../assets/images/icons/map-marker.svg';
-import timeImage from '../../assets/images/icons/time.svg';
-import phoneImage from '../../assets/images/icons/phone.svg';
-import emailImage from '../../assets/images/icons/email.svg';
+
+import whatsappIcon from 'assets/images/icons/whatsapp.svg';
+import viberIcon from 'assets/images/icons/viber.svg';
+import telegramIcon from 'assets/images/icons/telegram.svg';
+import mapMarkerImage from 'assets/images/icons/map-marker.svg';
+import timeImage from 'assets/images/icons/time.svg';
+import phoneImage from 'assets/images/icons/phone.svg';
+import emailImage from 'assets/images/icons/email.svg';
 
 const Map = dynamic(() => import('./Map'), { ssr: false });
 
@@ -29,8 +31,22 @@ export const ContactContainer: FC = (): JSX.Element => {
 
   return (
     <>
+      <NextSeo
+        title={PREFIX_TITLE + t('common:contacts')}
+        description={
+          t('common:contacts_subtitle1') + ' ' + t('common:contacts_subtitle2')
+        }
+      />
+
       <Head>
         <title>{PREFIX_TITLE + t('common:contacts')}</title>
+
+        <link
+          rel="stylesheet"
+          href={'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'}
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossOrigin=""
+        />
       </Head>
 
       <MainLayout>

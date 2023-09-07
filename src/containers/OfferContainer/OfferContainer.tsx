@@ -9,6 +9,7 @@ import { MainLayout } from 'layouts';
 import { CustomContainer, MainTitle, Section } from 'components';
 import { OfferProvider } from 'context';
 import { PREFIX_TITLE } from 'utils';
+import { NextSeo } from 'next-seo';
 
 const FormStepper = dynamic(
   () => import('./components/FormStepper/FormStepper'),
@@ -20,6 +21,8 @@ export const OfferContainer: FC = (): JSX.Element => {
 
   return (
     <>
+      <NextSeo title={PREFIX_TITLE + t('common:form_page_title')} />
+
       <Head>
         <title>{PREFIX_TITLE + t('common:form_page_title')}</title>
       </Head>

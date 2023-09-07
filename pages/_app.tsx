@@ -36,19 +36,21 @@ const App = ({ Component, pageProps }: AppProps) => {
           locale,
           url: `https://www.asa.md/${locale}`,
           siteName: 'ASA.md',
+          description:
+            locale === 'ru'
+              ? 'Услуги профессионального перевода более чем на 28 языков мира с абсолютно бесплатными консультациями. Закажите сейчас и получите СКИДКУ 10% на онлайн-заказы, независимо от суммы транзакции.'
+              : 'Servicii profesionale de traducere în peste 28 limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.',
           images: [
             {
               url: `https://www.asa.md/open-graph-${locale}.jpg`,
               width: 1200,
               height: 630,
-              alt: 'Og Image Alt 630',
               type: 'image/jpg',
             },
             {
               url: `https://www.asa.md/open-graph-${locale}-square.jpg`,
               width: 1200,
               height: 1200,
-              alt: 'Og Image Alt',
               type: 'image/jpg',
             },
           ],
@@ -59,6 +61,15 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+
+        <meta
+          name="keywords"
+          content={
+            locale === 'ru'
+              ? 'ASA, Агенство Авторизированных услуг, Бюро авторизированных переводов, Легализированные Переводы, Апостиль, Устный перевод, Онлайн переводы, Доставка, Переводы тестов Covid 19, ASA.md'
+              : 'ASA, Agenția Servicii Autorizate, Birou Traduceri Autorizate, Traduceri Legalizate, Apostila, Interpretariat, Traduceri online, Livrare, Traduceri Test COVID-19, ASA.md'
+          }
         />
       </Head>
 

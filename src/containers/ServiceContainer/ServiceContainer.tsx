@@ -2,6 +2,12 @@ import React, { FC } from 'react';
 import Image from 'next/image';
 import { Col, Row } from 'react-grid-system';
 
+import { PortableText } from '@portabletext/react';
+import Trans from 'next-translate/Trans';
+import Head from 'next/head';
+import { NextSeo } from 'next-seo';
+import useSWR from 'swr';
+
 import { MainLayout } from 'layouts';
 import {
   CustomContainer,
@@ -11,19 +17,15 @@ import {
   Section,
   SectionTitle,
 } from 'components';
-import useSWR from 'swr';
 import { PREFIX_TITLE, urlFor } from 'utils';
-import { PortableText } from '@portabletext/react';
-import Trans from 'next-translate/Trans';
-import Head from 'next/head';
-import useTranslation from 'next-translate/useTranslation';
 
 export const ServiceContainer: FC = (): JSX.Element => {
-  const { lang } = useTranslation();
   const { data } = useSWR('service');
 
   return (
     <>
+      <NextSeo title={PREFIX_TITLE + data?.name} />
+
       <Head>
         <title>{PREFIX_TITLE + data?.name}</title>
       </Head>

@@ -1,7 +1,5 @@
-import React from 'react';
-
 import { ThanksContainer } from 'containers';
-import { getServices } from '../../src/services';
+import { getServices } from 'services';
 
 const Thanks = () => {
   return <ThanksContainer />;

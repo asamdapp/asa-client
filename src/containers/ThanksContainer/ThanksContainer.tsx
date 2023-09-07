@@ -1,20 +1,24 @@
 import React, { FC } from 'react';
+import Head from 'next/head';
+import useTranslation from 'next-translate/useTranslation';
+import Image from 'next/image';
+import { Link } from 'next-translate-routes';
+import { NextSeo } from 'next-seo';
 import { Col, Row } from 'react-grid-system';
 
 import { MainLayout } from 'layouts';
 import { CustomContainer, Section } from 'components';
 import { PREFIX_TITLE } from 'utils';
-import Head from 'next/head';
-import useTranslation from 'next-translate/useTranslation';
-import Image from 'next/image';
-import callImage from '../../assets/images/woman/4.png';
-import { Link } from 'next-translate-routes';
+
+import callImage from 'assets/images/woman/4.png';
 
 export const ThanksContainer: FC = (): JSX.Element => {
-  const { t, lang } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>
+      <NextSeo nofollow noindex />
+
       <Head>
         <title>{PREFIX_TITLE + t('common:thanks_title')}</title>
       </Head>

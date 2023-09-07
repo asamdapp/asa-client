@@ -1,5 +1,10 @@
 import React, { FC } from 'react';
 import { Col, Row } from 'react-grid-system';
+import { PortableText } from '@portabletext/react';
+import Head from 'next/head';
+import useTranslation from 'next-translate/useTranslation';
+import { NextSeo } from 'next-seo';
+import useSWR from 'swr';
 
 import { MainLayout } from 'layouts';
 import {
@@ -9,18 +14,16 @@ import {
   OfferButton,
   Section,
 } from 'components';
-import useSWR from 'swr';
 import { PREFIX_TITLE } from 'utils';
-import { PortableText } from '@portabletext/react';
-import Head from 'next/head';
-import useTranslation from 'next-translate/useTranslation';
 
 export const MissionContainer: FC = (): JSX.Element => {
   const { data } = useSWR('mission');
-  const { t, lang } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>
+      <NextSeo title={PREFIX_TITLE + t('common:company_mission')} />
+
       <Head>
         <title>{PREFIX_TITLE + t('common:company_mission')}</title>
       </Head>

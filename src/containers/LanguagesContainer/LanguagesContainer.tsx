@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
 import { Col, Row } from 'react-grid-system';
+import Head from 'next/head';
+import useTranslation from 'next-translate/useTranslation';
+import useSWR from 'swr';
 
 import { MainLayout } from 'layouts';
 import {
@@ -9,17 +12,17 @@ import {
   OfferButton,
   Section,
 } from 'components';
-import useSWR from 'swr';
 import { PREFIX_TITLE } from 'utils';
-import Head from 'next/head';
-import useTranslation from 'next-translate/useTranslation';
+import { NextSeo } from 'next-seo';
 
 export const LanguagesContainer: FC = (): JSX.Element => {
   const { data: languages } = useSWR('languages');
-  const { t, lang } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>
+      <NextSeo title={PREFIX_TITLE + t('common:languages_of_translation')} />
+
       <Head>
         <title>{PREFIX_TITLE + t('common:languages_of_translation')}</title>
       </Head>

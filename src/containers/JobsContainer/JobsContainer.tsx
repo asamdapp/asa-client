@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
 import { Col, Row } from 'react-grid-system';
-
-import { MainLayout } from 'layouts';
-import { CustomContainer, MainTitle, Section } from 'components';
-import useSWR from 'swr';
-import { PREFIX_TITLE } from 'utils';
 import { PortableText } from '@portabletext/react';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
+import { NextSeo } from 'next-seo';
+import useSWR from 'swr';
+
+import { MainLayout } from 'layouts';
+import { CustomContainer, MainTitle, Section } from 'components';
+import { PREFIX_TITLE } from 'utils';
 
 export const JobsContainer: FC = (): JSX.Element => {
   const { data } = useSWR('jobs');
@@ -15,6 +16,8 @@ export const JobsContainer: FC = (): JSX.Element => {
 
   return (
     <>
+      <NextSeo title={PREFIX_TITLE + t('common:company_jobs')} />
+
       <Head>
         <title>{PREFIX_TITLE + t('common:company_jobs')}</title>
       </Head>

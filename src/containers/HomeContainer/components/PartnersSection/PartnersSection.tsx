@@ -9,7 +9,7 @@ import { urlFor } from 'utils';
 
 interface IProps {}
 
-export const PartnersSection: FC<IProps> = (): JSX.Element => {
+const PartnersSection: FC<IProps> = (): JSX.Element => {
   const { data: partners } = useSWR('partners');
 
   return (
@@ -40,3 +40,5 @@ export const PartnersSection: FC<IProps> = (): JSX.Element => {
     </>
   );
 };
+
+export default PartnersSection;

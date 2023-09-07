@@ -197,7 +197,7 @@ export const Footer: FC = (): JSX.Element => {
                         target="_blank"
                         rel="noreferrer"
                         href={item.link}
-                        className="flex-none transition hover:scale-110"
+                        className="flex-none transition hover:scale-105"
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
