@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { withTranslateRoutes } from 'next-translate-routes';
+import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 
 import NextProgress from 'next-progress';
@@ -43,6 +44,8 @@ const App = ({ Component, pageProps }: AppProps) => {
           <Component {...pageProps} />
         </AppProvider>
       </ThemeProvider>
+
+      <Analytics />
     </>
   );
 };
