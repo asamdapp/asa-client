@@ -4,9 +4,6 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
   darkMode: 'class',
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
   theme: {
     fontFamily: {
       'noto-serif': "'Noto Serif', serif",

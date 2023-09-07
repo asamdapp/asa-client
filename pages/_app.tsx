@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { withTranslateRoutes } from 'next-translate-routes';
+import { useRouter, withTranslateRoutes } from 'next-translate-routes';
 import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 
@@ -16,6 +16,7 @@ import { AppProvider } from 'context';
 // import "assets/fonts/NotoSerif/stylesheet.css";
 // Styles
 import 'styles/globals.scss';
+import { DefaultSeo } from 'next-seo';
 
 setConfiguration({
   defaultScreenClass: 'xxl',
@@ -26,14 +27,30 @@ setConfiguration({
 });
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const { locale } = useRouter();
   return (
     <>
+      <DefaultSeo
+        openGraph={{
+          type: 'website',
+          locale,
+          url: `https://www.asa.md/${locale}`,
+          siteName: 'ASA.md',
+          images: [
+            {
+              url: `https://www.asa.md/open-graph-${locale}.jpg`,
+            },
+          ],
+        }}
+      />
+
       <Head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </Head>
+
       <ThemeProvider
         attribute="class"
         enableSystem={false}

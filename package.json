@@ -46,6 +46,7 @@
     "telegraf": "^4.12.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.19",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@types/formidable": "^3.4.2",
