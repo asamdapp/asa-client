@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { Col, Row } from 'react-grid-system';
 import Trans from 'next-translate/Trans';
 import { NextSeo } from 'next-seo';
+import Head from 'next/head';
+import useTranslation from 'next-translate/useTranslation';
 
 import { MainLayout } from 'layouts';
 import {
@@ -11,13 +13,10 @@ import {
   MainTitle,
   OfferButton,
   Section,
-  VideoPresentation,
 } from 'components';
 
 import heroImage from 'assets/images/woman/hero.png';
-import Head from 'next/head';
-import useTranslation from 'next-translate/useTranslation';
-import { PREFIX_TITLE } from '../../utils';
+import { PREFIX_TITLE } from 'utils';
 
 export const HomeContainer: FC = (): JSX.Element => {
   const { lang } = useTranslation();
@@ -32,8 +31,8 @@ export const HomeContainer: FC = (): JSX.Element => {
         }
         description={
           lang === 'ru'
-            ? 'Услуги профессионального перевода более чем на 22 языков мира с абсолютно бесплатными консультациями. Закажите сейчас и получите СКИДКУ 10% на онлайн-заказы, независимо от суммы транзакции.'
-            : 'Servicii profesionale de traducere în peste 22 limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.'
+            ? 'Услуги профессионального перевода более чем на 28 языков мира с абсолютно бесплатными консультациями. Закажите сейчас и получите СКИДКУ 10% на онлайн-заказы, независимо от суммы транзакции.'
+            : 'Servicii profesionale de traducere în peste 28 limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.'
         }
       />
 
@@ -80,9 +79,8 @@ export const HomeContainer: FC = (): JSX.Element => {
                     </p>
 
                     <div className="flex items-center gap-6 mt-10 flex-col sm:flex-row sm:gap-12">
-                      {/*<OfferButton className="!max-w-full w-full sm:!max-w-max sm:!w-auto" />*/}
                       <OfferButton />
-                      <VideoPresentation />
+                      {/*<VideoPresentation />*/}
                     </div>
                   </div>
                 </div>

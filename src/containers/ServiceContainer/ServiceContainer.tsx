@@ -39,7 +39,7 @@ export const ServiceContainer: FC = (): JSX.Element => {
                     <span className="text-white py-1 px-2 bg-jelly-bean max-w-max mt-5 rounded-md">
                       <Trans
                         i18nKey={'common:in_over_N_languages_of_the_world'}
-                        values={{ n: 22 }}
+                        values={{ n: 28 }}
                       />
                     </span>
                   )}
