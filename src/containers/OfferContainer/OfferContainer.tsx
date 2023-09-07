@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
+import { NextSeo } from 'next-seo';
 import React, { FC } from 'react';
 
 import { Col, Row } from 'react-grid-system';
@@ -9,12 +9,7 @@ import { MainLayout } from 'layouts';
 import { CustomContainer, MainTitle, Section } from 'components';
 import { OfferProvider } from 'context';
 import { PREFIX_TITLE } from 'utils';
-import { NextSeo } from 'next-seo';
-
-const FormStepper = dynamic(
-  () => import('./components/FormStepper/FormStepper'),
-  { ssr: false }
-);
+import { FormStepper } from './components';
 
 export const OfferContainer: FC = (): JSX.Element => {
   const { t } = useTranslation();

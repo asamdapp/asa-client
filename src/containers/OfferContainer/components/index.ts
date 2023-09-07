@@ -5,3 +5,4 @@ export { FourthStep } from './FourthStep/FourthStep';
 export { FifthStep } from './FifthStep/FifthStep';
 export { FormNavigation } from './FormNavigation/FormNavigation';
 export { InfoStepper } from './InfoStepper/InfoStepper';
+export { FormStepper } from './FormStepper/FormStepper';

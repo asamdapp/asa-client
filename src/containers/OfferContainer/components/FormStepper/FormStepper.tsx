@@ -19,7 +19,7 @@ import {
 import { useRouter } from 'next-translate-routes';
 import useTranslation from 'next-translate/useTranslation';
 
-const FormStepper: FC = (): JSX.Element => {
+export const FormStepper: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const { step, totalSteps } = useContext(OfferContext);
   const formMethods = useForm();
@@ -157,5 +157,3 @@ const FormStepper: FC = (): JSX.Element => {
     </>
   );
 };
-
-export default FormStepper;

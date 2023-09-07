@@ -246,6 +246,7 @@ export const ContactContainer: FC = (): JSX.Element => {
                         href={`mailto:${CONTACTS[activeCity]?.map?.email}`}
                         className="flex gap-2 text-gray-500 transition hover:text-cardinal"
                       >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={emailImage.src}
                           alt=""
