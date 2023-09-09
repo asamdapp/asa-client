@@ -1,10 +1,19 @@
 import { ThanksContainer } from 'containers';
 import { getServices } from 'services';
+import { NextPage } from 'next';
+import { SWRConfig } from 'swr';
 
-const Thanks = () => {
-  return <ThanksContainer />;
+const ThanksPage: NextPage = ({ fallback }: any) => {
+  return (
+    <>
+      <SWRConfig value={{ fallback }}>
+        <ThanksContainer />
+      </SWRConfig>
+    </>
+  );
 };
-export default Thanks;
+
+export default ThanksPage;
 
 export async function getServerSideProps({ locale }: any) {
   const services = await getServices(locale);

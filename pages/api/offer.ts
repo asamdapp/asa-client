@@ -5,6 +5,7 @@ import fs from 'fs';
 import { Storage } from '@google-cloud/storage';
 import { Telegraf } from 'telegraf';
 import formidable from 'formidable';
+import { telegrafThrottler } from 'telegraf-throttler';
 
 const storage = new Storage({
   keyFilename: path.resolve(
@@ -19,6 +20,16 @@ const bucket = storage.bucket(bucketName);
 
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN as string);
 const telegramChatId = process.env.TELEGRAM_CHAT_ID as string;
+
+const throttler = telegrafThrottler({
+  in: {
+    // Aggresively drop inbound messages
+    highWater: 0, // Trigger strategy if throttler is not ready for a new job
+    maxConcurrent: 1, // Only 1 job at a time
+    minTime: 30000, // Wait this many milliseconds to be ready, after a job
+  },
+});
+bot.use(throttler);
 
 export const config = {
   api: {
@@ -75,62 +86,104 @@ const handler: NextApiHandler = async (req, res) => {
         }
       }
 
-      const message =
-        '<i><u>Client:</u></i> ' +
-        `<b>${fields?.name}</b>` +
-        '\n' +
-        '\n' +
-        '<i><u>Telefon:</u></i> ' +
-        `<b>${fields?.phone}</b>` +
-        '\n' +
-        '\n' +
-        '<i><u>E-mail:</u></i> ' +
-        `<b>${fields?.email}</b>` +
-        '\n' +
-        '\n' +
-        '<i><u>Serviciu:</u></i> ' +
-        `<b>${fields?.service}</b>` +
-        '\n' +
-        '\n' +
-        '<i><u>Termen livrare:</u></i> ' +
-        `<b>${fields?.delivery_time}</b>` +
-        '\n' +
-        '\n' +
-        '<i><u>Țara (pentru care se solicită apostila):</u></i> ' +
-        `<b>${fields?.country_apostille_requested}</b>` +
-        '\n' +
-        '\n' +
-        '<i><u>Din ce limba traducem:</u></i> ' +
-        `<b>${fields?.source_language}</b>` +
-        '\n' +
-        '\n' +
-        '<i><u>In ce limba traducem:</u></i> ' +
-        `<b>${fields?.target_language}</b>` +
-        '\n' +
-        '\n' +
-        '<i><u>Termen livrare:</u></i> ' +
-        `<b>${fields?.date}</b>` +
-        '\n' +
-        '\n' +
-        `${
-          fields?.comment
-            ? '<b><i><u>Comentariu:</u></i></b> ' + fields?.comment
-            : ' '
-        }`;
+      const pushStringToArray = (
+        emoji: string,
+        title: string,
+        value: string,
+        arr: string[]
+      ) => {
+        const string = `${emoji}  <i><u>${title}:</u></i> <b>${value}</b>`;
+        return arr?.push(string);
+      };
+
+      const getMessage = (fields: any) => {
+        const arr: string[] = [];
+
+        if (fields?.name) {
+          pushStringToArray('👤', 'Client', fields?.name, arr);
+        }
+
+        if (fields?.phone) {
+          pushStringToArray('📞', 'Telefon', fields?.phone, arr);
+        }
+
+        if (fields?.email) {
+          pushStringToArray('📧', 'E-mail', fields?.email, arr);
+        }
+
+        if (fields?.service) {
+          pushStringToArray('💼', 'Serviciu', fields?.service, arr);
+        }
+
+        if (fields?.country_apostille_requested) {
+          pushStringToArray(
+            '🌏',
+            'Țara',
+            fields?.country_apostille_requested,
+            arr
+          );
+        }
+
+        if (fields?.source_language) {
+          pushStringToArray(
+            '📗',
+            'Din ce limba traducem',
+            fields?.source_language,
+            arr
+          );
+        }
+
+        if (fields?.target_language) {
+          pushStringToArray(
+            '📘',
+            'In ce limba traducem',
+            fields?.target_language,
+            arr
+          );
+        }
+
+        if (fields?.date) {
+          pushStringToArray('🗓', 'Termen livrare', fields?.date, arr);
+        }
+
+        if (fields?.delivery_time) {
+          pushStringToArray('🗓', 'Termen livrare', fields?.delivery_time, arr);
+        }
+
+        if (fields?.comment) {
+          pushStringToArray('💬', 'Comentariu', fields?.comment, arr);
+        }
+
+        return arr.join('\n\n');
+      };
+
+      const message = getMessage(fields);
+
+      await bot.telegram.sendMessage(
+        telegramChatId,
+        `<i>⬇️ START =&#62; ${fields?.name} &#62; &#62; &#62; &#62;</i>`,
+        {
+          parse_mode: 'HTML',
+        }
+      );
 
       await bot.telegram.sendMessage(telegramChatId, message, {
         parse_mode: 'HTML',
       });
 
       if (urlToFiles.length > 0) {
-        await bot.telegram.sendMediaGroup(
-          telegramChatId,
-          urlToFiles?.map((url) => ({
-            type: 'document',
-            media: url,
-          }))
-        );
+        for (const url of urlToFiles) {
+          await bot.telegram.sendDocument(telegramChatId, url);
+        }
       }
+
+      await bot.telegram.sendMessage(
+        telegramChatId,
+        `<i>&#60; &#60; &#60; &#60; ${fields?.name} &#60;= END 🔼</i>`,
+        {
+          parse_mode: 'HTML',
+        }
+      );
 
       // Amo CRM
       const { name, email, phone, ...restFields } = fields;
@@ -176,8 +229,9 @@ const handler: NextApiHandler = async (req, res) => {
           console.error(error);
         });
 
-      res.status(200).send({ name: fields?.name, files: urlToFiles, amo });
+      res.status(200).send({ name: fields?.name, files: urlToFiles });
     } catch (error) {
+      console.log(error);
       res.status(500).send(error);
     }
   }
