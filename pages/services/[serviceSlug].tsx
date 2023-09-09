@@ -22,7 +22,10 @@ const ServicesPage: NextPage = ({ fallback }: any) => {
 };
 export default ServicesPage;
 
-export async function getStaticProps({ locale, query: { serviceSlug } }: any) {
+export async function getServerSideProps({
+  locale,
+  query: { serviceSlug },
+}: any) {
   const service = await getServiceBySlug(serviceSlug);
   const services = await getServices(locale);
   const languages = await getLanguages(locale);
