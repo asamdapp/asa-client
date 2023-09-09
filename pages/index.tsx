@@ -22,7 +22,7 @@ const HomePage: NextPage = ({ fallback }: any) => {
 
 export default HomePage;
 
-export async function getServerSideProps({ locale }: any) {
+export async function getStaticProps({ locale }: any) {
   const services = await getServices(locale);
   const languages = await getLanguages(locale);
   const howGetTranslation = await getHowGetTranslation(locale);
