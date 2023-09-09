@@ -5,17 +5,9 @@ import {
   FeedbackSection,
   GuaranteesSection,
   LanguagesSection,
+  PartnersSection,
   ServicesSection,
 } from 'containers/HomeContainer/components';
-import dynamic from 'next/dynamic';
-
-const PartnersSection = dynamic(
-  () =>
-    import(
-      'containers/HomeContainer/components/PartnersSection/PartnersSection'
-    ),
-  { ssr: false }
-);
 
 type section =
   | 'services'
