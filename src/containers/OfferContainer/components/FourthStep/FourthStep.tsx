@@ -22,11 +22,12 @@ function isValidPhoneNumber(phone: string, country: string) {
 
 export const FourthStep: FC = (): JSX.Element => {
   const { t } = useTranslation();
-  const [isValidPhone, setIsValidPhone] = useState<boolean>();
+  const [isValidPhone, setIsValidPhone] = useState<boolean>(true);
   const { getValues, setValue, register, watch } = useFormContext();
-  const [phone, setPhone] = useState<string>(getValues('phone') ?? '');
+  const [phone, setPhone] = useState<string>(getValues('phone'));
 
   const email = watch('email');
+  const phoneWatch = watch('phone');
 
   const handlePhoneInputChange = (value: string, data: CountryData | {}) => {
     if ('countryCode' in data) {
@@ -43,7 +44,7 @@ export const FourthStep: FC = (): JSX.Element => {
   useEffect(() => {
     if (phone && isValidPhone) {
       setValue('phone', phone);
-    } else {
+    } else if (!!phoneWatch) {
       setValue('phone', '');
     }
   }, [phone, isValidPhone]);
@@ -77,7 +78,8 @@ export const FourthStep: FC = (): JSX.Element => {
           isRequired={false}
           label={t('common:comment')}
           onChange={(event) => setValue('comment', event.target.value)}
-          value={getValues('comment')}
+          // value={getValues('comment')}
+          defaultValue={getValues('comment')}
         />
       </div>
     </>
