@@ -66,7 +66,7 @@ export const FifthStep: FC = (): JSX.Element => {
         {getValues('service')?.isServiceWithCountryApostilleRequested && (
           <Item
             title={t('common:country_apostille_requested')}
-            value={getValues('country_apostille_requested')}
+            value={getValues('country_apostille_requested')?.name[lang]}
           />
         )}
 

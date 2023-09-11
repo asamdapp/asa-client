@@ -64,5 +64,6 @@
   "server_error": "Serverul a întâmpinat o eroare internă. Vă rugăm să încercați din nou.",
   "loading_message_1": "Datele se procesează.",
   "loading_message_2": "Mulțumim pentru așteptare!",
-  "see_all_services": "Vezi toate serviciile"
+  "see_all_services": "Vezi toate serviciile",
+  "select_placeholder": "Selectați..."
 }

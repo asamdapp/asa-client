@@ -56,7 +56,7 @@ export const FormStepper: FC = (): JSX.Element => {
       if (data?.service?.isServiceWithCountryApostilleRequested) {
         formData.append(
           'country_apostille_requested',
-          data?.country_apostille_requested ?? ''
+          data?.country_apostille_requested?.name.ro ?? ''
         );
       }
 

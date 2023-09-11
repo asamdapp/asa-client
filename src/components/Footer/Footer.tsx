@@ -498,7 +498,7 @@ export const Footer: FC = (): JSX.Element => {
                   <Logo />
                 </div>
 
-                <div className="text-sm text-center">
+                <div className="text-sm text-center mx-auto">
                   {`Copyright © ${t('common:agency_authorized_services')}. ${t(
                     'common:all_rights_reserved'
                   )}.`}

@@ -1,16 +1,52 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Input, Label, TextArea } from 'UI';
 import { useFormContext } from 'react-hook-form';
 
-import PhoneInput from 'react-phone-input-2';
+import { PhoneNumberUtil } from 'google-libphonenumber';
+import PhoneInput, { CountryData } from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { isValidEmail } from 'utils';
 import useTranslation from 'next-translate/useTranslation';
 
+function isValidPhoneNumber(phone: string, country: string) {
+  const phoneUtil = PhoneNumberUtil.getInstance();
+  try {
+    return phoneUtil.isValidNumberForRegion(
+      phoneUtil.parse(phone, country),
+      country
+    );
+  } catch (error) {
+    return false;
+  }
+}
+
 export const FourthStep: FC = (): JSX.Element => {
   const { t } = useTranslation();
+  const [isValidPhone, setIsValidPhone] = useState<boolean>();
   const { getValues, setValue, register, watch } = useFormContext();
+  const [phone, setPhone] = useState<string>(getValues('phone') ?? '');
+
   const email = watch('email');
+
+  const handlePhoneInputChange = (value: string, data: CountryData | {}) => {
+    if ('countryCode' in data) {
+      if (isValidPhoneNumber(value, data?.countryCode.toUpperCase())) {
+        setPhone(value);
+        setIsValidPhone(true);
+      } else {
+        setPhone((prevState) => prevState);
+        setIsValidPhone(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (phone && isValidPhone) {
+      setValue('phone', phone);
+    } else {
+      setValue('phone', '');
+    }
+  }, [phone, isValidPhone]);
 
   return (
     <>
@@ -29,9 +65,10 @@ export const FourthStep: FC = (): JSX.Element => {
           </Label>
           <PhoneInput
             country="md"
-            countryCodeEditable={false}
-            value={getValues('phone')}
-            onChange={(phone) => setValue('phone', phone)}
+            countryCodeEditable={true}
+            value={phone}
+            onChange={(phone, data) => handlePhoneInputChange(phone, data)}
+            isValid={isValidPhone}
           />
         </div>
 

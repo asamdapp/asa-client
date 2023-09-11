@@ -2,14 +2,15 @@ import React, { FC, useEffect } from 'react';
 import Select from 'react-dropdown-select';
 import useTranslation from 'next-translate/useTranslation';
 import { Calendar } from 'react-date-range';
+import { useFormContext } from 'react-hook-form';
 // @ts-ignore
 import * as locales from 'react-date-range/dist/locale';
 import { DateTime } from 'luxon';
 
-import { Input, Label } from 'UI';
-import { useFormContext } from 'react-hook-form';
+import { Label } from 'UI';
 import useSWR from 'swr';
 import { DELIVERY_TIME } from 'utils';
+import countries from 'assets/countries.json';
 
 export const SecondStep: FC = (): JSX.Element => {
   const { lang, t } = useTranslation();
@@ -78,6 +79,7 @@ export const SecondStep: FC = (): JSX.Element => {
                 labelField="name"
                 searchable
                 searchBy="name"
+                placeholder={t('common:select_placeholder')}
               />
             </div>
 
@@ -97,6 +99,7 @@ export const SecondStep: FC = (): JSX.Element => {
                 searchable
                 searchBy="name"
                 disabled={!sourceLanguage}
+                placeholder={t('common:select_placeholder')}
               />
             </div>
           </>
@@ -114,16 +117,32 @@ export const SecondStep: FC = (): JSX.Element => {
               options={DELIVERY_TIME}
               valueField="id"
               labelField={`name.${lang}`}
+              placeholder={t('common:select_placeholder')}
             />
           </div>
         )}
 
         {getValues('service')?.isServiceWithCountryApostilleRequested && (
-          <Input
-            isRequired
-            label={t('common:country_apostille_requested')}
-            {...register('country_apostille_requested')}
-          />
+          <div>
+            <Label isRequired className="mb-2">
+              {t('common:country_apostille_requested')}
+            </Label>
+
+            <Select
+              onChange={(values) =>
+                setValue('country_apostille_requested', values[0])
+              }
+              values={
+                countryApostilleRequested ? [countryApostilleRequested] : []
+              }
+              options={countries}
+              valueField="id"
+              labelField={`name.${lang}`}
+              searchable
+              searchBy={`name.${lang}`}
+              placeholder={t('common:select_placeholder')}
+            />
+          </div>
         )}
       </div>
     </div>
