@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
+import Image from 'next/image';
 import { useFormContext } from 'react-hook-form';
 import useTranslation from 'next-translate/useTranslation';
 import { Label } from 'UI';
+
+import verifyImage from 'assets/images/verify.png';
 
 interface ItemProps {
   isFirst?: boolean;
@@ -33,6 +36,17 @@ export const FifthStep: FC = (): JSX.Element => {
   return (
     <>
       <div className="text-base font-semibold text-center my-3 max-w-[450px] mx-auto text-atoll">
+        <div className="relative h-20 mb-2">
+          <Image
+            src={verifyImage.src}
+            alt="verify icon"
+            width={verifyImage.width}
+            height={verifyImage.height}
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
+
         <div>{t('common:title_check_data_1')}</div>
         <div>{t('common:title_check_data_2')}</div>
       </div>
