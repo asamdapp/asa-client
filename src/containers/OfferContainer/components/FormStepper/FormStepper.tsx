@@ -84,7 +84,7 @@ export const FormStepper: FC = (): JSX.Element => {
         .then((data) => {
           // Handle the response data here
           console.log(data);
-          setCookie('thanks', true, { maxAge: 60 });
+          setCookie('thanks', true, { maxAge: 20 });
           push({
             pathname: 'thanks',
           }).then((r) => r);

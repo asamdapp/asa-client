@@ -17,7 +17,7 @@ import {
   Section,
   SectionTitle,
 } from 'components';
-import { PREFIX_TITLE, urlFor } from 'utils';
+import { LANGUAGES_COUNT, PREFIX_TITLE, urlFor } from 'utils';
 
 export const ServiceContainer: FC = (): JSX.Element => {
   const { data } = useSWR('service');
@@ -41,7 +41,7 @@ export const ServiceContainer: FC = (): JSX.Element => {
                     <span className="text-white py-1 px-2 bg-jelly-bean max-w-max mt-5 rounded-md">
                       <Trans
                         i18nKey={'common:in_over_N_languages_of_the_world'}
-                        values={{ n: 28 }}
+                        values={{ n: LANGUAGES_COUNT }}
                       />
                     </span>
                   )}

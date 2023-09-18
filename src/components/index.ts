@@ -13,3 +13,4 @@ export { HowToGetOnlineTranslation } from './HowToGetOnlineTranslation/HowToGetO
 export { GroupedRepeatingComponents } from './GroupedRepeatingComponents/GroupedRepeatingComponents';
 export { LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';
 export { DiscountSection } from './DiscountSection/DiscountSection';
+export { LinkReviews } from './LinkReviews/LinkReviews';

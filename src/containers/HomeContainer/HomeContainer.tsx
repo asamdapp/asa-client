@@ -10,13 +10,14 @@ import { MainLayout } from 'layouts';
 import {
   CustomContainer,
   GroupedRepeatingComponents,
+  LinkReviews,
   MainTitle,
   OfferButton,
   Section,
 } from 'components';
 
 import heroImage from 'assets/images/woman/hero.png';
-import { PREFIX_TITLE } from 'utils';
+import { LANGUAGES_COUNT, PREFIX_TITLE } from 'utils';
 
 export const HomeContainer: FC = (): JSX.Element => {
   const { lang } = useTranslation();
@@ -31,8 +32,8 @@ export const HomeContainer: FC = (): JSX.Element => {
         }
         description={
           lang === 'ru'
-            ? 'Услуги профессионального перевода более чем на 28 языков мира с абсолютно бесплатными консультациями. Закажите сейчас и получите СКИДКУ 10% на онлайн-заказы, независимо от суммы транзакции.'
-            : 'Servicii profesionale de traducere în peste 28 limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.'
+            ? `Услуги профессионального перевода более чем на ${LANGUAGES_COUNT} языков мира с абсолютно бесплатными консультациями. Закажите сейчас и получите СКИДКУ 10% на онлайн-заказы, независимо от суммы транзакции.`
+            : `Servicii profesionale de traducere în peste ${LANGUAGES_COUNT} limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.`
         }
       />
 
@@ -64,6 +65,7 @@ export const HomeContainer: FC = (): JSX.Element => {
                     <p className="relative text-white/60 text-xl font-light mt-5 leading-loose">
                       <Trans
                         i18nKey="common:main_subtitle"
+                        values={{ count: LANGUAGES_COUNT }}
                         components={{
                           discount_first: (
                             <span className="relative inline-block" />
@@ -80,6 +82,7 @@ export const HomeContainer: FC = (): JSX.Element => {
 
                     <div className="flex items-center gap-6 mt-10 flex-col sm:flex-row sm:gap-12">
                       <OfferButton />
+                      <LinkReviews />
                       {/*<VideoPresentation />*/}
                     </div>
                   </div>
