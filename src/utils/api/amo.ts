@@ -1,23 +1,77 @@
 import formidable from 'formidable';
 
+const pushStringToArray = (title: string, value: string, arr: string[]) => {
+  const string = `${title}:\n${value}`;
+  return arr?.push(string);
+};
+
+const getMessage = (fields: any, urlToFiles: string[]) => {
+  const arr: string[] = [];
+
+  if (fields?.name) {
+    pushStringToArray('Client', fields?.name, arr);
+  }
+
+  if (fields?.phone) {
+    pushStringToArray('Telefon', fields?.phone, arr);
+  }
+
+  if (fields?.email) {
+    pushStringToArray('E-mail', fields?.email, arr);
+  }
+
+  if (fields?.service) {
+    pushStringToArray('Serviciu', fields?.service, arr);
+  }
+
+  if (fields?.country_apostille_requested) {
+    pushStringToArray('Țara', fields?.country_apostille_requested, arr);
+  }
+
+  if (fields?.source_language) {
+    pushStringToArray('Din ce limba traducem', fields?.source_language, arr);
+  }
+
+  if (fields?.target_language) {
+    pushStringToArray('In ce limba traducem', fields?.target_language, arr);
+  }
+
+  if (fields?.date) {
+    pushStringToArray('Termen livrare', fields?.date, arr);
+  }
+
+  if (fields?.delivery_time) {
+    pushStringToArray('Termen livrare', fields?.delivery_time, arr);
+  }
+
+  if (fields?.comment) {
+    pushStringToArray('Comentariu', fields?.comment, arr);
+  }
+
+  if (urlToFiles.length > 0) {
+    const m = `Fisiere atasate:`;
+    const filesMessage = urlToFiles.map((item) => `\n${item}`);
+    arr.push(m + filesMessage);
+  }
+  return arr.join('\n\n');
+};
+
 export const postAmoCRM = async (
   fields: formidable.Fields<string>,
   urlToFiles: string[]
 ) => {
   try {
-    const { name, email, phone, ...restFields } = fields;
     const data = JSON.stringify({
-      token: '7cc418e5-ad94-42cc-affd-13f5c0e99a98',
-      client_id: 30248032,
+      token: process.env.AMO_TOKEN,
+      client_id: process.env.AMO_CLIENT_ID,
       contact: {
-        name,
-        email,
-        phone,
+        // @ts-ignore
+        name: fields?.name[0],
+        // @ts-ignore
+        phone: fields?.phone[0],
       },
-      fields: {
-        files: urlToFiles,
-        ...restFields,
-      },
+
+      note: getMessage(fields, urlToFiles),
     });
 
     const config = {

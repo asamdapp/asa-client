@@ -28,8 +28,6 @@ const pushStringToArray = (
 const getMessage = (fields: any) => {
   const arr: string[] = [];
 
-  console.log('fields', fields?.comment);
-
   if (fields?.name) {
     pushStringToArray('👤', 'Client', fields?.name, arr);
   }
