@@ -83,7 +83,7 @@ export const postAmoCRM = async (
       data,
     };
 
-    const amo = await fetch(config.url, {
+    await fetch(config.url, {
       method: config.method,
       headers: config.headers,
       body: config.data,
