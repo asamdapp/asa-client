@@ -15,7 +15,7 @@ export const LanguageItem: FC<IProps> = ({
   return (
     <div
       className={clsx(
-        'flex flex-col items-center font-medium text-xs md:text-sm gap-2 my-3',
+        'flex flex-col items-center font-medium text-center text-xs md:text-sm gap-2 my-3',
         {
           'text-white/70 dark:text-white/50': !colorClassName,
         },

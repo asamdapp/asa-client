@@ -20,7 +20,7 @@ export const urlFor = (source: string) => {
   return builder.image(source);
 };
 
-export const LANGUAGES_COUNT = 30 as const;
+export const LANGUAGES_COUNT = 31 as const;
 export const OVER_REVIEWS_COUNT = 230 as const;
 
 export const LANGUAGES = {
