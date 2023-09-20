@@ -69,6 +69,7 @@ export const FORM_SERVICES = [
       ru: ' Легализованные переводы (нотариус)',
     },
     isServiceForLanguage: true,
+    info: 'common:info_service_notar',
   },
   {
     id: FORM_SERVICES_IDS.traduceriLegalizateNotarApostila,
@@ -78,6 +79,7 @@ export const FORM_SERVICES = [
     },
     isServiceForLanguage: true,
     isServiceWithCountryApostilleRequested: true,
+    info: 'common:info_service_notar',
   },
   {
     id: FORM_SERVICES_IDS.apostila,

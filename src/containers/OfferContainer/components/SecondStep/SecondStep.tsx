@@ -39,6 +39,12 @@ export const SecondStep: FC = (): JSX.Element => {
 
   return (
     <div className="flex gap-8 md:gap-10 lg:gap-16 sm:flex-row-reverse flex-col-reverse">
+      {getValues('service')?.info && (
+        <div className="text-cardinal text-sm font-semibold">
+          {t(getValues('service')?.info)}
+        </div>
+      )}
+
       {!getValues('service')?.isServiceWithDeliveryTime && (
         <div className="sm:w-1/2">
           <Label isRequired className="mb-2">

@@ -66,5 +66,6 @@
   "loading_message_2": "Mulțumim pentru așteptare!",
   "see_all_services": "Vezi toate serviciile",
   "select_placeholder": "Selectați...",
-  "over_n_reviews": "peste {{n}} de recenzii"
+  "over_n_reviews": "peste {{n}} de recenzii",
+  "info_service_notar": "IMPORTANT: pentru legalizare trebuie să prezinți documentul original, pentru a fi prezentat Notarului."
 }
