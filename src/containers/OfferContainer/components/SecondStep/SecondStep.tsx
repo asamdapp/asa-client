@@ -153,7 +153,7 @@ export const SecondStep: FC = (): JSX.Element => {
       </div>
 
       {getValues('service')?.info && (
-        <div className="flex items-center gap-2 text-cardinal text-sm font-semibold w-full">
+        <div className="flex items-center gap-2 flex-none text-cardinal text-sm font-semibold w-full">
           <IconInfoCircle />
           <span>{t(getValues('service')?.info)}</span>
         </div>

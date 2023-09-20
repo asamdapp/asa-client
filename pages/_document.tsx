@@ -53,19 +53,21 @@ export default function Document() {
           }}
         />
 
+        {/*AMO button chat*/}
         {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script
+        {/*<script
           dangerouslySetInnerHTML={{
             __html: `(function(a,m,o,c,r,m){a[m]={id:"222001",hash:"431f3d1ac8c0fcb23f42d4965949fb080b490affc731e29498e43fa325b5adf2",locale:"ru",inline:false,setMeta:function(p){this.params=(this.params||[]).concat([p])}};a[o]=a[o]||function(){(a[o].q=a[o].q||[]).push(arguments)};var d=a.document,s=d.createElement('script');s.async=true;s.id=m+'_script';s.src='https://gso.amocrm.ru/js/button.js?1695203391';d.head&&d.head.appendChild(s)}(window,0,'amoSocialButton',0,0,'amo_social_button'));`,
           }}
-        />
+        />*/}
 
+        {/*AMO button chat opened*/}
         {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        {/*<script*/}
-        {/*  dangerouslySetInnerHTML={{*/}
-        {/*    __html: `(function(a,m,o,c,r,m){a[m]={id:"222001",hash:"431f3d1ac8c0fcb23f42d4965949fb080b490affc731e29498e43fa325b5adf2",locale:"ru",inline:true,setMeta:function(p){this.params=(this.params||[]).concat([p])}};a[o]=a[o]||function(){(a[o].q=a[o].q||[]).push(arguments)};var d=a.document,s=d.createElement('script');s.async=true;s.id=m+'_script';s.src='https://gso.amocrm.ru/js/button.js?1695203391';d.head&&d.head.appendChild(s)}(window,0,'amoSocialButton',0,0,'amo_social_button'));`,*/}
-        {/*  }}*/}
-        {/*/>*/}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(a,m,o,c,r,m){a[m]={id:"222001",hash:"431f3d1ac8c0fcb23f42d4965949fb080b490affc731e29498e43fa325b5adf2",locale:"ru",inline:true,setMeta:function(p){this.params=(this.params||[]).concat([p])}};a[o]=a[o]||function(){(a[o].q=a[o].q||[]).push(arguments)};var d=a.document,s=d.createElement('script');s.async=true;s.id=m+'_script';s.src='https://gso.amocrm.ru/js/button.js?1695203391';d.head&&d.head.appendChild(s)}(window,0,'amoSocialButton',0,0,'amo_social_button'));`,
+          }}
+        />
       </Head>
 
       <body>
