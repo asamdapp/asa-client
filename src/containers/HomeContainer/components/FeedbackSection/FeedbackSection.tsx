@@ -121,7 +121,7 @@ export const FeedbackSection: FC<IProps> = (): JSX.Element => {
                           href="https://www.google.com/maps/place/Agen%C8%9Bia+Servicii+Autorizate/@47.1399248,28.4782568,11z/data=!4m8!3m7!1s0x40c97d115e2a6899:0x2416f44a61581f7!8m2!3d47.0254233!4d28.8404693!9m1!1b1!16s%2Fg%2F11nrt3j2q4?entry=ttu"
                           className="flex items-center gap-2 text-sm text-white/70 bg-black/10 py-2 px-4 rounded-full transition hover:text-white hover:bg-black/20"
                         >
-                          <span>Google reviews</span>
+                          <span>Google</span>
                           <IconArrowRight size={22} />
                         </a>
                       </div>
