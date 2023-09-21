@@ -1,9 +1,10 @@
 import { NextApiHandler } from 'next';
+import * as process from 'process';
 
-const place_id = 'ChIJmWgqXhF9yUAR94EVpkRvQQI';
+const place_id = process.env.GOOGLE_PLACE_ID;
 // const place_id = 'ChIJyUZsn3Z9yUARF6vxs_NUWEI'; // example
 const fields = 'rating,user_ratings_total'; // reviews,rating,user_ratings_total
-const key = 'AIzaSyBLklbi_hugNCXEkiEG9j_TF7QFmLH46gU';
+const key = process.env.GOOGLE_KEY;
 
 const handler: NextApiHandler = async (req, res) => {
   try {
