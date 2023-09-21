@@ -26,7 +26,7 @@
   "buttons": {
     "show_all_languages": "Vezi toate limbile"
   },
-  "in_over_N_languages_of_the_world": "în peste {{ n }} limbi ale lumii",
+  "in_over_N_languages_of_the_world": "în peste {{ n }} de limbi ale lumii",
   "discount_info": "<h2>10% reducere</h2><p> pentru comenzile online, indiferent de suma tranzacției</p>",
   "discount_info_text": "Oferim 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.",
   "view_route": "Vezi traseul",
@@ -66,6 +66,6 @@
   "loading_message_2": "Mulțumim pentru așteptare!",
   "see_all_services": "Vezi toate serviciile",
   "select_placeholder": "Selectați...",
-  "over_n_reviews": "peste {{n}} de recenzii",
+  "total_n_reviews": "{{n}} de recenzii",
   "info_service_notar": "IMPORTANT: pentru legalizare trebuie să prezinți documentul original, pentru a fi prezentat Notarului."
 }

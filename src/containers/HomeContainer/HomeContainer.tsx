@@ -33,7 +33,7 @@ export const HomeContainer: FC = (): JSX.Element => {
         description={
           lang === 'ru'
             ? `Услуги профессионального перевода более чем на ${LANGUAGES_COUNT} языков мира с абсолютно бесплатными консультациями. Закажите сейчас и получите СКИДКУ 10% на онлайн-заказы, независимо от суммы транзакции.`
-            : `Servicii profesionale de traducere în peste ${LANGUAGES_COUNT} limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.`
+            : `Servicii profesionale de traducere în peste ${LANGUAGES_COUNT} de limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.`
         }
       />
 

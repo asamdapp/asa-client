@@ -7,8 +7,16 @@ export const getFeedbacks = async () => {
       name,
       review,
       photo,
-      stars
+      stars,
+      language
     }
   `);
+  return feedbacks;
+};
+
+export const getGoogleReviewsUserRating = async () => {
+  const feedbacks = await fetch('https://asa.md/api/reviews')
+    .then((result) => result.json())
+    .catch(() => null);
   return feedbacks;
 };

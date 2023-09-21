@@ -14,3 +14,4 @@ export { GroupedRepeatingComponents } from './GroupedRepeatingComponents/Grouped
 export { LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';
 export { DiscountSection } from './DiscountSection/DiscountSection';
 export { LinkReviews } from './LinkReviews/LinkReviews';
+export { StarsRating } from './StarsRating/StarsRating';

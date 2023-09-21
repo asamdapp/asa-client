@@ -17,6 +17,7 @@ import { AppProvider } from 'context';
 // Styles
 import 'styles/globals.scss';
 import { DefaultSeo } from 'next-seo';
+import { LANGUAGES_COUNT } from '../src/utils';
 
 setConfiguration({
   defaultScreenClass: 'xxl',
@@ -38,8 +39,8 @@ const App = ({ Component, pageProps }: AppProps) => {
           siteName: 'ASA.md',
           description:
             locale === 'ru'
-              ? 'Услуги профессионального перевода более чем на 28 языков мира с абсолютно бесплатными консультациями. Закажите сейчас и получите СКИДКУ 10% на онлайн-заказы, независимо от суммы транзакции.'
-              : 'Servicii profesionale de traducere în peste 28 limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.',
+              ? `Услуги профессионального перевода более чем на ${LANGUAGES_COUNT} языков мира с абсолютно бесплатными консультациями. Закажите сейчас и получите СКИДКУ 10% на онлайн-заказы, независимо от суммы транзакции.`
+              : `Servicii profesionale de traducere în peste ${LANGUAGES_COUNT} limbi ale lumii cu consultații absolut gratuite. Comanda acum si obtine 10% REDUCERE pentru comenzile online, indiferent de suma tranzacției.`,
           images: [
             {
               url: `https://www.asa.md/open-graph-${locale}.jpg`,

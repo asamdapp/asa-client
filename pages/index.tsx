@@ -5,6 +5,7 @@ import { HomeContainer } from 'containers';
 import {
   getAdvantages,
   getFeedbacks,
+  getGoogleReviewsUserRating,
   getGuarantees,
   getHowGetTranslation,
   getLanguages,
@@ -30,6 +31,7 @@ export async function getServerSideProps({ locale }: any) {
   const guarantees = await getGuarantees(locale);
   const partners = await getPartners();
   const feedbacks = await getFeedbacks();
+  const googleReviews = await getGoogleReviewsUserRating();
 
   return {
     props: {
@@ -41,6 +43,7 @@ export async function getServerSideProps({ locale }: any) {
         ['guarantees']: guarantees,
         ['partners']: partners,
         ['feedbacks']: feedbacks,
+        ['googleReviews']: googleReviews,
       },
     },
   };

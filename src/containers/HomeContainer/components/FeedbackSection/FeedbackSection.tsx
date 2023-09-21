@@ -1,40 +1,40 @@
-import React, { FC, useState } from 'react';
-import { CustomContainer, Section, SectionTitle } from 'components';
+import React, { FC, useMemo, useState } from 'react';
+import Image from 'next/image';
+import useSWR from 'swr';
+import { useRouter } from 'next-translate-routes';
+import { Carousel } from 'react-responsive-carousel';
 import Trans from 'next-translate/Trans';
 import { Col, Row } from 'react-grid-system';
-import Image from 'next/image';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons';
 
-import image from '../../../../assets/images/woman/2.png';
-import quoteIcon from '../../../../assets/images/icons/quote.svg';
+import {
+  CustomContainer,
+  Section,
+  SectionTitle,
+  StarsRating,
+} from 'components';
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-import useSWR from 'swr';
+import image from 'assets/images/woman/2.png';
+import quoteIcon from 'assets/images/icons/quote.svg';
+
+import { urlFor } from 'utils';
 
 interface IProps {}
 
-const StarRating = ({ rating }: any) => {
-  const totalStars = 5;
-  const yellowStars = Math.min(Math.max(rating, 0), totalStars);
-  const stars = [];
-
-  for (let i = 1; i <= totalStars; i++) {
-    const starColor = i <= yellowStars ? 'fill-amber-300' : 'fill-white/20'; // Primele "rating" stele sunt galbene, restul sunt gri
-
-    stars.push(
-      <svg key={i} viewBox="0 0 800 800" className={'h-3 ' + starColor}>
-        <path d="M438.6 41.5 529 224.3a43 43 0 0 0 32.4 23.6l201.8 29.3a43 43 0 0 1 23.9 73.5L641 493a43 43 0 0 0-12.4 38.1l34.4 201a43 43 0 0 1-62.5 45.4l-180.4-94.9a43.1 43.1 0 0 0-40.1 0l-180.5 94.9A43 43 0 0 1 137 732l34.4-201a43 43 0 0 0-12.3-38.1L13 350.7a43 43 0 0 1 23.8-73.5l201.8-29.3a43 43 0 0 0 32.5-23.6l90.2-182.8a43 43 0 0 1 77.2 0Z" />
-      </svg>
-    );
-  }
-
-  return <div className="relative flex gap-1">{stars}</div>;
-};
-
 export const FeedbackSection: FC<IProps> = (): JSX.Element => {
   const { data: feedbacks } = useSWR('feedbacks');
+
+  const { locale } = useRouter();
   const [selectedItem, setSelectedItem] = useState<number>(0);
+
+  const feedbacksRO = feedbacks.filter((item: any) => item?.language === 'ro');
+  const feedbacksRU = feedbacks.filter((item: any) => item?.language === 'ru');
+
+  const filteredFeedbacks = useMemo(() => {
+    return locale === 'ru'
+      ? [...feedbacksRU, ...feedbacksRO]
+      : [...feedbacksRO, ...feedbacksRU];
+  }, [locale]);
 
   return (
     <>
@@ -83,7 +83,7 @@ export const FeedbackSection: FC<IProps> = (): JSX.Element => {
                 <Carousel
                   swipeable
                   dynamicHeight
-                  autoPlay
+                  autoPlay={false}
                   infiniteLoop
                   stopOnHover
                   showIndicators={false}
@@ -93,16 +93,26 @@ export const FeedbackSection: FC<IProps> = (): JSX.Element => {
                   selectedItem={selectedItem}
                   className="mb-10"
                 >
-                  {feedbacks?.map((item: any, index: number) => (
-                    <div key={item?._id} className="h-full min-h-[100px] px-2">
+                  {filteredFeedbacks?.map((item: any) => (
+                    <div key={item?._id} className="!min-h-[100px] px-2">
                       <div className="text-white/70 text-left">
                         {item?.review}
                       </div>
 
                       <div className="flex items-center justify-between gap-4 border-t border-white/10 mt-3 pt-3 ">
-                        <div className="flex flex-col items-start gap-1">
-                          <div className="text-sm">{item?.name}</div>
-                          <StarRating rating={item?.stars} />
+                        <div className="flex items-center gap-4">
+                          <div
+                            className="h-12 w-12 flex-none bg-cover bg-no-repeat bg-center border border-white/10 rounded-full"
+                            style={{
+                              backgroundImage: `url(${
+                                item?.photo ? urlFor(item?.photo).url() : ''
+                              })`,
+                            }}
+                          />
+                          <div className="flex flex-col items-start gap-1">
+                            <div className="text-sm">{item?.name}</div>
+                            <StarsRating rating={item?.stars} />
+                          </div>
                         </div>
 
                         <a
@@ -118,21 +128,11 @@ export const FeedbackSection: FC<IProps> = (): JSX.Element => {
                     </div>
                   ))}
                 </Carousel>
-
-                {/* <div className="mt-auto">
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://www.google.com/maps/place/Agen%C8%9Bia+Servicii+Autorizate/@47.1399248,28.4782568,11z/data=!4m8!3m7!1s0x40c97d115e2a6899:0x2416f44a61581f7!8m2!3d47.0254233!4d28.8404693!9m1!1b1!16s%2Fg%2F11nrt3j2q4?entry=ttu"
-                  >
-                    Vezi totate recenziile
-                  </a>
-                </div>*/}
               </div>
             </Col>
 
             <Col>
-              <div className="relative h-full min-h-[30vh] sm:min-h-[50vh]">
+              <div className="relative h-full min-h-[35vh] sm:min-h-[500px]">
                 <Image
                   src={image.src}
                   alt="hero image"

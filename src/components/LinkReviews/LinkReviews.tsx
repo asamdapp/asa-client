@@ -2,10 +2,13 @@ import React, { FC } from 'react';
 import { IconArrowRight } from '@tabler/icons';
 import Trans from 'next-translate/Trans';
 import { OVER_REVIEWS_COUNT } from '../../utils';
+import useSWR from 'swr';
+import { StarsRating } from '../StarsRating/StarsRating';
 
 interface IProps {}
 
 export const LinkReviews: FC<IProps> = (): JSX.Element => {
+  const { data: googleReviews } = useSWR('googleReviews');
   return (
     <>
       <a
@@ -16,23 +19,22 @@ export const LinkReviews: FC<IProps> = (): JSX.Element => {
       >
         <div className="flex items-center flex-col">
           <div className="flex items-center gap-2">
-            {[...Array(5)].map((_, index) => (
-              <svg
-                key={index}
-                viewBox="0 0 800 800"
-                className="h-4 fill-amber-300"
-              >
-                <path d="M438.6 41.5 529 224.3a43 43 0 0 0 32.4 23.6l201.8 29.3a43 43 0 0 1 23.9 73.5L641 493a43 43 0 0 0-12.4 38.1l34.4 201a43 43 0 0 1-62.5 45.4l-180.4-94.9a43.1 43.1 0 0 0-40.1 0l-180.5 94.9A43 43 0 0 1 137 732l34.4-201a43 43 0 0 0-12.3-38.1L13 350.7a43 43 0 0 1 23.8-73.5l201.8-29.3a43 43 0 0 0 32.5-23.6l90.2-182.8a43 43 0 0 1 77.2 0Z" />
-              </svg>
-            ))}
+            <StarsRating
+              rating={Math.ceil(googleReviews?.rating ?? 5)}
+              size="large"
+            />
 
-            <span className="text-xl font-semibold ml-2">5.0</span>
+            <span className="text-xl font-semibold ml-2">
+              {googleReviews?.rating ?? 5}
+            </span>
           </div>
 
           <span className="text-sm ml-2 text-white/50">
             <Trans
-              i18nKey={'common:over_n_reviews'}
-              values={{ n: OVER_REVIEWS_COUNT }}
+              i18nKey={'common:total_n_reviews'}
+              values={{
+                n: googleReviews?.user_ratings_total ?? OVER_REVIEWS_COUNT,
+              }}
             />
           </span>
         </div>
