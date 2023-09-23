@@ -13,6 +13,7 @@ import {
 } from 'services';
 
 const OfferPage: NextPage = ({ fallback }: any) => {
+  console.log('fallback', fallback);
   return (
     <SWRConfig value={{ fallback }}>
       <OfferContainer />
