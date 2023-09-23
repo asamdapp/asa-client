@@ -5,7 +5,6 @@ import { HomeContainer } from 'containers';
 import {
   getAdvantages,
   getFeedbacks,
-  getGoogleReviewsUserRating,
   getGuarantees,
   getHowGetTranslation,
   getLanguages,
@@ -23,7 +22,7 @@ const HomePage: NextPage = ({ fallback }: any) => {
 
 export default HomePage;
 
-export async function getServerSideProps({ locale }: any) {
+export async function getStaticProps({ locale }: any) {
   const services = await getServices(locale);
   const languages = await getLanguages(locale);
   const howGetTranslation = await getHowGetTranslation(locale);
@@ -31,7 +30,6 @@ export async function getServerSideProps({ locale }: any) {
   const guarantees = await getGuarantees(locale);
   const partners = await getPartners();
   const feedbacks = await getFeedbacks();
-  const googleReviews = await getGoogleReviewsUserRating();
 
   return {
     props: {
@@ -43,7 +41,6 @@ export async function getServerSideProps({ locale }: any) {
         ['guarantees']: guarantees,
         ['partners']: partners,
         ['feedbacks']: feedbacks,
-        ['googleReviews']: googleReviews,
       },
     },
   };

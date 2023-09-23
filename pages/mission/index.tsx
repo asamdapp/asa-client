@@ -23,7 +23,7 @@ const MissionPage: NextPage = ({ fallback }: any) => {
 };
 export default MissionPage;
 
-export async function getServerSideProps({ locale }: any) {
+export async function getStaticProps({ locale }: any) {
   const services = await getServices(locale);
   const languages = await getLanguages(locale);
   const howGetTranslation = await getHowGetTranslation(locale);
@@ -33,7 +33,6 @@ export async function getServerSideProps({ locale }: any) {
   const feedbacks = await getFeedbacks();
   const mission = await getMission(locale);
   const jobs = await getJobs(locale);
-
 
   return {
     props: {

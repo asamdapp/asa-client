@@ -14,7 +14,7 @@ const OfferPage: NextPage = ({ fallback }: any) => {
 
 export default OfferPage;
 
-export async function getServerSideProps({ locale }: any) {
+export async function getStaticProps({ locale }: any) {
   const services = await getServices(locale);
   const languages = await getLanguages(locale);
 

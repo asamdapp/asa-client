@@ -13,7 +13,7 @@ const JobsPage: NextPage = ({ fallback }: any) => {
 };
 export default JobsPage;
 
-export async function getServerSideProps({ locale }: any) {
+export async function getStaticProps({ locale }: any) {
   const services = await getServices(locale);
   const jobs = await getJobs(locale);
 

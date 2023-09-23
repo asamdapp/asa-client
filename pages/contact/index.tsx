@@ -16,7 +16,7 @@ const ContactPage: NextPage = ({ fallback }: any) => {
 
 export default ContactPage;
 
-export async function getServerSideProps({ locale }: any) {
+export async function getStaticProps({ locale }: any) {
   const services = await getServices(locale);
 
   return {

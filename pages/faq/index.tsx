@@ -15,7 +15,7 @@ const FaqPage: NextPage = ({ fallback }: any) => {
 
 export default FaqPage;
 
-export async function getServerSideProps({ locale }: any) {
+export async function getStaticProps({ locale }: any) {
   const services = await getServices(locale);
   const faq = await getFaq(locale);
 
