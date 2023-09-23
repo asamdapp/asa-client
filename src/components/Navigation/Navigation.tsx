@@ -29,17 +29,16 @@ import { useRouter } from 'next/router';
 import { CONTACTS } from 'utils';
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
+import useSWR from 'swr';
 
 const Drawer = dynamic(() => import('react-modern-drawer'), { ssr: false });
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const Navigation: FC<IProps> = ({ props }): JSX.Element => {
+export const Navigation: FC<IProps> = (): JSX.Element => {
   const { locale } = useRouter();
   const { t } = useTranslation();
-  const { services } = props;
+  const { data: services } = useSWR('services');
 
   const [open, setOpen] = React.useState(false);
   const onOpenModal = () => setOpen(true);

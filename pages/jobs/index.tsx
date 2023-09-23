@@ -1,10 +1,15 @@
 import { NextPage } from 'next';
-import { JobsContainer } from 'containers';
+import { SWRConfig } from 'swr';
 
+import { JobsContainer } from 'containers';
 import { getJobs, getServices } from 'services';
 
-const JobsPage: NextPage = (props) => {
-  return <JobsContainer props={props} />;
+const JobsPage: NextPage = ({ fallback }: any) => {
+  return (
+    <SWRConfig value={{ fallback }}>
+      <JobsContainer />
+    </SWRConfig>
+  );
 };
 export default JobsPage;
 
@@ -14,8 +19,10 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      services: services,
-      jobs: jobs,
+      fallback: {
+        services,
+        jobs,
+      },
     },
   };
 }

@@ -18,16 +18,14 @@ import telegramIcon from 'assets/images/icons/telegram.svg';
 import mapMarkerImage from 'assets/images/icons/map-marker.svg';
 import phoneImage from 'assets/images/icons/phone.svg';
 import emailImage from 'assets/images/icons/email-only-gray.svg';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const Footer: FC<IProps> = ({ props }): JSX.Element => {
+export const Footer: FC<IProps> = (): JSX.Element => {
   const { locale } = useRouter();
   const { lang, t } = useTranslation();
-
-  const { services } = props;
+  const { data: services } = useSWR('services');
 
   return (
     <div>

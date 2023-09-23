@@ -8,13 +8,12 @@ import { NextSeo } from 'next-seo';
 import { MainLayout } from 'layouts';
 import { CustomContainer, MainTitle, Section } from 'components';
 import { PREFIX_TITLE } from 'utils';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const JobsContainer: FC<IProps> = ({ props }): JSX.Element => {
-  const { jobs } = props;
+export const JobsContainer: FC<IProps> = (): JSX.Element => {
+  const { data: jobs } = useSWR('jobs');
   const { t } = useTranslation();
 
   return (
@@ -25,7 +24,7 @@ export const JobsContainer: FC<IProps> = ({ props }): JSX.Element => {
         <title>{PREFIX_TITLE + t('common:company_jobs')}</title>
       </Head>
 
-      <MainLayout props={props}>
+      <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>
