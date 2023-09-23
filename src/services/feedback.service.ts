@@ -15,7 +15,7 @@ export const getFeedbacks = async () => {
 };
 
 export const getGoogleReviewsUserRating = async () => {
-  const feedbacks = await fetch('https://asa.md/api/reviews')
+  const feedbacks = await fetch('/api/reviews')
     .then((result) => result.json())
     .catch(() => null);
   return feedbacks;
