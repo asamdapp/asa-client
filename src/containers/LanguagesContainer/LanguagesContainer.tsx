@@ -13,13 +13,12 @@ import {
 } from 'components';
 import { PREFIX_TITLE } from 'utils';
 import { NextSeo } from 'next-seo';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const LanguagesContainer: FC<IProps> = ({ props }): JSX.Element => {
-  const { languages } = props;
+export const LanguagesContainer: FC<IProps> = (): JSX.Element => {
+  const { data: languages } = useSWR('languages');
   const { t } = useTranslation();
 
   return (
@@ -30,7 +29,7 @@ export const LanguagesContainer: FC<IProps> = ({ props }): JSX.Element => {
         <title>{PREFIX_TITLE + t('common:languages_of_translation')}</title>
       </Head>
 
-      <MainLayout props={props}>
+      <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>

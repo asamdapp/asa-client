@@ -10,15 +10,12 @@ import {
 import Image from 'next/image';
 import { urlFor } from 'utils';
 import Trans from 'next-translate/Trans';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const HowToGetOnlineTranslation: FC<IProps> = ({
-  props,
-}): JSX.Element => {
-  const { howGetTranslation } = props;
+export const HowToGetOnlineTranslation: FC<IProps> = (): JSX.Element => {
+  const { data: howGetTranslation } = useSWR('howGetTranslation');
 
   return (
     <Section>

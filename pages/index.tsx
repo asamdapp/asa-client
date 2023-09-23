@@ -10,9 +10,14 @@ import {
   getPartners,
   getServices,
 } from 'services';
+import { SWRConfig } from 'swr';
 
-const HomePage: NextPage = (props) => {
-  return <HomeContainer props={props} />;
+const HomePage: NextPage = ({ fallback }: any) => {
+  return (
+    <SWRConfig value={{ fallback }}>
+      <HomeContainer />
+    </SWRConfig>
+  );
 };
 
 export default HomePage;
@@ -28,13 +33,15 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      services,
-      languages,
-      howGetTranslation,
-      advantages,
-      guarantees,
-      partners,
-      feedbacks,
+      fallback: {
+        services,
+        languages,
+        howGetTranslation,
+        advantages,
+        guarantees,
+        partners,
+        feedbacks,
+      },
     },
   };
 }

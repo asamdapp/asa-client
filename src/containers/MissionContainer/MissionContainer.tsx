@@ -14,13 +14,12 @@ import {
   Section,
 } from 'components';
 import { PREFIX_TITLE } from 'utils';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const MissionContainer: FC<IProps> = ({ props }): JSX.Element => {
-  const { mission } = props;
+export const MissionContainer: FC<IProps> = (): JSX.Element => {
+  const { data: mission } = useSWR('mission');
   const { t } = useTranslation();
 
   return (
@@ -31,7 +30,7 @@ export const MissionContainer: FC<IProps> = ({ props }): JSX.Element => {
         <title>{PREFIX_TITLE + t('common:company_mission')}</title>
       </Head>
 
-      <MainLayout props={props}>
+      <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>
@@ -66,7 +65,7 @@ export const MissionContainer: FC<IProps> = ({ props }): JSX.Element => {
           </CustomContainer>
         </Section>
 
-        <GroupedRepeatingComponents props={props} />
+        <GroupedRepeatingComponents />
       </MainLayout>
     </>
   );

@@ -2,9 +2,15 @@ import { NextPage } from 'next';
 
 import { getServices } from 'services';
 import { ContactContainer } from 'containers';
+import { SWRConfig } from 'swr';
+import React from 'react';
 
-const ContactPage: NextPage = (props) => {
-  return <ContactContainer props={props} />;
+const ContactPage: NextPage = ({ fallback }: any) => {
+  return (
+    <SWRConfig value={{ fallback }}>
+      <ContactContainer />
+    </SWRConfig>
+  );
 };
 
 export default ContactPage;
@@ -14,7 +20,9 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      services: services,
+      fallback: {
+        services,
+      },
     },
   };
 }

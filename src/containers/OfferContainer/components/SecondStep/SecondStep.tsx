@@ -11,14 +11,13 @@ import { IconInfoCircle } from '@tabler/icons';
 import { Label } from 'UI';
 import { DELIVERY_TIME } from 'utils';
 import countries from 'assets/countries.json';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const SecondStep: FC<IProps> = ({ props }): JSX.Element => {
+export const SecondStep: FC<IProps> = (): JSX.Element => {
   const { lang, t } = useTranslation();
-  const { languages } = props;
+  const { data: languages } = useSWR('languages');
 
   const { getValues, setValue, watch, register } = useFormContext();
 

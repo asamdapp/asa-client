@@ -6,13 +6,12 @@ import { Col, Row } from 'react-grid-system';
 
 import { CustomContainer, Section, SectionTitle } from 'components';
 import { urlFor } from 'utils';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const AdvantagesSection: FC<IProps> = ({ props }): JSX.Element => {
-  const { advantages } = props;
+export const AdvantagesSection: FC<IProps> = (): JSX.Element => {
+  const { data: advantages } = useSWR('advantages');
 
   return (
     <>

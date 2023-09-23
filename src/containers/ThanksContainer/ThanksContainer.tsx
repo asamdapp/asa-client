@@ -12,11 +12,9 @@ import { PREFIX_TITLE } from 'utils';
 
 import callImage from 'assets/images/woman/4.png';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const ThanksContainer: FC<IProps> = ({ props }): JSX.Element => {
+export const ThanksContainer: FC<IProps> = (): JSX.Element => {
   const { t } = useTranslation();
 
   return (
@@ -27,7 +25,7 @@ export const ThanksContainer: FC<IProps> = ({ props }): JSX.Element => {
         <title>{PREFIX_TITLE + t('common:thanks_title')}</title>
       </Head>
 
-      <MainLayout props={props}>
+      <MainLayout>
         <Section withSmallPadding>
           <CustomContainer>
             <Row>

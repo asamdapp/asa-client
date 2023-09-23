@@ -17,13 +17,12 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion';
 import { NextSeo } from 'next-seo';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const FaqContainer: FC<IProps> = ({ props }): JSX.Element => {
-  const { faq } = props;
+export const FaqContainer: FC<IProps> = (): JSX.Element => {
+  const { data: faq } = useSWR('faq');
   const { t } = useTranslation();
 
   return (
@@ -34,7 +33,7 @@ export const FaqContainer: FC<IProps> = ({ props }): JSX.Element => {
         <title>{PREFIX_TITLE + t('common:faq')}</title>
       </Head>
 
-      <MainLayout props={props}>
+      <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>

@@ -17,13 +17,12 @@ import {
   SectionTitle,
 } from 'components';
 import { LANGUAGES_COUNT, PREFIX_TITLE, urlFor } from 'utils';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const ServiceContainer: FC<IProps> = ({ props }): JSX.Element => {
-  const { service } = props;
+export const ServiceContainer: FC<IProps> = (): JSX.Element => {
+  const { data: service } = useSWR('service');
 
   return (
     <>
@@ -33,7 +32,7 @@ export const ServiceContainer: FC<IProps> = ({ props }): JSX.Element => {
         <title>{PREFIX_TITLE + service?.name}</title>
       </Head>
 
-      <MainLayout props={props}>
+      <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>
@@ -92,7 +91,7 @@ export const ServiceContainer: FC<IProps> = ({ props }): JSX.Element => {
           </CustomContainer>
         </Section>
 
-        <GroupedRepeatingComponents props={props} hidden={['services']} />
+        <GroupedRepeatingComponents hidden={['services']} />
       </MainLayout>
     </>
   );

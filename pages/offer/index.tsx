@@ -10,9 +10,14 @@ import {
   getPartners,
   getServices,
 } from 'services';
+import { SWRConfig } from 'swr';
 
-const OfferPage: NextPage = (props) => {
-  return <OfferContainer props={props} />;
+const OfferPage: NextPage = ({ fallback }: any) => {
+  return (
+    <SWRConfig value={{ fallback }}>
+      <OfferContainer />
+    </SWRConfig>
+  );
 };
 
 export default OfferPage;
@@ -28,13 +33,15 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      services,
-      languages,
-      howGetTranslation,
-      advantages,
-      guarantees,
-      partners,
-      feedbacks,
+      fallback: {
+        services,
+        languages,
+        howGetTranslation,
+        advantages,
+        guarantees,
+        partners,
+        feedbacks,
+      },
     },
   };
 }

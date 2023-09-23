@@ -11,15 +11,14 @@ import Trans from 'next-translate/Trans';
 import clsx from 'clsx';
 import { Button } from 'UI';
 import useTranslation from 'next-translate/useTranslation';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const ServicesSection: FC<IProps> = ({ props }): JSX.Element => {
+export const ServicesSection: FC<IProps> = (): JSX.Element => {
   const { locale } = useRouter();
   const { t } = useTranslation();
-  const { services } = props;
+  const { data: services } = useSWR('services');
 
   const [more, setMore] = useState(false);
 

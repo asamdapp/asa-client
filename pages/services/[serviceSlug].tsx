@@ -11,10 +11,16 @@ import {
   getServiceBySlug,
   getServices,
 } from 'services';
+import { SWRConfig } from 'swr';
 
-const ServicesPage: NextPage = (props) => {
-  return <ServiceContainer props={props} />;
+const ServicesPage: NextPage = ({ fallback }: any) => {
+  return (
+    <SWRConfig value={{ fallback }}>
+      <ServiceContainer />
+    </SWRConfig>
+  );
 };
+
 export default ServicesPage;
 
 export async function getStaticPaths({ locales }: any) {
@@ -48,14 +54,16 @@ export async function getStaticProps({ locale, params: { serviceSlug } }: any) {
 
   return {
     props: {
-      service,
-      services,
-      languages,
-      howGetTranslation,
-      advantages,
-      guarantees,
-      partners,
-      feedbacks,
+      fallback: {
+        service,
+        services,
+        languages,
+        howGetTranslation,
+        advantages,
+        guarantees,
+        partners,
+        feedbacks,
+      },
     },
   };
 }

@@ -6,13 +6,12 @@ import { Col, Row } from 'react-grid-system';
 import { CustomContainer, Section, SectionTitle } from 'components';
 import { urlFor } from 'utils';
 import Image from 'next/image';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const PartnersSection: FC<IProps> = ({ props }): JSX.Element => {
-  const { partners } = props;
+export const PartnersSection: FC<IProps> = (): JSX.Element => {
+  const { data: partners } = useSWR('partners');
 
   return (
     <>

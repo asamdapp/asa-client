@@ -17,13 +17,12 @@ import image from 'assets/images/woman/2.png';
 import quoteIcon from 'assets/images/icons/quote.svg';
 
 import { urlFor } from 'utils';
+import useSWR from 'swr';
 
-interface IProps {
-  props: any;
-}
+interface IProps {}
 
-export const FeedbackSection: FC<IProps> = ({ props }): JSX.Element => {
-  const { feedbacks } = props;
+export const FeedbackSection: FC<IProps> = (): JSX.Element => {
+  const { data: feedbacks } = useSWR('feedbacks');
 
   const { locale } = useRouter();
   const [selectedItem, setSelectedItem] = useState<number>(0);

@@ -12,10 +12,16 @@ import {
   getPartners,
   getServices,
 } from 'services';
+import { SWRConfig } from 'swr';
 
-const MissionPage: NextPage = (props) => {
-  return <MissionContainer props={props} />;
+const MissionPage: NextPage = ({ fallback }: any) => {
+  return (
+    <SWRConfig value={{ fallback }}>
+      <MissionContainer />
+    </SWRConfig>
+  );
 };
+
 export default MissionPage;
 
 export async function getStaticProps({ locale }: any) {
@@ -31,15 +37,17 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      services,
-      languages,
-      howGetTranslation,
-      advantages,
-      guarantees,
-      partners,
-      feedbacks,
-      mission,
-      jobs,
+      fallback: {
+        services,
+        languages,
+        howGetTranslation,
+        advantages,
+        guarantees,
+        partners,
+        feedbacks,
+        mission,
+        jobs,
+      },
     },
   };
 }

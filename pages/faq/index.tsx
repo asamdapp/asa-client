@@ -3,9 +3,14 @@ import { NextPage } from 'next';
 
 import { getFaq, getServices } from 'services';
 import { FaqContainer } from 'containers';
+import { SWRConfig } from 'swr';
 
-const FaqPage: NextPage = (props) => {
-  return <FaqContainer props={props} />;
+const FaqPage: NextPage = ({ fallback }: any) => {
+  return (
+    <SWRConfig value={{ fallback }}>
+      <FaqContainer />
+    </SWRConfig>
+  );
 };
 
 export default FaqPage;
@@ -16,8 +21,10 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      services: services,
-      faq: faq,
+      fallback: {
+        services,
+        faq,
+      },
     },
   };
 }
