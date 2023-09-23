@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import { useRouter, withTranslateRoutes } from 'next-translate-routes';
 import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 
@@ -18,6 +17,7 @@ import { AppProvider } from 'context';
 import 'styles/globals.scss';
 import { DefaultSeo } from 'next-seo';
 import { LANGUAGES_COUNT } from '../src/utils';
+import { useRouter } from 'next/router';
 
 setConfiguration({
   defaultScreenClass: 'xxl',
@@ -90,4 +90,4 @@ const App = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default withTranslateRoutes(App);
+export default App;
