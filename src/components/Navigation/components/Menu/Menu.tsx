@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
-import { Link, useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Trans from 'next-translate/Trans';
 
 import { MenuItemAbout, MenuItemServices } from '..';

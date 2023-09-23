@@ -25,9 +25,10 @@ import telegramIcon from 'assets/images/icons/telegram.svg';
 import phoneIcon from 'assets/images/icons/phone.svg';
 import burgerMenuIcon from 'assets/images/icons/burger-menu.svg';
 import Trans from 'next-translate/Trans';
-import { Link, useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
 import { CONTACTS } from 'utils';
 import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
 
 const Drawer = dynamic(() => import('react-modern-drawer'), { ssr: false });
 

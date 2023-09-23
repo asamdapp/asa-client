@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
-import { Link } from 'next-translate-routes';
+import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import { Col, Row } from 'react-grid-system';
 

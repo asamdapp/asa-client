@@ -1,4 +1,5 @@
-import { Link, useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { FC } from 'react';
 import Trans from 'next-translate/Trans';
 

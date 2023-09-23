@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import type { ButtonProps } from './Button.types';
 import styles from './Button.module.scss';
-import { useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
 
 const defaultElement = 'button' as const;
 

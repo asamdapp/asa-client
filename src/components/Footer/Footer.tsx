@@ -2,7 +2,8 @@ import React, { FC } from 'react';
 
 import { Col, Row } from 'react-grid-system';
 import Trans from 'next-translate/Trans';
-import { Link, useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import { IconMinus } from '@tabler/icons';

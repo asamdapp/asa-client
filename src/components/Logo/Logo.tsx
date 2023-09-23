@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Link, useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import clsx from 'clsx';
 
 interface IProps extends React.HTMLAttributes<HTMLAnchorElement> {

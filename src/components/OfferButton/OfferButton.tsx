@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Link, useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import clsx from 'clsx';
 
 import styles from '../UI/Button/Button.module.scss';
@@ -17,6 +18,7 @@ export const OfferButton: FC<IProps> = ({
   const { locale } = useRouter();
 
   return (
+    // @ts-ignore
     <Link href={{ pathname: '/offer' }} locale={locale} passHref {...props}>
       <a
         className={clsx(
@@ -31,9 +33,9 @@ export const OfferButton: FC<IProps> = ({
             [styles.white]: variant === 'white',
           },
           {
-            "text-sm": locale === 'ru'
+            'text-sm': locale === 'ru',
           },
-          className,
+          className
         )}
       >
         <Trans i18nKey={'common:offer_button'} />

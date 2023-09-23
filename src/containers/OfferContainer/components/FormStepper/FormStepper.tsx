@@ -16,7 +16,7 @@ import {
   SecondStep,
   ThirdStep,
 } from '..';
-import { useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
 interface IProps {

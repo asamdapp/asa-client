@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
 import { IconArrowRight } from '@tabler/icons';
 import { Col, Row } from 'react-grid-system';
-import { Link, useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Image from 'next/image';
 
 import { CustomContainer, Section, SectionTitle } from 'components';

@@ -8,8 +8,10 @@ import {
   Section,
   SectionTitle,
 } from 'components';
-import { Link, useRouter } from 'next-translate-routes';
+
 import Trans from 'next-translate/Trans';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface IProps {
   props: any;

@@ -1,6 +1,6 @@
 import React, { FC, useMemo, useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next-translate-routes';
+import { useRouter } from 'next/router';
 import { Carousel } from 'react-responsive-carousel';
 import Trans from 'next-translate/Trans';
 import { Col, Row } from 'react-grid-system';
