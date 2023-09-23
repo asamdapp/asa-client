@@ -9,12 +9,15 @@ import {
   SectionTitle,
 } from 'components';
 import { Link, useRouter } from 'next-translate-routes';
-import useSWR from 'swr';
 import Trans from 'next-translate/Trans';
 
-export const LanguagesSection: FC = (): JSX.Element => {
+interface IProps {
+  props: any;
+}
+
+export const LanguagesSection: FC<IProps> = ({ props }): JSX.Element => {
   const { locale } = useRouter();
-  const { data: languages } = useSWR('languages');
+  const { languages } = props;
 
   return (
     <Section withGradient>

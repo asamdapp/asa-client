@@ -8,13 +8,17 @@ import {
   SectionTitle,
 } from 'components';
 import Image from 'next/image';
-
-import useSWR from 'swr';
 import { urlFor } from 'utils';
 import Trans from 'next-translate/Trans';
 
-export const HowToGetOnlineTranslation: FC = (): JSX.Element => {
-  const { data: howGetTranslation } = useSWR('how-get-translation');
+interface IProps {
+  props: any;
+}
+
+export const HowToGetOnlineTranslation: FC<IProps> = ({
+  props,
+}): JSX.Element => {
+  const { howGetTranslation } = props;
 
   return (
     <Section>

@@ -4,7 +4,6 @@ import { IconArrowDown } from '@tabler/icons';
 import { PortableText } from '@portabletext/react';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
-import useSWR from 'swr';
 
 import { MainLayout } from 'layouts';
 import { CustomContainer, MainTitle, OfferButton, Section } from 'components';
@@ -19,8 +18,12 @@ import {
 } from 'react-accessible-accordion';
 import { NextSeo } from 'next-seo';
 
-export const FaqContainer: FC = (): JSX.Element => {
-  const { data } = useSWR('faq');
+interface IProps {
+  props: any;
+}
+
+export const FaqContainer: FC<IProps> = ({ props }): JSX.Element => {
+  const { faq } = props;
   const { t } = useTranslation();
 
   return (
@@ -31,7 +34,7 @@ export const FaqContainer: FC = (): JSX.Element => {
         <title>{PREFIX_TITLE + t('common:faq')}</title>
       </Head>
 
-      <MainLayout>
+      <MainLayout props={props}>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>
@@ -47,7 +50,7 @@ export const FaqContainer: FC = (): JSX.Element => {
             <Row>
               <Col>
                 <Accordion allowMultipleExpanded allowZeroExpanded>
-                  {data?.map((item: any) => (
+                  {faq?.map((item: any) => (
                     <AccordionItem
                       key={item?._id}
                       className="mt-5 bg-white rounded-xl"

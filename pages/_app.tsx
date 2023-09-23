@@ -18,7 +18,6 @@ import { AppProvider } from 'context';
 import 'styles/globals.scss';
 import { DefaultSeo } from 'next-seo';
 import { LANGUAGES_COUNT } from '../src/utils';
-import { SWRConfig } from 'swr';
 
 setConfiguration({
   defaultScreenClass: 'xxl',
@@ -30,7 +29,6 @@ setConfiguration({
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { locale } = useRouter();
-  console.log(pageProps.fallback);
   return (
     <>
       <DefaultSeo
@@ -83,9 +81,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       >
         <NextProgress color="#B91F2E" />
         <AppProvider>
-          <SWRConfig value={{ fallback: pageProps.fallback }}>
-            <Component {...pageProps} />
-          </SWRConfig>
+          <Component {...pageProps} />
         </AppProvider>
       </ThemeProvider>
 

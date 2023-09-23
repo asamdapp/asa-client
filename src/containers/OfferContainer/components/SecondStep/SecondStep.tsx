@@ -9,13 +9,16 @@ import { DateTime } from 'luxon';
 import { IconInfoCircle } from '@tabler/icons';
 
 import { Label } from 'UI';
-import useSWR from 'swr';
 import { DELIVERY_TIME } from 'utils';
 import countries from 'assets/countries.json';
 
-export const SecondStep: FC = (): JSX.Element => {
+interface IProps {
+  props: any;
+}
+
+export const SecondStep: FC<IProps> = ({ props }): JSX.Element => {
   const { lang, t } = useTranslation();
-  const { data: languages } = useSWR('languages');
+  const { languages } = props;
 
   const { getValues, setValue, watch, register } = useFormContext();
 

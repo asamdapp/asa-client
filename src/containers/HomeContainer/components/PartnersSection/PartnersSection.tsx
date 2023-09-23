@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import useSWR from 'swr';
 
 import Trans from 'next-translate/Trans';
 import { Col, Row } from 'react-grid-system';
@@ -8,10 +7,12 @@ import { CustomContainer, Section, SectionTitle } from 'components';
 import { urlFor } from 'utils';
 import Image from 'next/image';
 
-interface IProps {}
+interface IProps {
+  props: any;
+}
 
-export const PartnersSection: FC<IProps> = (): JSX.Element => {
-  const { data: partners } = useSWR('partners');
+export const PartnersSection: FC<IProps> = ({ props }): JSX.Element => {
+  const { partners } = props;
 
   return (
     <>

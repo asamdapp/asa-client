@@ -1,15 +1,10 @@
 import { NextPage } from 'next';
-import { SWRConfig } from 'swr';
 
 import { LanguagesContainer } from 'containers';
 import { getLanguages, getServices } from 'services';
 
-const LanguagesPage: NextPage = ({ fallback }: any) => {
-  return (
-    <SWRConfig value={{ fallback }}>
-      <LanguagesContainer />
-    </SWRConfig>
-  );
+const LanguagesPage: NextPage = (props) => {
+  return <LanguagesContainer props={props} />;
 };
 
 export default LanguagesPage;
@@ -20,10 +15,8 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      fallback: {
-        services: services,
-        languages: languages,
-      },
+      services: services,
+      languages: languages,
     },
   };
 }

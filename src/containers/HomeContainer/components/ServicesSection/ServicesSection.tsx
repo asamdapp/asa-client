@@ -3,7 +3,6 @@ import { IconArrowRight } from '@tabler/icons';
 import { Col, Row } from 'react-grid-system';
 import { Link, useRouter } from 'next-translate-routes';
 import Image from 'next/image';
-import useSWR from 'swr';
 
 import { CustomContainer, Section, SectionTitle } from 'components';
 import { urlFor } from 'utils';
@@ -12,10 +11,14 @@ import clsx from 'clsx';
 import { Button } from 'UI';
 import useTranslation from 'next-translate/useTranslation';
 
-export const ServicesSection: FC = (): JSX.Element => {
+interface IProps {
+  props: any;
+}
+
+export const ServicesSection: FC<IProps> = ({ props }): JSX.Element => {
   const { locale } = useRouter();
   const { t } = useTranslation();
-  const { data } = useSWR('services');
+  const { services } = props;
 
   const [more, setMore] = useState(false);
 
@@ -31,7 +34,7 @@ export const ServicesSection: FC = (): JSX.Element => {
             'overflow-hidden max-h-[400px]': !more,
           })}
         >
-          {data?.map((item: any) => (
+          {services?.map((item: any) => (
             <Col key={item._id} lg={6} xl={4}>
               <Link
                 href={{

@@ -19,7 +19,6 @@ export const LinkReviews: FC<IProps> = (): JSX.Element => {
     fetchData().catch(console.error);
   }, []);
 
-  console.log(googleReviews);
   return (
     <>
       {googleReviews ? (

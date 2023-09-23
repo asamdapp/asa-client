@@ -19,7 +19,11 @@ import {
 import heroImage from 'assets/images/woman/hero.png';
 import { LANGUAGES_COUNT, PREFIX_TITLE } from 'utils';
 
-export const HomeContainer: FC = (): JSX.Element => {
+interface IProps {
+  props: any;
+}
+
+export const HomeContainer: FC<IProps> = ({ props }): JSX.Element => {
   const { lang } = useTranslation();
 
   return (
@@ -46,7 +50,7 @@ export const HomeContainer: FC = (): JSX.Element => {
         </title>
       </Head>
 
-      <MainLayout>
+      <MainLayout props={props}>
         <Section withGradient className="!p-0">
           <CustomContainer>
             <Row>
@@ -108,7 +112,7 @@ export const HomeContainer: FC = (): JSX.Element => {
           </CustomContainer>
         </Section>
 
-        <GroupedRepeatingComponents />
+        <GroupedRepeatingComponents props={props} />
       </MainLayout>
     </>
   );

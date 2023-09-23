@@ -6,12 +6,13 @@ import { Col, Row } from 'react-grid-system';
 
 import { CustomContainer, Section, SectionTitle } from 'components';
 import { urlFor } from 'utils';
-import useSWR from 'swr';
 
-interface IProps {}
+interface IProps {
+  props: any;
+}
 
-export const AdvantagesSection: FC<IProps> = (): JSX.Element => {
-  const { data: advantages } = useSWR('advantages');
+export const AdvantagesSection: FC<IProps> = ({ props }): JSX.Element => {
+  const { advantages } = props;
 
   return (
     <>
@@ -22,7 +23,7 @@ export const AdvantagesSection: FC<IProps> = (): JSX.Element => {
           </SectionTitle>
 
           <Row className="gap-y-5">
-            {advantages?.map((item: any, index: number) =>
+            {advantages?.map((item: any, index: number) => (
               <Col lg={index < 3 ? 4 : 6} sm={6} key={index}>
                 <div
                   className="
@@ -43,11 +44,15 @@ export const AdvantagesSection: FC<IProps> = (): JSX.Element => {
                     />
                   </div>
 
-                  <h3 className="font-semibold text-downriver uppercase">{item?.title}</h3>
-                  <p className="text-gray-500 text-xs md:text-sm">{item?.description}</p>
+                  <h3 className="font-semibold text-downriver uppercase">
+                    {item?.title}
+                  </h3>
+                  <p className="text-gray-500 text-xs md:text-sm">
+                    {item?.description}
+                  </p>
                 </div>
               </Col>
-            )}
+            ))}
           </Row>
         </CustomContainer>
       </Section>

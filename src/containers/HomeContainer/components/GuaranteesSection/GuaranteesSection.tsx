@@ -6,12 +6,13 @@ import image from 'assets/images/woman/3.png';
 import check from 'assets/images/icons/check.svg';
 import { Col, Row } from 'react-grid-system';
 import clsx from 'clsx';
-import useSWR from 'swr';
 
-interface IProps {}
+interface IProps {
+  props: any;
+}
 
-export const GuaranteesSection: FC<IProps> = (): JSX.Element => {
-  const { data: guarantees } = useSWR('guarantees');
+export const GuaranteesSection: FC<IProps> = ({ props }): JSX.Element => {
+  const { guarantees } = props;
 
   return (
     <>
@@ -62,7 +63,6 @@ export const GuaranteesSection: FC<IProps> = (): JSX.Element => {
                 </p>
               </div>*/}
             </Col>
-
 
             <Col lg={5} xl={4}>
               <div className="relative h-full min-h-[400px] 1hidden 1lg:block">

@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { Col, Row } from 'react-grid-system';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
-import useSWR from 'swr';
 
 import { MainLayout } from 'layouts';
 import {
@@ -15,8 +14,12 @@ import {
 import { PREFIX_TITLE } from 'utils';
 import { NextSeo } from 'next-seo';
 
-export const LanguagesContainer: FC = (): JSX.Element => {
-  const { data: languages } = useSWR('languages');
+interface IProps {
+  props: any;
+}
+
+export const LanguagesContainer: FC<IProps> = ({ props }): JSX.Element => {
+  const { languages } = props;
   const { t } = useTranslation();
 
   return (
@@ -27,7 +30,7 @@ export const LanguagesContainer: FC = (): JSX.Element => {
         <title>{PREFIX_TITLE + t('common:languages_of_translation')}</title>
       </Head>
 
-      <MainLayout>
+      <MainLayout props={props}>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>

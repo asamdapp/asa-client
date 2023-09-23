@@ -22,7 +22,11 @@ import emailImage from 'assets/images/icons/email.svg';
 
 const Map = dynamic(() => import('./Map'), { ssr: false });
 
-export const ContactContainer: FC = (): JSX.Element => {
+interface IProps {
+  props: any;
+}
+
+export const ContactContainer: FC<IProps> = ({ props }): JSX.Element => {
   const { t, lang } = useTranslation();
 
   const [activeCity, setActiveCity] = useState<'chisinau' | 'ialoveni'>(
@@ -49,7 +53,7 @@ export const ContactContainer: FC = (): JSX.Element => {
         />
       </Head>
 
-      <MainLayout>
+      <MainLayout props={props}>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>

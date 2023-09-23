@@ -11,8 +11,8 @@ import {
   getServices,
 } from 'services';
 
-const HomePage: NextPage = () => {
-  return <HomeContainer />;
+const HomePage: NextPage = (props) => {
+  return <HomeContainer props={props} />;
 };
 
 export default HomePage;
@@ -28,15 +28,13 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      fallback: {
-        services: services,
-        languages: languages,
-        'how-get-translation': howGetTranslation,
-        advantages: advantages,
-        guarantees: guarantees,
-        partners: partners,
-        feedbacks: feedbacks,
-      },
+      services,
+      languages,
+      howGetTranslation,
+      advantages,
+      guarantees,
+      partners,
+      feedbacks,
     },
   };
 }

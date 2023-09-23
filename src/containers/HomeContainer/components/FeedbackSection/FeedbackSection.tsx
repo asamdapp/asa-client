@@ -1,6 +1,5 @@
 import React, { FC, useMemo, useState } from 'react';
 import Image from 'next/image';
-import useSWR from 'swr';
 import { useRouter } from 'next-translate-routes';
 import { Carousel } from 'react-responsive-carousel';
 import Trans from 'next-translate/Trans';
@@ -19,16 +18,18 @@ import quoteIcon from 'assets/images/icons/quote.svg';
 
 import { urlFor } from 'utils';
 
-interface IProps {}
+interface IProps {
+  props: any;
+}
 
-export const FeedbackSection: FC<IProps> = (): JSX.Element => {
-  const { data: feedbacks } = useSWR('feedbacks');
+export const FeedbackSection: FC<IProps> = ({ props }): JSX.Element => {
+  const { feedbacks } = props;
 
   const { locale } = useRouter();
   const [selectedItem, setSelectedItem] = useState<number>(0);
 
-  const feedbacksRO = feedbacks.filter((item: any) => item?.language === 'ro');
-  const feedbacksRU = feedbacks.filter((item: any) => item?.language === 'ru');
+  const feedbacksRO = feedbacks?.filter((item: any) => item?.language === 'ro');
+  const feedbacksRU = feedbacks?.filter((item: any) => item?.language === 'ru');
 
   const filteredFeedbacks = useMemo(() => {
     return locale === 'ru'

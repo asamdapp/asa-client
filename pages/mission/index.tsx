@@ -1,6 +1,5 @@
 import React from 'react';
 import { NextPage } from 'next';
-import { SWRConfig } from 'swr';
 import { MissionContainer } from 'containers';
 import {
   getAdvantages,
@@ -14,12 +13,8 @@ import {
   getServices,
 } from 'services';
 
-const MissionPage: NextPage = ({ fallback }: any) => {
-  return (
-    <SWRConfig value={{ fallback }}>
-      <MissionContainer />
-    </SWRConfig>
-  );
+const MissionPage: NextPage = (props) => {
+  return <MissionContainer props={props} />;
 };
 export default MissionPage;
 
@@ -36,17 +31,15 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      fallback: {
-        services: services,
-        languages: languages,
-        'how-get-translation': howGetTranslation,
-        advantages: advantages,
-        guarantees: guarantees,
-        partners: partners,
-        feedbacks: feedbacks,
-        mission: mission,
-        jobs: jobs,
-      },
+      services,
+      languages,
+      howGetTranslation,
+      advantages,
+      guarantees,
+      partners,
+      feedbacks,
+      mission,
+      jobs,
     },
   };
 }

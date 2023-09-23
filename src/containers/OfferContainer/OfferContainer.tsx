@@ -11,7 +11,10 @@ import { OfferProvider } from 'context';
 import { PREFIX_TITLE } from 'utils';
 import { FormStepper } from './components';
 
-export const OfferContainer: FC = (): JSX.Element => {
+interface IProps {
+  props: any;
+}
+export const OfferContainer: FC<IProps> = ({ props }): JSX.Element => {
   const { t } = useTranslation();
 
   return (
@@ -23,7 +26,7 @@ export const OfferContainer: FC = (): JSX.Element => {
       </Head>
 
       <OfferProvider>
-        <MainLayout>
+        <MainLayout props={props}>
           <Section withGradient withSmallPadding>
             <CustomContainer>
               <Row>
@@ -41,7 +44,7 @@ export const OfferContainer: FC = (): JSX.Element => {
             <CustomContainer>
               <Row justify="center">
                 <Col xl={9} xxl={8}>
-                  <FormStepper />
+                  <FormStepper props={props} />
                 </Col>
               </Row>
             </CustomContainer>

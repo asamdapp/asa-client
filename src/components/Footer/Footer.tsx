@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import { Col, Row } from 'react-grid-system';
 import Trans from 'next-translate/Trans';
 import { Link, useRouter } from 'next-translate-routes';
-import useSWR from 'swr';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import { IconMinus } from '@tabler/icons';
@@ -19,11 +18,15 @@ import mapMarkerImage from 'assets/images/icons/map-marker.svg';
 import phoneImage from 'assets/images/icons/phone.svg';
 import emailImage from 'assets/images/icons/email-only-gray.svg';
 
-export const Footer: FC = (): JSX.Element => {
+interface IProps {
+  props: any;
+}
+
+export const Footer: FC<IProps> = ({ props }): JSX.Element => {
   const { locale } = useRouter();
   const { lang, t } = useTranslation();
 
-  const { data: services } = useSWR('services');
+  const { services } = props;
 
   return (
     <div>

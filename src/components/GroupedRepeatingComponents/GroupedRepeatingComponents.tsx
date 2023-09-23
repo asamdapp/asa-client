@@ -17,28 +17,30 @@ type section =
 
 interface IProps {
   hidden?: section[];
+  props: any;
 }
 
 export const GroupedRepeatingComponents: FC<IProps> = ({
+  props,
   hidden,
 }): JSX.Element => {
   return (
     <>
-      {!hidden?.includes('services') && <ServicesSection />}
+      {!hidden?.includes('services') && <ServicesSection props={props} />}
 
       <DiscountSection withGradient />
 
-      <HowToGetOnlineTranslation />
+      <HowToGetOnlineTranslation props={props} />
 
-      <LanguagesSection />
+      <LanguagesSection props={props} />
 
-      <AdvantagesSection />
+      <AdvantagesSection props={props} />
 
-      <GuaranteesSection />
+      <GuaranteesSection props={props} />
 
-      <PartnersSection />
+      <PartnersSection props={props} />
 
-      <FeedbackSection />
+      <FeedbackSection props={props} />
 
       <DiscountSection />
     </>

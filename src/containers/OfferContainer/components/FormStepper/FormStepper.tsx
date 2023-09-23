@@ -19,7 +19,10 @@ import {
 import { useRouter } from 'next-translate-routes';
 import useTranslation from 'next-translate/useTranslation';
 
-export const FormStepper: FC = (): JSX.Element => {
+interface IProps {
+  props: any;
+}
+export const FormStepper: FC<IProps> = ({ props }): JSX.Element => {
   const { t } = useTranslation();
   const { step, totalSteps } = useContext(OfferContext);
   const formMethods = useForm();
@@ -83,7 +86,6 @@ export const FormStepper: FC = (): JSX.Element => {
         })
         .then((data) => {
           // Handle the response data here
-          console.log(data);
           setCookie('thanks', true, { maxAge: 20 });
           push({
             pathname: 'thanks',
@@ -144,7 +146,7 @@ export const FormStepper: FC = (): JSX.Element => {
 
             <div className="flex flex-col gap-4">
               {step === 1 && <FirstStep />}
-              {step === 2 && <SecondStep />}
+              {step === 2 && <SecondStep props={props} />}
               {step === 3 && <ThirdStep />}
               {step === 4 && <FourthStep />}
               {step === 5 && <FifthStep />}

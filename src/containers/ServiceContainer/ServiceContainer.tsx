@@ -6,7 +6,6 @@ import { PortableText } from '@portabletext/react';
 import Trans from 'next-translate/Trans';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
-import useSWR from 'swr';
 
 import { MainLayout } from 'layouts';
 import {
@@ -19,25 +18,30 @@ import {
 } from 'components';
 import { LANGUAGES_COUNT, PREFIX_TITLE, urlFor } from 'utils';
 
-export const ServiceContainer: FC = (): JSX.Element => {
-  const { data } = useSWR('service');
+interface IProps {
+  props: any;
+}
+
+export const ServiceContainer: FC<IProps> = ({ props }): JSX.Element => {
+  const { service } = props;
 
   return (
     <>
-      <NextSeo title={PREFIX_TITLE + data?.name} />
+      <NextSeo title={PREFIX_TITLE + service?.name} />
 
       <Head>
-        <title>{PREFIX_TITLE + data?.name}</title>
+        <title>{PREFIX_TITLE + service?.name}</title>
       </Head>
-      <MainLayout>
+
+      <MainLayout props={props}>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>
               <Col lg={12} xl={6}>
                 <div className="flex flex-col justify-center h-full">
-                  <MainTitle>{data?.name}</MainTitle>
+                  <MainTitle>{service?.name}</MainTitle>
 
-                  {data?.isServiceForLanguage && (
+                  {service?.isServiceForLanguage && (
                     <span className="text-white py-1 px-2 bg-jelly-bean max-w-max mt-5 rounded-md">
                       <Trans
                         i18nKey={'common:in_over_N_languages_of_the_world'}
@@ -47,7 +51,7 @@ export const ServiceContainer: FC = (): JSX.Element => {
                   )}
 
                   <p className="relative text-white/60 md:text-xl text-base font-light mt-5 !leading-loose">
-                    {data?.description}
+                    {service?.description}
                   </p>
 
                   <OfferButton className="mt-10 xl:block hidden" />
@@ -56,8 +60,8 @@ export const ServiceContainer: FC = (): JSX.Element => {
               <Col lg={12} xl={6}>
                 <div className="relative bg-red p-10 aspect-[16/9] mt-10 xl:mt-0">
                   <Image
-                    src={urlFor(data?.image).url()}
-                    alt={data?.name}
+                    src={urlFor(service?.image).url()}
+                    alt={service?.name}
                     layout="fill"
                     objectFit="cover"
                     objectPosition="top"
@@ -81,14 +85,14 @@ export const ServiceContainer: FC = (): JSX.Element => {
             <Row>
               <Col xxl={8}>
                 <div className="rich-text">
-                  <PortableText value={data?.body} />
+                  <PortableText value={service?.body} />
                 </div>
               </Col>
             </Row>
           </CustomContainer>
         </Section>
 
-        <GroupedRepeatingComponents hidden={['services']} />
+        <GroupedRepeatingComponents props={props} hidden={['services']} />
       </MainLayout>
     </>
   );

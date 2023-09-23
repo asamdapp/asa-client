@@ -77,7 +77,6 @@ const getMessage = (fields: any) => {
   if (fields?.comment) {
     pushStringToArray('💬', 'Comentariu', fields?.comment, arr);
   }
-  console.log('!!fields?.comment', !!fields?.comment);
   return arr.join('\n\n');
 };
 

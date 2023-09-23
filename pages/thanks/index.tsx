@@ -1,16 +1,9 @@
 import { ThanksContainer } from 'containers';
 import { getServices } from 'services';
 import { NextPage } from 'next';
-import { SWRConfig } from 'swr';
 
-const ThanksPage: NextPage = ({ fallback }: any) => {
-  return (
-    <>
-      <SWRConfig value={{ fallback }}>
-        <ThanksContainer />
-      </SWRConfig>
-    </>
-  );
+const ThanksPage: NextPage = (props) => {
+  return <ThanksContainer props={props} />;
 };
 
 export default ThanksPage;
@@ -20,9 +13,7 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      fallback: {
-        services: services,
-      },
+      services: services,
     },
   };
 }

@@ -26,16 +26,19 @@ import phoneIcon from 'assets/images/icons/phone.svg';
 import burgerMenuIcon from 'assets/images/icons/burger-menu.svg';
 import Trans from 'next-translate/Trans';
 import { Link, useRouter } from 'next-translate-routes';
-import useSWR from 'swr';
 import { CONTACTS } from 'utils';
 import useTranslation from 'next-translate/useTranslation';
 
 const Drawer = dynamic(() => import('react-modern-drawer'), { ssr: false });
 
-export const Navigation: FC = (): JSX.Element => {
+interface IProps {
+  props: any;
+}
+
+export const Navigation: FC<IProps> = ({ props }): JSX.Element => {
   const { locale } = useRouter();
   const { t } = useTranslation();
-  const { data: services } = useSWR('services');
+  const { services } = props;
 
   const [open, setOpen] = React.useState(false);
   const onOpenModal = () => setOpen(true);
@@ -72,7 +75,7 @@ export const Navigation: FC = (): JSX.Element => {
                   <Logo />
 
                   <div className="hidden xxl:flex h-full">
-                    <Menu />
+                    <Menu services={services} />
                   </div>
 
                   <div className="hidden sm:flex gap-8">

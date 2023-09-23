@@ -40,8 +40,6 @@ export const FifthStep: FC = (): JSX.Element => {
           <Image
             src={verifyImage.src}
             alt="verify icon"
-            width={verifyImage.width}
-            height={verifyImage.height}
             layout="fill"
             objectFit="contain"
           />

@@ -4,14 +4,17 @@ import { PortableText } from '@portabletext/react';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
-import useSWR from 'swr';
 
 import { MainLayout } from 'layouts';
 import { CustomContainer, MainTitle, Section } from 'components';
 import { PREFIX_TITLE } from 'utils';
 
-export const JobsContainer: FC = (): JSX.Element => {
-  const { data } = useSWR('jobs');
+interface IProps {
+  props: any;
+}
+
+export const JobsContainer: FC<IProps> = ({ props }): JSX.Element => {
+  const { jobs } = props;
   const { t } = useTranslation();
 
   return (
@@ -22,7 +25,7 @@ export const JobsContainer: FC = (): JSX.Element => {
         <title>{PREFIX_TITLE + t('common:company_jobs')}</title>
       </Head>
 
-      <MainLayout>
+      <MainLayout props={props}>
         <Section withGradient withSmallPadding>
           <CustomContainer>
             <Row>
@@ -38,7 +41,7 @@ export const JobsContainer: FC = (): JSX.Element => {
             <Row>
               <Col lg={7}>
                 <div className="rich-text">
-                  <PortableText value={data?.jobs} />
+                  <PortableText value={jobs?.jobs} />
                 </div>
               </Col>
             </Row>

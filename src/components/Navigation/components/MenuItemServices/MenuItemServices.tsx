@@ -1,13 +1,15 @@
 import { Link, useRouter } from 'next-translate-routes';
 import { FC } from 'react';
-import useSWR from 'swr';
 import Trans from 'next-translate/Trans';
 
 interface IProps {}
 
-export const MenuItemServices: FC<IProps> = (): JSX.Element => {
+interface IProps {
+  services: any;
+}
+
+export const MenuItemServices: FC<IProps> = ({ services }): JSX.Element => {
   const { locale } = useRouter();
-  const { data: services } = useSWR('services');
 
   return (
     <>
