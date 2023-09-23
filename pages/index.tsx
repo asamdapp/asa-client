@@ -34,13 +34,13 @@ export async function getStaticProps({ locale }: any) {
   return {
     props: {
       fallback: {
-        ['services']: services,
-        ['languages']: languages,
-        ['how-get-translation']: howGetTranslation,
-        ['advantages']: advantages,
-        ['guarantees']: guarantees,
-        ['partners']: partners,
-        ['feedbacks']: feedbacks,
+        services: services,
+        languages: languages,
+        'how-get-translation': howGetTranslation,
+        advantages: advantages,
+        guarantees: guarantees,
+        partners: partners,
+        feedbacks: feedbacks,
       },
     },
   };

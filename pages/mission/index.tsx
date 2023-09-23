@@ -37,15 +37,15 @@ export async function getStaticProps({ locale }: any) {
   return {
     props: {
       fallback: {
-        ['services']: services,
-        ['languages']: languages,
-        ['how-get-translation']: howGetTranslation,
-        ['advantages']: advantages,
-        ['guarantees']: guarantees,
-        ['partners']: partners,
-        ['feedbacks']: feedbacks,
-        ['mission']: mission,
-        ['jobs']: jobs,
+        services: services,
+        languages: languages,
+        'how-get-translation': howGetTranslation,
+        advantages: advantages,
+        guarantees: guarantees,
+        partners: partners,
+        feedbacks: feedbacks,
+        mission: mission,
+        jobs: jobs,
       },
     },
   };

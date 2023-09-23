@@ -21,8 +21,8 @@ export async function getStaticProps({ locale }: any) {
   return {
     props: {
       fallback: {
-        ['services']: services,
-        ['languages']: languages,
+        services: services,
+        languages: languages,
       },
     },
   };

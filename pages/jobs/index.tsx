@@ -20,8 +20,8 @@ export async function getStaticProps({ locale }: any) {
   return {
     props: {
       fallback: {
-        ['services']: services,
-        ['jobs']: jobs,
+        services: services,
+        jobs: jobs,
       },
     },
   };
