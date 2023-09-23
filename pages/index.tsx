@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import { SWRConfig } from 'swr';
 
 import { HomeContainer } from 'containers';
 import {
@@ -12,12 +11,8 @@ import {
   getServices,
 } from 'services';
 
-const HomePage: NextPage = ({ fallback }: any) => {
-  return (
-    <SWRConfig value={{ fallback }}>
-      <HomeContainer />
-    </SWRConfig>
-  );
+const HomePage: NextPage = () => {
+  return <HomeContainer />;
 };
 
 export default HomePage;
