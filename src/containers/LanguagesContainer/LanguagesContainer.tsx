@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Col, Row } from 'react-grid-system';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -32,38 +31,30 @@ export const LanguagesContainer: FC<IProps> = (): JSX.Element => {
       <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
-            <Row>
-              <Col>
+            <div className="row">
+              <div className="col">
                 <MainTitle>{t('common:languages_of_translation')}</MainTitle>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
 
         <Section>
           <CustomContainer>
-            <Row>
+            <div className="row">
               {languages?.map((item: any) => (
-                <Col
-                  xs={4}
-                  sm={3}
-                  md={12 / 5}
-                  lg={2}
-                  xl={2}
-                  xxl={12 / 8}
-                  key={item._id}
-                >
+                <div className="col-4 col-sm-3 col-md-2" key={item._id}>
                   <LanguageItem item={item} colorClassName="text-gray-600" />
-                </Col>
+                </div>
               ))}
-            </Row>
-            <Row>
-              <Col>
+            </div>
+            <div className="row">
+              <div className="col">
                 <div className="flex justify-center mt-10">
                   <OfferButton />
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
       </MainLayout>

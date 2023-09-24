@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Col, Row } from 'react-grid-system';
 import { PortableText } from '@portabletext/react';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
@@ -33,35 +32,35 @@ export const MissionContainer: FC<IProps> = (): JSX.Element => {
       <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
-            <Row>
-              <Col>
+            <div className="row">
+              <div className="col">
                 <MainTitle>{t('common:company_mission')}</MainTitle>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
 
         <Section>
           <CustomContainer>
-            <Row>
-              <Col lg={7}>
+            <div className="row">
+              <div className="col-lg-7">
                 <div className="rich-text">
                   <PortableText value={mission?.mission} />
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
 
         <Section withGradient className="!py-5">
           <CustomContainer>
-            <Row>
-              <Col>
+            <div className="row">
+              <div className="col">
                 <div className="w-full flex">
                   <OfferButton className="mx-auto" />
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
 

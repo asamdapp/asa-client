@@ -1,7 +1,6 @@
-import React, { FC, ReactNode } from "react";
-import { Container, ContainerProps } from "react-grid-system";
+import React, { FC, ReactNode } from 'react';
 
-interface IProps extends ContainerProps {
+interface IProps {
   children: ReactNode;
 }
 
@@ -10,9 +9,8 @@ export const CustomContainer: FC<IProps> = ({
   ...props
 }): JSX.Element => {
   return (
-    // @ts-ignore
-    <Container xs sm md className="padding-container" {...props}>
+    <div className="container-lg padding-container" {...props}>
       {children}
-    </Container>
+    </div>
   );
 };

@@ -4,7 +4,6 @@ import Trans from 'next-translate/Trans';
 import Image from 'next/image';
 import image from 'assets/images/woman/3.png';
 import check from 'assets/images/icons/check.svg';
-import { Col, Row } from 'react-grid-system';
 import clsx from 'clsx';
 import useSWR from 'swr';
 
@@ -21,8 +20,8 @@ export const GuaranteesSection: FC<IProps> = (): JSX.Element => {
             <Trans i18nKey={'common:section_title.guarantees'} />
           </SectionTitle>
 
-          <Row>
-            <Col>
+          <div className="row">
+            <div className="col">
               <div className="grid sm:grid-cols-2 pb-16 xl:pt-8">
                 {guarantees?.map((item: any, index: number) => (
                   <div
@@ -53,17 +52,9 @@ export const GuaranteesSection: FC<IProps> = (): JSX.Element => {
                   </div>
                 ))}
               </div>
+            </div>
 
-              {/*<div className="flex items-center text-sm text-white bg-black/10 p-4 rounded-xl mt-5 lg:mb-10">
-                <IconInfoCircle className="flex-none mt-1 mr-2" size={24} />
-                <p>
-                  Asigurăm deplină confidențialitate a documentelor
-                  dumneavoastră chiar și fără o solicitare expresă.
-                </p>
-              </div>*/}
-            </Col>
-
-            <Col lg={5} xl={4}>
+            <div className="col-lg-5 col-xl-4">
               <div className="relative h-full min-h-[400px] 1hidden 1lg:block">
                 <Image
                   src={image.src}
@@ -76,8 +67,8 @@ export const GuaranteesSection: FC<IProps> = (): JSX.Element => {
                   className="bg-no-repeat"
                 />
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </CustomContainer>
       </Section>
     </>

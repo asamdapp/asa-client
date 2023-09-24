@@ -34,7 +34,6 @@
     "react-dom": "18.2.0",
     "react-dropdown-select": "^4.9.3",
     "react-dropzone": "^14.2.3",
-    "react-grid-system": "^8.1.6",
     "react-hook-form": "^7.44.2",
     "react-leaflet": "^4.2.1",
     "react-modern-drawer": "^1.2.0",

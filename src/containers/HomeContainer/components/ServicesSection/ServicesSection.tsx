@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import { IconArrowRight } from '@tabler/icons';
-import { Col, Row } from 'react-grid-system';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -29,13 +28,13 @@ export const ServicesSection: FC<IProps> = (): JSX.Element => {
           <Trans i18nKey={'common:section_title.services'} />
         </SectionTitle>
 
-        <Row
-          className={clsx('gap-y-5 relative', {
+        <div
+          className={clsx('row gap-y-5 relative', {
             'overflow-hidden max-h-[400px]': !more,
           })}
         >
           {services?.map((item: any) => (
-            <Col key={item._id} lg={6} xl={4}>
+            <div className="col-lg-6 col-xl-4" key={item._id}>
               <Link
                 href={{
                   pathname: '/services/[serviceSlug]',
@@ -68,7 +67,7 @@ export const ServicesSection: FC<IProps> = (): JSX.Element => {
                   <IconArrowRight className="flex-none ml-auto text-gray-200 dark:text-white/70 group-hover:text-cardinal transition" />
                 </a>
               </Link>
-            </Col>
+            </div>
           ))}
 
           {!more && (
@@ -84,7 +83,7 @@ export const ServicesSection: FC<IProps> = (): JSX.Element => {
               </Button>
             </div>
           )}
-        </Row>
+        </div>
       </CustomContainer>
     </Section>
   );

@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import React, { FC } from 'react';
 
-import { Col, Row } from 'react-grid-system';
 import useTranslation from 'next-translate/useTranslation';
 
 import { MainLayout } from 'layouts';
@@ -27,24 +26,24 @@ export const OfferContainer: FC<IProps> = (): JSX.Element => {
         <MainLayout>
           <Section withGradient withSmallPadding>
             <CustomContainer>
-              <Row>
-                <Col xl={8}>
+              <div className="row">
+                <div className="col-xl-8">
                   <MainTitle>{t('common:form_page_title')}</MainTitle>
                   <p className="relative text-white/60 md:text-xl text-base font-light mt-5 !leading-loose">
                     {t('common:discount_info_text')}
                   </p>
-                </Col>
-              </Row>
+                </div>
+              </div>
             </CustomContainer>
           </Section>
 
           <Section withSmallPadding>
             <CustomContainer>
-              <Row justify="center">
-                <Col xl={9} xxl={8}>
+              <div className="row justify-center">
+                <div className="col-xl-9 col-xxl-8">
                   <FormStepper />
-                </Col>
-              </Row>
+                </div>
+              </div>
             </CustomContainer>
           </Section>
         </MainLayout>

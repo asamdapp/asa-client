@@ -4,7 +4,6 @@ import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
-import { Col, Row } from 'react-grid-system';
 
 import { MainLayout } from 'layouts';
 import { CustomContainer, Section } from 'components';
@@ -28,8 +27,8 @@ export const ThanksContainer: FC<IProps> = (): JSX.Element => {
       <MainLayout>
         <Section withSmallPadding>
           <CustomContainer>
-            <Row>
-              <Col md={6}>
+            <div className="row">
+              <div className="col-md-6">
                 <div className="relative w-full h-full min-h-[40vh] sm:min-h-[50vh] lg:min-h-[60vh]">
                   <Image
                     src={callImage.src}
@@ -42,9 +41,9 @@ export const ThanksContainer: FC<IProps> = (): JSX.Element => {
                     className="bg-no-repeat"
                   />
                 </div>
-              </Col>
+              </div>
 
-              <Col>
+              <div className="col">
                 <div className="h-full flex flex-col justify-center md:items-start items-center md:mt-0 mt-5 md:text-left text-center md:px-0 sm:px-10">
                   <h1 className="font-noto-serif lg:text-4xl md:text-3xl text-2xl mb-10 leading-tight text-downriver dark:text-white">
                     {t('common:thanks_title')}
@@ -72,8 +71,8 @@ export const ThanksContainer: FC<IProps> = (): JSX.Element => {
                     </a>
                   </Link>
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
       </MainLayout>

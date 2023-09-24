@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Col, Row } from 'react-grid-system';
 import { IconSquareArrowRight } from '@tabler/icons';
 
 import {
@@ -26,14 +25,14 @@ export const LanguagesSection: FC<IProps> = (): JSX.Element => {
         <SectionTitle withGradient>
           <Trans i18nKey={'common:section_title.languages'} />
         </SectionTitle>
-        <Row>
-          {languages?.slice(0, 6).map((item: any) => (
-            <Col xs={4} sm={3} md={12 / 5} lg={12 / 7} key={item._id}>
+        <div className="row">
+          {languages?.slice(0, 5).map((item: any) => (
+            <div className="col-4 col-sm-3 col-md-2" key={item._id}>
               <LanguageItem item={item} />
-            </Col>
+            </div>
           ))}
 
-          <Col xs={12} sm={5} md={4} lg={12 / 7}>
+          <div className="col-12 col-sm-5 col-md-2">
             <Link href={{ pathname: '/languages' }} passHref locale={locale}>
               <a
                 className="
@@ -54,8 +53,8 @@ export const LanguagesSection: FC<IProps> = (): JSX.Element => {
                 </span>
               </a>
             </Link>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </CustomContainer>
     </Section>
   );

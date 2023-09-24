@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Carousel } from 'react-responsive-carousel';
 import Trans from 'next-translate/Trans';
-import { Col, Row } from 'react-grid-system';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons';
 
 import {
@@ -44,8 +43,8 @@ export const FeedbackSection: FC<IProps> = (): JSX.Element => {
             <Trans i18nKey={'common:section_title.feedback'} />
           </SectionTitle>
 
-          <Row>
-            <Col md={6}>
+          <div className="row">
+            <div className="col-md-6">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center mb-3">
                   <button
@@ -129,9 +128,9 @@ export const FeedbackSection: FC<IProps> = (): JSX.Element => {
                   ))}
                 </Carousel>
               </div>
-            </Col>
+            </div>
 
-            <Col>
+            <div className="col">
               <div className="relative h-full min-h-[35vh] sm:min-h-[500px]">
                 <Image
                   src={image.src}
@@ -144,8 +143,8 @@ export const FeedbackSection: FC<IProps> = (): JSX.Element => {
                   className="bg-no-repeat"
                 />
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </CustomContainer>
       </Section>
     </>

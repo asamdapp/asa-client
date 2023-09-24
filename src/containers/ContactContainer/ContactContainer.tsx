@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation';
 import dynamic from 'next/dynamic';
-import { Col, Row } from 'react-grid-system';
 import { NextSeo } from 'next-seo';
 
 import { MainLayout } from 'layouts';
@@ -54,23 +53,23 @@ export const ContactContainer: FC<IProps> = (): JSX.Element => {
       <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
-            <Row>
-              <Col>
+            <div className="row">
+              <div className="col">
                 <MainTitle>{t('common:contacts')}</MainTitle>
                 <p className="relative text-white/60 md:text-xl text-base font-light mt-5 !leading-loose">
                   {t('common:contacts_subtitle1')}
                   <br />
                   {t('common:contacts_subtitle2')}
                 </p>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
 
         <Section withSmallPadding className="!pt-0">
           <CustomContainer>
-            <Row>
-              <Col>
+            <div className="row">
+              <div className="col">
                 <div>
                   <div className="flex flex-wrap items-center justify-center gap-5 z-10 relative p-5">
                     <Button
@@ -266,8 +265,8 @@ export const ContactContainer: FC<IProps> = (): JSX.Element => {
                   //@ts-ignore
                   routes={CONTACTS[activeCity]?.map?.routes}
                 />
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
       </MainLayout>

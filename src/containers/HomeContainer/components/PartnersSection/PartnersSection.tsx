@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 import Trans from 'next-translate/Trans';
-import { Col, Row } from 'react-grid-system';
 
 import { CustomContainer, Section, SectionTitle } from 'components';
 import { urlFor } from 'utils';
@@ -21,8 +20,8 @@ export const PartnersSection: FC<IProps> = (): JSX.Element => {
             <Trans i18nKey={'common:section_title.partners'} />
           </SectionTitle>
 
-          <Row className="!justify-center gap-y-5">
-            <Col>
+          <div className="row !justify-center gap-y-5">
+            <div className="col">
               <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
                 {partners?.map((item: any) => (
                   <div
@@ -40,8 +39,8 @@ export const PartnersSection: FC<IProps> = (): JSX.Element => {
                   </div>
                 ))}
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </CustomContainer>
       </Section>
     </>

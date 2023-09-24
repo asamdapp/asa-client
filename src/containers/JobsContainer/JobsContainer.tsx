@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Col, Row } from 'react-grid-system';
 import { PortableText } from '@portabletext/react';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
@@ -27,23 +26,23 @@ export const JobsContainer: FC<IProps> = (): JSX.Element => {
       <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
-            <Row>
-              <Col>
+            <div className="row">
+              <div className="col">
                 <MainTitle>{t('common:company_jobs')}</MainTitle>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
 
         <Section>
           <CustomContainer>
-            <Row>
-              <Col lg={7}>
+            <div className="row">
+              <div className="col-lg-7">
                 <div className="rich-text">
                   <PortableText value={jobs?.jobs} />
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
       </MainLayout>

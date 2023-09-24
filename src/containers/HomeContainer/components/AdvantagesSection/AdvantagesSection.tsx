@@ -2,11 +2,11 @@ import Image from 'next/image';
 import React, { FC } from 'react';
 
 import Trans from 'next-translate/Trans';
-import { Col, Row } from 'react-grid-system';
 
 import { CustomContainer, Section, SectionTitle } from 'components';
 import { urlFor } from 'utils';
 import useSWR from 'swr';
+import clsx from 'clsx';
 
 interface IProps {}
 
@@ -21,9 +21,15 @@ export const AdvantagesSection: FC<IProps> = (): JSX.Element => {
             <Trans i18nKey={'common:section_title.advantages'} />
           </SectionTitle>
 
-          <Row className="gap-y-5">
+          <div className="row gap-y-5">
             {advantages?.map((item: any, index: number) => (
-              <Col lg={index < 3 ? 4 : 6} sm={6} key={index}>
+              <div
+                className={clsx('col-sm-6', {
+                  'col-lg-4': index < 3,
+                  'col-lg-6': index > 3,
+                })}
+                key={index}
+              >
                 <div
                   className="
                   flex flex-col gap-1 items-center p-4 rounded-xl transition
@@ -50,9 +56,9 @@ export const AdvantagesSection: FC<IProps> = (): JSX.Element => {
                     {item?.description}
                   </p>
                 </div>
-              </Col>
+              </div>
             ))}
-          </Row>
+          </div>
         </CustomContainer>
       </Section>
     </>

@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 
-import { Col, Row } from 'react-grid-system';
 import Trans from 'next-translate/Trans';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -31,8 +30,8 @@ export const Footer: FC<IProps> = (): JSX.Element => {
     <div>
       <Section withGradient className="!py-5">
         <CustomContainer>
-          <Row className="gap-y-10" gutterWidth={40}>
-            <Col lg={7.5}>
+          <div className="row gap-y-10">
+            <div className="col-lg-8">
               <div>
                 <div className="font-semibold text-base mb-2">
                   <Trans i18nKey={'common:contacts'} />
@@ -365,9 +364,9 @@ export const Footer: FC<IProps> = (): JSX.Element => {
                   </div>
                 </div>
               </div>
-            </Col>
+            </div>
 
-            <Col width={'auto'} lg={2.25}>
+            <div className="col-auto col-lg-2">
               <div>
                 <div className="font-semibold text-base mb-2">
                   <Trans i18nKey={'common:services'} />
@@ -396,9 +395,9 @@ export const Footer: FC<IProps> = (): JSX.Element => {
                   ))}
                 </ul>
               </div>
-            </Col>
+            </div>
 
-            <Col width={'auto'} lg={2.25}>
+            <div className="col-auto col-lg-2">
               <div>
                 <div className="font-semibold text-base mb-2">
                   <Trans i18nKey="common:more_info" />
@@ -486,15 +485,15 @@ export const Footer: FC<IProps> = (): JSX.Element => {
                   </li>
                 </ul>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </CustomContainer>
       </Section>
 
       <Section withGradient className="!py-2 border-t border-white/5">
         <CustomContainer>
-          <Row>
-            <Col>
+          <div className="row">
+            <div className="col">
               <div className="flex items-center justify-between py-2">
                 <div className="md:block hidden">
                   <Logo />
@@ -510,8 +509,8 @@ export const Footer: FC<IProps> = (): JSX.Element => {
                   <LanguageSwitcher />
                 </div>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </CustomContainer>
       </Section>
     </div>

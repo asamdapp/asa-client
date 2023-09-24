@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Col, Row } from 'react-grid-system';
 
 import {
   CustomContainer,
@@ -24,9 +23,9 @@ export const HowToGetOnlineTranslation: FC<IProps> = (): JSX.Element => {
           <Trans i18nKey={'common:section_title.how_to_get_translation'} />
         </SectionTitle>
 
-        <Row className="gap-y-3 sm:gap-y-5">
+        <div className="row gap-y-3 sm:gap-y-5">
           {howGetTranslation.map((item: any, index: number) => (
-            <Col key={index} xl={2} sm={4}>
+            <div className="col-xl-2 col-sm-4" key={index}>
               <div
                 className="
                   flex flex-row sm:flex-col items-center gap-2
@@ -60,26 +59,15 @@ export const HowToGetOnlineTranslation: FC<IProps> = (): JSX.Element => {
                   {item?.step}
                 </div>
               </div>
-            </Col>
-          ))}
-        </Row>
-
-        <Row>
-          {/*<Col xxl={12}>
-            <div className="flex text-sm text-gray-600 mt-5">
-              <IconInfoCircle className="flex-none mt-1 mr-2" size={24} />
-              <p>
-                Dumneavoastră transmiteți documentele, noi analizăm textul, vă
-                contactăm și confirmăm comanda! După confirmarea comenzii
-                achitați suma stabilită. Apoi traducem documentele solicitate și
-                vă transmitem traducerea solicitată.
-              </p>
             </div>
-          </Col>*/}
-          <Col xxl={12}>
+          ))}
+        </div>
+
+        <div className="row">
+          <div className="col-xxl-12">
             <OfferButton className="flex mx-auto mt-8" />
-          </Col>
-        </Row>
+          </div>
+        </div>
       </CustomContainer>
     </Section>
   );

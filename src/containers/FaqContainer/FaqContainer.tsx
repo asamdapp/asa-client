@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Col, Row } from 'react-grid-system';
 import { IconArrowDown } from '@tabler/icons';
 import { PortableText } from '@portabletext/react';
 import Head from 'next/head';
@@ -36,18 +35,18 @@ export const FaqContainer: FC<IProps> = (): JSX.Element => {
       <MainLayout>
         <Section withGradient withSmallPadding>
           <CustomContainer>
-            <Row>
-              <Col>
+            <div className="row">
+              <div className="col">
                 <MainTitle>{t('common:faq')}</MainTitle>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
 
         <Section className="!pb-0">
           <CustomContainer>
-            <Row>
-              <Col>
+            <div className="row">
+              <div className="col">
                 <Accordion allowMultipleExpanded allowZeroExpanded>
                   {faq?.map((item: any) => (
                     <AccordionItem
@@ -69,20 +68,20 @@ export const FaqContainer: FC<IProps> = (): JSX.Element => {
                     </AccordionItem>
                   ))}
                 </Accordion>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
 
         <Section>
           <CustomContainer>
-            <Row>
-              <Col>
+            <div className="row">
+              <div className="col">
                 <div className="w-full flex">
                   <OfferButton className="mx-auto" />
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
       </MainLayout>

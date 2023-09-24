@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
-import { Col, Container, Row } from 'react-grid-system';
 
 import {
   Accordion,
@@ -53,9 +52,9 @@ export const Navigation: FC<IProps> = (): JSX.Element => {
     <>
       <div className="relative h-14 left-0 right-0 gradient-downriver-to-jelly-bean dark:gradient-firefly-to-downriver">
         <div className="fixed z-50 h-14 left-0 right-0 border-b border-white/5 gradient-downriver-to-jelly-bean-with-opacity dark:gradient-firefly-to-downriver-with-opacity backdrop-blur-md">
-          <Container fluid className="padding-container xl:!px-5">
-            <Row>
-              <Col xxl={12}>
+          <div className="container-fluid padding-container xl:!px-5">
+            <div className="row">
+              <div className="col-xxl-12">
                 <div className="flex items-center justify-between h-14 gap-5">
                   <button
                     type="button"
@@ -138,9 +137,9 @@ export const Navigation: FC<IProps> = (): JSX.Element => {
                     <OfferButton size="small" />
                   </div>
                 </div>
-              </Col>
-            </Row>
-          </Container>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

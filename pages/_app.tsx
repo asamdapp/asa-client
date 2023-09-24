@@ -4,28 +4,17 @@ import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 
 import NextProgress from 'next-progress';
-import { setConfiguration } from 'react-grid-system';
 import { ThemeProvider } from 'next-themes';
 
 // Local imports
 import { AppProvider } from 'context';
 
-// Fonts
-// import "assets/fonts/OpenSans/stylesheet.css";
-// import "assets/fonts/NotoSerif/stylesheet.css";
 // Styles
+import 'styles/bootstrap-grid.min.css';
 import 'styles/globals.scss';
 import { DefaultSeo } from 'next-seo';
 import { LANGUAGES_COUNT } from '../src/utils';
 import { useRouter } from 'next/router';
-
-setConfiguration({
-  defaultScreenClass: 'xxl',
-  maxScreenClass: 'xxl',
-  gutterWidth: 20,
-  breakpoints: [576, 768, 992, 1200, 1400],
-  containerWidths: [540, 720, 960, 1140, 1320],
-});
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { locale } = useRouter();

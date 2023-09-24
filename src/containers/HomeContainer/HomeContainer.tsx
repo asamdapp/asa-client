@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
-import { Col, Row } from 'react-grid-system';
 import Trans from 'next-translate/Trans';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
@@ -51,8 +50,8 @@ export const HomeContainer: FC<IProps> = (): JSX.Element => {
       <MainLayout>
         <Section withGradient className="!p-0">
           <CustomContainer>
-            <Row>
-              <Col lg={7} xl={6}>
+            <div className="row">
+              <div className="col-lg-7 col-xl-6">
                 <div className="flex items-center h-full">
                   <div className="py-5 sm:py-12 md:py-20">
                     <MainTitle className="flex flex-col gap-2">
@@ -89,9 +88,9 @@ export const HomeContainer: FC<IProps> = (): JSX.Element => {
                     </div>
                   </div>
                 </div>
-              </Col>
+              </div>
 
-              <Col lg={5} xl={6}>
+              <div className="col-lg-5 col-xl-6">
                 <div className="relative w-full h-full min-h-[50vh] sm:min-h-[60vh] lg:min-h-[70vh]">
                   <Image
                     src={heroImage.src}
@@ -105,8 +104,8 @@ export const HomeContainer: FC<IProps> = (): JSX.Element => {
                     className="bg-no-repeat"
                   />
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </CustomContainer>
         </Section>
 
