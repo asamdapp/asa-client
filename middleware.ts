@@ -3,8 +3,7 @@ import { NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
   if (
-    (request.nextUrl.pathname.startsWith('/pagina-de-multumire') ||
-      request.nextUrl.pathname.startsWith('/stranica-blagodarnosti')) &&
+    request.nextUrl.pathname.startsWith('/thanks') &&
     !request.cookies.get('thanks')
   ) {
     return NextResponse.redirect(
