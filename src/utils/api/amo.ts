@@ -1,5 +1,6 @@
 import formidable from 'formidable';
 import { AMO_IDS } from 'utils';
+import { DateTime } from 'luxon';
 
 const pushStringToArray = (title: string, value: string, arr: string[]) => {
   const string = `${title}:\n${value}`;
@@ -8,6 +9,12 @@ const pushStringToArray = (title: string, value: string, arr: string[]) => {
 
 const getMessage = (fields: any, urlToFiles: string[]) => {
   const arr: string[] = [];
+
+  if (urlToFiles.length > 0) {
+    const m = `Fisiere atasate:`;
+    const filesMessage = urlToFiles.map((item) => `\n${item}`);
+    arr.push(m + filesMessage);
+  }
 
   if (fields?.name) {
     pushStringToArray('Client', fields?.name, arr);
@@ -57,11 +64,6 @@ const getMessage = (fields: any, urlToFiles: string[]) => {
     pushStringToArray('Comentariu', fields?.comment, arr);
   }
 
-  if (urlToFiles.length > 0) {
-    const m = `Fisiere atasate:`;
-    const filesMessage = urlToFiles.map((item) => `\n${item}`);
-    arr.push(m + filesMessage);
-  }
   return arr.join('\n\n');
 };
 
@@ -70,6 +72,7 @@ export const postAmoCRM = async (
   urlToFiles: string[]
 ) => {
   try {
+    // @ts-ignore
     const data = JSON.stringify({
       token: process.env.AMO_TOKEN,
       client_id: process.env.AMO_CLIENT_ID,
@@ -80,6 +83,7 @@ export const postAmoCRM = async (
       tags: 'site, asa.md',
       contact: {
         name: fields?.name,
+        email: fields?.email,
         phone: `${fields?.phone}`,
       },
 
@@ -101,6 +105,14 @@ export const postAmoCRM = async (
         [AMO_IDS.comment]: fields?.comment ?? '',
         [AMO_IDS.countryApostilleRequested]:
           fields?.country_apostille_requested ?? '',
+
+        ...(fields?.date && {
+          [AMO_IDS.date]: DateTime.fromFormat(
+            // @ts-ignore
+            fields?.date,
+            'dd.MM.yyyy'
+          ).toUnixInteger(),
+        }),
       },
 
       note: getMessage(fields, urlToFiles),

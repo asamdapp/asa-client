@@ -58,6 +58,7 @@ export const FORM_SERVICES_IDS = {
 export const AMO_IDS = {
   services: '963341',
   comment: '964123',
+  date: '1028615',
   deliveryTime: '1029539',
   sourceLanguages: '962603',
   targetLanguages: '962807',
