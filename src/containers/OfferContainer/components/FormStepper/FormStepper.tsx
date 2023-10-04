@@ -42,16 +42,40 @@ export const FormStepper: FC<IProps> = (): JSX.Element => {
       formData.append('phone', data?.phone);
       formData.append('comment', data?.comment ?? '');
 
-      formData.append('service', data?.service?.name.ro);
+      formData.append(
+        'service',
+        JSON.stringify({
+          name: data?.service.name.ro,
+          amo_id: data?.service.amo_id,
+        })
+      );
 
       if (data?.service?.isServiceForLanguage) {
-        formData.append('source_language', data?.source_language?.name ?? '');
-        formData.append('target_language', data?.target_language?.name ?? '');
+        formData.append(
+          'source_language',
+          JSON.stringify({
+            name: data?.source_language.value,
+            amo_id: data?.source_language.first_amo_id,
+          }) ?? ''
+        );
+        formData.append(
+          'target_language',
+          JSON.stringify({
+            name: data?.target_language.value,
+            amo_id: data?.target_language.second_amo_id,
+          }) ?? ''
+        );
         formData.append('date', data?.date ?? '');
       }
 
       if (data?.service?.isServiceWithDeliveryTime) {
-        formData.append('delivery_time', data?.delivery_time?.name.ro ?? '');
+        formData.append(
+          'delivery_time',
+          JSON.stringify({
+            name: data?.delivery_time.name.ro,
+            amo_id: data?.delivery_time.amo_id,
+          }) ?? ''
+        );
       }
 
       if (data?.service?.isServiceWithCountryApostilleRequested) {

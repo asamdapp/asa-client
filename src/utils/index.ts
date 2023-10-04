@@ -35,6 +35,7 @@ export const DELIVERY_TIME = [
       ro: '3 zile lucrătoare',
       ru: '3 рабочих дня',
     },
+    amo_id: 1524465,
   },
   {
     id: '5',
@@ -42,6 +43,7 @@ export const DELIVERY_TIME = [
       ro: '5 zile lucrătoare',
       ru: '5 рабочих дней',
     },
+    amo_id: 1524467,
   },
 ];
 
@@ -53,6 +55,15 @@ export const FORM_SERVICES_IDS = {
   interpretariat: 'interpretariat',
 };
 
+export const AMO_IDS = {
+  services: '963341',
+  comment: '964123',
+  deliveryTime: '1029539',
+  sourceLanguages: '962603',
+  targetLanguages: '962807',
+  countryApostilleRequested: '963043',
+};
+
 export const FORM_SERVICES = [
   {
     id: FORM_SERVICES_IDS.traduceriAutorizate,
@@ -61,6 +72,7 @@ export const FORM_SERVICES = [
       ru: 'Сертифицированные переводы',
     },
     isServiceForLanguage: true,
+    amo_id: 1319577,
   },
   {
     id: FORM_SERVICES_IDS.traduceriLegalizateNotar,
@@ -70,6 +82,7 @@ export const FORM_SERVICES = [
     },
     isServiceForLanguage: true,
     info: 'common:info_service_notar',
+    amo_id: 1319579,
   },
   {
     id: FORM_SERVICES_IDS.traduceriLegalizateNotarApostila,
@@ -80,6 +93,7 @@ export const FORM_SERVICES = [
     isServiceForLanguage: true,
     isServiceWithCountryApostilleRequested: true,
     info: 'common:info_service_notar',
+    amo_id: 1524413,
   },
   {
     id: FORM_SERVICES_IDS.apostila,
@@ -89,6 +103,7 @@ export const FORM_SERVICES = [
     },
     isServiceWithCountryApostilleRequested: true,
     isServiceWithDeliveryTime: true,
+    amo_id: 1319581,
   },
   {
     id: FORM_SERVICES_IDS.interpretariat,
@@ -98,6 +113,7 @@ export const FORM_SERVICES = [
     },
     isServiceForLanguage: true,
     isServiceWithoutFiles: true,
+    amo_id: 1319583,
   },
 ];
 

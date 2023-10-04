@@ -2,7 +2,7 @@ import { sanityClient } from 'utils';
 
 export const getServices = async (locale: string) => {
   const services = await sanityClient.fetch(`
-    *[_type == 'service' && __i18n_lang == '${locale}'] | order(_updatedAt desc) {
+  *[_type == "service" && __i18n_lang == '${locale}']|order(coalesce(__i18n_base->orderRank, orderRank)) {
       _id,
       name,
       slug,

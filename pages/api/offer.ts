@@ -19,8 +19,31 @@ const readFile = (
   const form = formidable(options);
   return new Promise((resolve, reject) => {
     form.parse(req, (err, fields, files) => {
-      if (err) reject(err);
-      resolve({ fields, files });
+      if (err) {
+        reject(err);
+      } else {
+        // Iterați prin toate câmpurile și transformați valorile în JSON
+        const parsedFields: any = {};
+        for (const key in fields) {
+          if (fields.hasOwnProperty(key)) {
+            const fieldValue = fields[key];
+            if (Array.isArray(fieldValue) && fieldValue.length > 0) {
+              // Obțineți prima valoare din array și încercați să o parsați în JSON
+              try {
+                parsedFields[key] = JSON.parse(fieldValue[0]);
+              } catch (error) {
+                // Dacă nu poate fi parsată ca JSON, păstrați valoarea originală
+                parsedFields[key] = fieldValue[0];
+              }
+            } else {
+              // Dacă nu este un array, păstrați valoarea originală
+              parsedFields[key] = fieldValue;
+            }
+          }
+        }
+
+        resolve({ fields: parsedFields, files });
+      }
     });
   });
 };
@@ -32,8 +55,8 @@ const handler: NextApiHandler = async (req, res) => {
       files: { files },
     } = await readFile(req);
 
-    // @ts-ignore
-    // console.log('fields string', [...fields]);
+    // console.log(fields);
+    //
     // return res.status(500).send('error');
 
     try {
@@ -42,7 +65,7 @@ const handler: NextApiHandler = async (req, res) => {
       await sendMessageTelegramGroup(fields, urlToFiles);
       await postAmoCRM(fields, urlToFiles);
 
-      res.status(200).send({ ok: true });
+      res.status(500).send({ ok: true });
     } catch (error) {
       console.log(error);
       res.status(500).send(error);

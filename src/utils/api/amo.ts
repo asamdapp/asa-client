@@ -1,4 +1,5 @@
 import formidable from 'formidable';
+import { AMO_IDS } from 'utils';
 
 const pushStringToArray = (title: string, value: string, arr: string[]) => {
   const string = `${title}:\n${value}`;
@@ -21,7 +22,7 @@ const getMessage = (fields: any, urlToFiles: string[]) => {
   }
 
   if (fields?.service) {
-    pushStringToArray('Serviciu', fields?.service, arr);
+    pushStringToArray('Serviciu', fields?.service.name, arr);
   }
 
   if (fields?.country_apostille_requested) {
@@ -29,11 +30,19 @@ const getMessage = (fields: any, urlToFiles: string[]) => {
   }
 
   if (fields?.source_language) {
-    pushStringToArray('Din ce limba traducem', fields?.source_language, arr);
+    pushStringToArray(
+      'Din ce limba traducem',
+      fields?.source_language.name,
+      arr
+    );
   }
 
   if (fields?.target_language) {
-    pushStringToArray('In ce limba traducem', fields?.target_language, arr);
+    pushStringToArray(
+      'In ce limba traducem',
+      fields?.target_language.name,
+      arr
+    );
   }
 
   if (fields?.date) {
@@ -41,7 +50,7 @@ const getMessage = (fields: any, urlToFiles: string[]) => {
   }
 
   if (fields?.delivery_time) {
-    pushStringToArray('Termen livrare', fields?.delivery_time, arr);
+    pushStringToArray('Termen livrare', fields?.delivery_time.name, arr);
   }
 
   if (fields?.comment) {
@@ -64,14 +73,42 @@ export const postAmoCRM = async (
     const data = JSON.stringify({
       token: process.env.AMO_TOKEN,
       client_id: process.env.AMO_CLIENT_ID,
+      lead_name: 'Comanda noua ASA.md',
+      pipeline_id: 5535283,
+      status_id: 52083061,
+      responsible_user_id: 8313577,
+      tags: 'site, asa.md',
       contact: {
+        name: fields?.name,
+        phone: `${fields?.phone}`,
+      },
+
+      fields: {
         // @ts-ignore
-        name: fields?.name[0],
-        // @ts-ignore
-        phone: fields?.phone[0],
+        [AMO_IDS.services]: fields?.service ? fields?.service.amo_id : '',
+        [AMO_IDS.sourceLanguages]: fields?.source_language
+          ? // @ts-ignore
+            fields?.source_language.amo_id
+          : '',
+        [AMO_IDS.targetLanguages]: fields?.target_language
+          ? // @ts-ignore
+            fields?.target_language.amo_id
+          : '',
+        [AMO_IDS.deliveryTime]: fields?.delivery_time
+          ? // @ts-ignore
+            fields?.delivery_time.amo_id
+          : '',
+        [AMO_IDS.comment]: fields?.comment ?? '',
+        [AMO_IDS.countryApostilleRequested]:
+          fields?.country_apostille_requested ?? '',
       },
 
       note: getMessage(fields, urlToFiles),
+      stats: {
+        FBCLID: 'IwAR0-Bn_8hPJAWlY39Q56vJAntfWw-0y0xUEckVz5gHfGGY_e9bQY91NH3vw',
+        GCLIENTID: 'GA1.1.1055047466.1689929817',
+        UTM_CAMPAIGN: 'test-amo',
+      },
     });
 
     const config = {

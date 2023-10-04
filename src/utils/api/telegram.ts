@@ -41,7 +41,7 @@ const getMessage = (fields: any) => {
   }
 
   if (fields?.service) {
-    pushStringToArray('💼', 'Serviciu', fields?.service, arr);
+    pushStringToArray('💼', 'Serviciu', fields?.service.name, arr);
   }
 
   if (fields?.country_apostille_requested) {
@@ -52,7 +52,7 @@ const getMessage = (fields: any) => {
     pushStringToArray(
       '📗',
       'Din ce limba traducem',
-      fields?.source_language,
+      fields?.source_language.name,
       arr
     );
   }
@@ -61,7 +61,7 @@ const getMessage = (fields: any) => {
     pushStringToArray(
       '📘',
       'In ce limba traducem',
-      fields?.target_language,
+      fields?.target_language.name,
       arr
     );
   }
@@ -71,7 +71,7 @@ const getMessage = (fields: any) => {
   }
 
   if (fields?.delivery_time) {
-    pushStringToArray('🗓', 'Termen livrare', fields?.delivery_time, arr);
+    pushStringToArray('🗓', 'Termen livrare', fields?.delivery_time.name, arr);
   }
 
   if (fields?.comment) {
