@@ -55,17 +55,13 @@ const handler: NextApiHandler = async (req, res) => {
       files: { files },
     } = await readFile(req);
 
-    // console.log(fields);
-    //
-    // return res.status(500).send('error');
-
     try {
       const urlToFiles = await postFilesToGoogleStorage(files);
 
       await sendMessageTelegramGroup(fields, urlToFiles);
       await postAmoCRM(fields, urlToFiles);
 
-      res.status(500).send({ ok: true });
+      res.status(200).send({ ok: true });
     } catch (error) {
       console.log(error);
       res.status(500).send(error);
