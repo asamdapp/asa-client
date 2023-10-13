@@ -79,7 +79,7 @@ export const postAmoCRM = async (
       lead_name: 'Comanda noua ASA.md',
       pipeline_id: 5535283,
       status_id: 52083061,
-      responsible_user_id: 8313577,
+      // responsible_user_id: 8313577,
       tags: 'site, asa.md',
       contact: {
         name: fields?.name,
