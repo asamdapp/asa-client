@@ -74,11 +74,11 @@ export default function Document() {
         <Main />
         <NextScript />
 
-        {/*<script*/}
-        {/*  defer*/}
-        {/*  async*/}
-        {/*  src={'https://frecautan.github.io/made-with-love/min.js'}*/}
-        {/*/>*/}
+        {/*<script
+          defer
+          async
+          src={'https://frecautan.github.io/made-with-love/min.js'}
+        />*/}
 
         <noscript>
           <iframe
