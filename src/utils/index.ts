@@ -121,8 +121,8 @@ export const FORM_SERVICES = [
 export const CONTACTS = {
   chisinau: {
     phone: {
-      toShow: '078 150 555',
-      value: '37378150555',
+      toShow: '022 95 00 99',
+      value: '37322950099',
     },
     additionalPhone: {
       toShow: '068 853 504',
