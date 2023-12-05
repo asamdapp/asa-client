@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app';
 
 import NextProgress from 'next-progress';
 import { ThemeProvider } from 'next-themes';
+import TagManager from 'react-gtm-module';
 
 // Local imports
 import { AppProvider } from 'context';
@@ -16,8 +17,22 @@ import { DefaultSeo } from 'next-seo';
 import { LANGUAGES_COUNT } from '../src/utils';
 import { useRouter } from 'next/router';
 
+const gtmId = 'GTM-WWGJ4X6';
+
 const App = ({ Component, pageProps }: AppProps) => {
-  const { locale } = useRouter();
+  const { locale, asPath } = useRouter();
+
+  console.log((locale === 'ru' ? 'ru' : '') + asPath);
+
+  React.useEffect(() => {
+    TagManager.initialize({
+      gtmId,
+      dataLayer: {
+        page: (locale === 'ru' ? 'ru' : '') + asPath,
+      },
+    });
+  }, [asPath, locale]);
+
   return (
     <>
       <DefaultSeo
