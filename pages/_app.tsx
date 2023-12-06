@@ -31,7 +31,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         page: (locale === 'ru' ? 'ru' : '') + asPath,
       },
     });
-  }, [asPath, locale]);
+  }, []);
 
   return (
     <>
