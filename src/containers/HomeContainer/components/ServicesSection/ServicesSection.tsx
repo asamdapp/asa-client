@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import { IconArrowRight } from '@tabler/icons';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import Image from 'next/image';
 
 import { CustomContainer, Section, SectionTitle } from 'components';
@@ -35,38 +34,32 @@ export const ServicesSection: FC<IProps> = (): JSX.Element => {
         >
           {services?.map((item: any) => (
             <div className="col-lg-6 col-xl-4" key={item._id}>
-              <Link
-                href={{
-                  pathname: '/services/[serviceSlug]',
-                  query: { serviceSlug: item?.slug?.current },
-                }}
-                passHref
-                locale={locale}
+              <a
+                href={`${locale === 'ru' ? '/' + locale + '/' : '/'}services/${
+                  item?.slug?.current
+                }`}
+                className="
+                  flex gap-4 items-center pr-4 group cursor-pointer rounded-xl overflow-hidden transition
+                  bg-white hover:scale-[1.02]
+                  dark:bg-black/20 dark:text-white/70 hover:dark:bg-black/40 hover:dark:text-cardinal
+                  font-medium
+                  text-downriver hover:text-cardinal h-full
+                "
               >
-                <a
-                  className="
-                      flex gap-4 items-center pr-4 group cursor-pointer rounded-xl overflow-hidden transition
-                      bg-white hover:scale-[1.02]
-                      dark:bg-black/20 dark:text-white/70 hover:dark:bg-black/40 hover:dark:text-cardinal
-                      font-medium
-                      text-downriver hover:text-cardinal h-full
-                    "
-                >
-                  <div className="w-28 min-h-[theme(spacing.20)] h-full md:w-36 md:h-28 flex-none relative">
-                    <Image
-                      src={urlFor(item?.image).url()}
-                      alt={item?.name}
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="top"
-                    />
-                  </div>
+                <div className="w-28 min-h-[theme(spacing.20)] h-full md:w-36 md:h-28 flex-none relative">
+                  <Image
+                    src={urlFor(item?.image).url()}
+                    alt={item?.name}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="top"
+                  />
+                </div>
 
-                  <span className="word-break py-2">{item?.name}</span>
+                <span className="word-break py-2">{item?.name}</span>
 
-                  <IconArrowRight className="flex-none ml-auto text-gray-200 dark:text-white/70 group-hover:text-cardinal transition" />
-                </a>
-              </Link>
+                <IconArrowRight className="flex-none ml-auto text-gray-200 dark:text-white/70 group-hover:text-cardinal transition" />
+              </a>
             </div>
           ))}
 

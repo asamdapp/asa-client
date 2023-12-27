@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 
 import Trans from 'next-translate/Trans';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import { IconMinus } from '@tabler/icons';
@@ -375,22 +374,18 @@ export const Footer: FC<IProps> = (): JSX.Element => {
                 <ul>
                   {services?.map((item: any) => (
                     <li key={item?._id} className="py-1 last:pb-0">
-                      <Link
-                        href={{
-                          pathname: '/services/[serviceSlug]',
-                          query: { serviceSlug: item?.slug?.current },
-                        }}
-                        passHref
-                        locale={locale}
+                      <a
+                        href={`${
+                          locale === 'ru' ? '/' + locale + '/' : '/'
+                        }services/${item?.slug?.current}`}
+                        className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white"
                       >
-                        <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
-                          <IconMinus
-                            size={12}
-                            className="flex-none relative top-1"
-                          />
-                          <span>{item?.name}</span>
-                        </a>
-                      </Link>
+                        <IconMinus
+                          size={12}
+                          className="flex-none relative top-1"
+                        />
+                        <span>{item?.name}</span>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -405,83 +400,67 @@ export const Footer: FC<IProps> = (): JSX.Element => {
 
                 <ul>
                   <li className="py-1 last:pb-0">
-                    <Link
-                      href={{
-                        pathname: '/mission',
-                      }}
-                      passHref
-                      locale={locale}
+                    <a
+                      href={`${
+                        locale === 'ru' ? '/' + locale + '/' : '/'
+                      }mission`}
+                      className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white"
                     >
-                      <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
-                        <IconMinus
-                          size={12}
-                          className="flex-none relative top-1"
-                        />
-                        <span>
-                          <Trans i18nKey={'common:company_mission'} />
-                        </span>
-                      </a>
-                    </Link>
+                      <IconMinus
+                        size={12}
+                        className="flex-none relative top-1"
+                      />
+                      <span>
+                        <Trans i18nKey={'common:company_mission'} />
+                      </span>
+                    </a>
                   </li>
 
                   <li className="py-1 last:pb-0">
-                    <Link
-                      href={{
-                        pathname: '/jobs',
-                      }}
-                      passHref
-                      locale={locale}
+                    <a
+                      href={`${locale === 'ru' ? '/' + locale + '/' : '/'}jobs`}
+                      className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white"
                     >
-                      <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
-                        <IconMinus
-                          size={12}
-                          className="flex-none relative top-1"
-                        />
-                        <span>
-                          <Trans i18nKey={'common:company_jobs'} />
-                        </span>
-                      </a>
-                    </Link>
+                      <IconMinus
+                        size={12}
+                        className="flex-none relative top-1"
+                      />
+                      <span>
+                        <Trans i18nKey={'common:company_jobs'} />
+                      </span>
+                    </a>
                   </li>
 
                   <li className="py-1 last:pb-0">
-                    <Link
-                      href={{
-                        pathname: '/languages',
-                      }}
-                      passHref
-                      locale={locale}
+                    <a
+                      href={`${
+                        locale === 'ru' ? '/' + locale + '/' : '/'
+                      }languages`}
+                      className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white"
                     >
-                      <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
-                        <IconMinus
-                          size={12}
-                          className="flex-none relative top-1"
-                        />
-                        <span>
-                          <Trans i18nKey={'common:languages_of_translation'} />
-                        </span>
-                      </a>
-                    </Link>
+                      <IconMinus
+                        size={12}
+                        className="flex-none relative top-1"
+                      />
+                      <span>
+                        <Trans i18nKey={'common:languages_of_translation'} />
+                      </span>
+                    </a>
                   </li>
 
                   <li className="py-1 last:pb-0">
-                    <Link
-                      href={{
-                        pathname: '/faq',
-                      }}
-                      passHref
-                      locale={locale}
+                    <a
+                      href={`${locale === 'ru' ? '/' + locale + '/' : '/'}faq`}
+                      className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white"
                     >
-                      <a className="flex gap-1 transition text-sm text-white/50  text-sm hover:text-white">
-                        <IconMinus
-                          size={12}
-                          className="flex-none relative top-1"
-                        />
-                        <span>
-                          <Trans i18nKey={'common:faq'} />
-                        </span>
-                      </a>
-                    </Link>
+                      <IconMinus
+                        size={12}
+                        className="flex-none relative top-1"
+                      />
+                      <span>
+                        <Trans i18nKey={'common:faq'} />
+                      </span>
+                    </a>
                   </li>
                 </ul>
               </div>

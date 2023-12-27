@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { FC } from 'react';
 import Trans from 'next-translate/Trans';
 
@@ -38,7 +37,14 @@ export const MenuItemAbout: FC<IProps> = (): JSX.Element => {
           "
         >
           <li className="py-2 first:pt-0 last:pb-0">
-            <Link
+            <a
+              href={`${locale === 'ru' ? '/' + locale + '/' : '/'}mission`}
+              className="flex transition text-sm text-downriver hover:text-cardinal"
+            >
+              <Trans i18nKey={'common:company_mission'} />
+            </a>
+
+            {/*<Link
               href={{
                 pathname: '/mission',
               }}
@@ -48,11 +54,18 @@ export const MenuItemAbout: FC<IProps> = (): JSX.Element => {
               <a className="flex transition text-sm text-downriver hover:text-cardinal">
                 <Trans i18nKey={'common:company_mission'} />
               </a>
-            </Link>
+            </Link>*/}
           </li>
 
           <li className="py-2 first:pt-0 last:pb-0">
-            <Link
+            <a
+              href={`${locale === 'ru' ? '/' + locale + '/' : '/'}jobs`}
+              className="flex transition text-sm text-downriver hover:text-cardinal"
+            >
+              <Trans i18nKey={'common:company_jobs'} />
+            </a>
+
+            {/*<Link
               href={{
                 pathname: '/jobs',
               }}
@@ -62,7 +75,7 @@ export const MenuItemAbout: FC<IProps> = (): JSX.Element => {
               <a className="flex transition text-sm text-downriver hover:text-cardinal">
                 <Trans i18nKey={'common:company_jobs'} />
               </a>
-            </Link>
+            </Link>*/}
           </li>
         </ul>
       </li>

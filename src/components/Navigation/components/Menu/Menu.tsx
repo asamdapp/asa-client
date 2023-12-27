@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import Trans from 'next-translate/Trans';
 
 import { MenuItemAbout, MenuItemServices } from '..';
@@ -19,13 +18,27 @@ export const Menu: FC<IProps> = ({ services }): JSX.Element => {
         <MenuItemAbout />
         <MenuItemServices services={services} />
 
-        <Link href={{ pathname: '/languages' }} passHref locale={locale}>
+        <a
+          href={`${locale === 'ru' ? '/' + locale + '/' : '/'}languages`}
+          className="text-sm hover:bg-jelly-bean rounded-lg transition py-1 px-2"
+        >
+          <Trans i18nKey={'common:languages_of_translation'} />
+        </a>
+
+        {/* <Link href={{ pathname: '/languages' }} passHref locale={locale}>
           <a className="text-sm hover:bg-jelly-bean rounded-lg transition py-1 px-2">
             <Trans i18nKey={'common:languages_of_translation'} />
           </a>
-        </Link>
+        </Link>*/}
 
-        <Link
+        <a
+          href={`${locale === 'ru' ? '/' + locale + '/' : '/'}faq`}
+          className="text-sm hover:bg-jelly-bean rounded-lg transition py-1 px-2"
+        >
+          <Trans i18nKey={'common:faq'} />
+        </a>
+
+        {/*<Link
           href={{
             pathname: '/faq',
           }}
@@ -35,9 +48,16 @@ export const Menu: FC<IProps> = ({ services }): JSX.Element => {
           <a className="text-sm hover:bg-jelly-bean rounded-lg transition py-1 px-2">
             <Trans i18nKey={'common:faq'} />
           </a>
-        </Link>
+        </Link>*/}
 
-        <Link
+        <a
+          href={`${locale === 'ru' ? '/' + locale + '/' : '/'}contact`}
+          className="text-sm hover:bg-jelly-bean rounded-lg transition py-1 px-2"
+        >
+          <Trans i18nKey={'common:contacts'} />
+        </a>
+
+        {/* <Link
           href={{
             pathname: '/contact',
           }}
@@ -47,7 +67,7 @@ export const Menu: FC<IProps> = ({ services }): JSX.Element => {
           <a className="text-sm hover:bg-jelly-bean rounded-lg transition py-1 px-2">
             <Trans i18nKey={'common:contacts'} />
           </a>
-        </Link>
+        </Link>*/}
       </ul>
     </>
   );

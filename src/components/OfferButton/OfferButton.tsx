@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import clsx from 'clsx';
 
 import styles from '../UI/Button/Button.module.scss';
@@ -18,28 +17,27 @@ export const OfferButton: FC<IProps> = ({
   const { locale } = useRouter();
 
   return (
-    // @ts-ignore
-    <Link href={{ pathname: '/offer' }} locale={locale} passHref {...props}>
-      <a
-        className={clsx(
-          styles.btn,
-          {
-            [styles.normal]: size === 'normal',
-            [styles.small]: size === 'small',
-          },
-          {
-            [styles.red]: variant === 'red',
-            [styles.green]: variant === 'green',
-            [styles.white]: variant === 'white',
-          },
-          {
-            'text-sm': locale === 'ru',
-          },
-          className
-        )}
-      >
-        <Trans i18nKey={'common:offer_button'} />
-      </a>
-    </Link>
+    <a
+      href={`${locale === 'ru' ? '/' + locale + '/' : '/'}offer`}
+      className={clsx(
+        styles.btn,
+        {
+          [styles.normal]: size === 'normal',
+          [styles.small]: size === 'small',
+        },
+        {
+          [styles.red]: variant === 'red',
+          [styles.green]: variant === 'green',
+          [styles.white]: variant === 'white',
+        },
+        {
+          'text-sm': locale === 'ru',
+        },
+        className
+      )}
+      {...props}
+    >
+      <Trans i18nKey={'common:offer_button'} />
+    </a>
   );
 };

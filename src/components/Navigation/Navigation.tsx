@@ -27,7 +27,6 @@ import Trans from 'next-translate/Trans';
 import { useRouter } from 'next/router';
 import { CONTACTS } from 'utils';
 import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
 import useSWR from 'swr';
 
 const Drawer = dynamic(() => import('react-modern-drawer'), { ssr: false });
@@ -337,7 +336,23 @@ export const Navigation: FC<IProps> = (): JSX.Element => {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   <div className="flex flex-col text-gray-500 p-2">
-                    <Link
+                    <a
+                      href={`${
+                        locale === 'ru' ? '/' + locale + '/' : '/'
+                      }mission`}
+                      className="px-3 py-1"
+                    >
+                      &#45; <Trans i18nKey={'common:company_mission'} />
+                    </a>
+
+                    <a
+                      href={`${locale === 'ru' ? '/' + locale + '/' : '/'}jobs`}
+                      className="px-3 py-1"
+                    >
+                      &#45; <Trans i18nKey={'common:company_jobs'} />
+                    </a>
+
+                    {/*<Link
                       href={{
                         pathname: '/mission',
                       }}
@@ -359,7 +374,7 @@ export const Navigation: FC<IProps> = (): JSX.Element => {
                       <a className="px-3 py-1">
                         &#45; <Trans i18nKey={'common:company_jobs'} />
                       </a>
-                    </Link>
+                    </Link>*/}
                   </div>
                 </AccordionItemPanel>
               </AccordionItem>
@@ -376,7 +391,17 @@ export const Navigation: FC<IProps> = (): JSX.Element => {
                 <AccordionItemPanel>
                   <div className="flex flex-col text-gray-500 p-2">
                     {services?.map((item: any) => (
-                      <Link
+                      <a
+                        key={item?._id}
+                        href={`${
+                          locale === 'ru' ? '/' + locale + '/' : '/'
+                        }services/${item?.slug?.current}`}
+                        className="px-3 py-1"
+                      >
+                        &#45; {item?.name}
+                      </a>
+
+                      /* <Link
                         key={item?._id}
                         href={{
                           pathname: '/services/[serviceSlug]',
@@ -386,20 +411,34 @@ export const Navigation: FC<IProps> = (): JSX.Element => {
                         locale={locale}
                       >
                         <a className="px-3 py-1">&#45; {item?.name}</a>
-                      </Link>
+                      </Link>*/
                     ))}
                   </div>
                 </AccordionItemPanel>
               </AccordionItem>
             </Accordion>
 
-            <Link href={{ pathname: '/languages' }} passHref locale={locale}>
+            <a
+              href={`${locale === 'ru' ? '/' + locale + '/' : '/'}languages`}
+              className="flex justify-between text-downriver font-semibold bg-gray-50 px-3 py-2 rounded-xl hover:bg-gray-100 px-3 py-1"
+            >
+              <Trans i18nKey={'common:languages_of_translation'} />
+            </a>
+
+            {/* <Link href={{ pathname: '/languages' }} passHref locale={locale}>
               <a className="flex justify-between text-downriver font-semibold bg-gray-50 px-3 py-2 rounded-xl hover:bg-gray-100 px-3 py-1">
                 <Trans i18nKey={'common:languages_of_translation'} />
               </a>
-            </Link>
+            </Link>*/}
 
-            <Link
+            <a
+              href={`${locale === 'ru' ? '/' + locale + '/' : '/'}faq`}
+              className="flex justify-between text-downriver font-semibold bg-gray-50 px-3 py-2 rounded-xl hover:bg-gray-100 px-3 py-1"
+            >
+              <Trans i18nKey={'common:faq'} />
+            </a>
+
+            {/*<Link
               href={{
                 pathname: '/faq',
               }}
@@ -409,9 +448,16 @@ export const Navigation: FC<IProps> = (): JSX.Element => {
               <a className="flex justify-between text-downriver font-semibold bg-gray-50 px-3 py-2 rounded-xl hover:bg-gray-100 px-3 py-1">
                 <Trans i18nKey={'common:faq'} />
               </a>
-            </Link>
+            </Link>*/}
 
-            <Link
+            <a
+              href={`${locale === 'ru' ? '/' + locale + '/' : '/'}contact`}
+              className="flex justify-between text-downriver font-semibold bg-gray-50 px-3 py-2 rounded-xl hover:bg-gray-100 px-3 py-1"
+            >
+              <Trans i18nKey={'common:contacts'} />
+            </a>
+
+            {/*<Link
               href={{
                 pathname: '/contact',
               }}
@@ -421,7 +467,7 @@ export const Navigation: FC<IProps> = (): JSX.Element => {
               <a className="flex justify-between text-downriver font-semibold bg-gray-50 px-3 py-2 rounded-xl hover:bg-gray-100 px-3 py-1">
                 <Trans i18nKey={'common:contacts'} />
               </a>
-            </Link>
+            </Link>*/}
           </div>
 
           <div className="flex gap-5 justify-center mt-5">

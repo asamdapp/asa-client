@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import Head from 'next/head';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
-import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import { MainLayout } from 'layouts';
@@ -53,9 +52,10 @@ export const ThanksContainer: FC<IProps> = (): JSX.Element => {
                     {t('common:thanks_subtitle')}
                   </p>
 
-                  <Link href={{ pathname: '/' }}>
-                    <a
-                      className="
+                  {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+                  <a
+                    href="/"
+                    className="
                         bg-cardinal
                         text-white
                         font-semibold
@@ -66,10 +66,9 @@ export const ThanksContainer: FC<IProps> = (): JSX.Element => {
                         py-4 px-8
                         shadow-2xl hover:bg-jelly-bean
                       "
-                    >
-                      {t('common:home_page')}
-                    </a>
-                  </Link>
+                  >
+                    {t('common:home_page')}
+                  </a>
                 </div>
               </div>
             </div>

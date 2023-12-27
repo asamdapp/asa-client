@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { FC } from 'react';
 import Trans from 'next-translate/Trans';
 
@@ -30,10 +29,19 @@ export const MenuItemServices: FC<IProps> = ({ services }): JSX.Element => {
           </svg>
         </button>
 
-        <ul className="top-12 opacity-0 transition z-[-9999] scale-0 origin-top-left group-hover:scale-100 group-hover:z-10 group-hover:opacity-100 w-[220px] z-[-9999] divide-y divide-gray-100 transition-all absolute bg-white p-3 rounded-xl">
+        <ul className="top-12 opacity-0 scale-0 origin-top-left group-hover:scale-100 group-hover:z-10 group-hover:opacity-100 w-[220px] z-[-9999] divide-y divide-gray-100 transition-all absolute bg-white p-3 rounded-xl">
           {services?.map((item: any) => (
             <li key={item?._id} className="py-2 first:pt-0 last:pb-0">
-              <Link
+              <a
+                href={`${locale === 'ru' ? '/' + locale + '/' : '/'}services/${
+                  item?.slug?.current
+                }`}
+                className="flex transition text-sm text-downriver hover:text-cardinal"
+              >
+                {item?.name}
+              </a>
+
+              {/*<Link
                 href={{
                   pathname: '/services/[serviceSlug]',
                   query: { serviceSlug: item?.slug?.current },
@@ -44,7 +52,7 @@ export const MenuItemServices: FC<IProps> = ({ services }): JSX.Element => {
                 <a className="flex transition text-sm text-downriver hover:text-cardinal">
                   {item?.name}
                 </a>
-              </Link>
+              </Link>*/}
             </li>
           ))}
         </ul>

@@ -10,7 +10,6 @@ import {
 
 import Trans from 'next-translate/Trans';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import useSWR from 'swr';
 
 interface IProps {}
@@ -33,9 +32,9 @@ export const LanguagesSection: FC<IProps> = (): JSX.Element => {
           ))}
 
           <div className="col-12 col-sm-5 col-md-2">
-            <Link href={{ pathname: '/languages' }} passHref locale={locale}>
-              <a
-                className="
+            <a
+              href={`${locale === 'ru' ? '/' + locale + '/' : '/'}languages`}
+              className="
                 flex w-full flex-col items-center justify-center font-medium text-sm
                 text-white/70 gap-1 rounded-lg bg-white/5
                 dark:bg-black/20
@@ -44,15 +43,14 @@ export const LanguagesSection: FC<IProps> = (): JSX.Element => {
                 transition
                 min-h-full
               "
-              >
-                <span className="flex items-end justify-center">
-                  <IconSquareArrowRight size={32} />
-                </span>
-                <span>
-                  <Trans i18nKey={'common:buttons.show_all_languages'} />
-                </span>
-              </a>
-            </Link>
+            >
+              <span className="flex items-end justify-center">
+                <IconSquareArrowRight size={32} />
+              </span>
+              <span>
+                <Trans i18nKey={'common:buttons.show_all_languages'} />
+              </span>
+            </a>
           </div>
         </div>
       </CustomContainer>
