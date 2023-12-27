@@ -25,7 +25,7 @@ export const FormStepper: FC<IProps> = (): JSX.Element => {
   const { step, totalSteps } = useContext(OfferContext);
   const formMethods = useForm();
 
-  const { push } = useRouter();
+  const { locale } = useRouter();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -109,9 +109,9 @@ export const FormStepper: FC<IProps> = (): JSX.Element => {
         .then((data) => {
           // Handle the response data here
           setCookie('thanks', true, { maxAge: 20 });
-          push({
-            pathname: 'thanks',
-          }).then((r) => r);
+          window.location.replace(
+            `${locale === 'ru' ? '/' + locale + '/' : '/'}thanks`
+          );
         })
         .catch((error) => {
           // Handle errors here

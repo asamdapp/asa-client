@@ -22,14 +22,9 @@ const gtmId = 'GTM-WWGJ4X6';
 const App = ({ Component, pageProps }: AppProps) => {
   const { locale, asPath } = useRouter();
 
-  console.log((locale === 'ru' ? 'ru' : '') + asPath);
-
   React.useEffect(() => {
     TagManager.initialize({
       gtmId,
-      dataLayer: {
-        page: (locale === 'ru' ? 'ru' : '') + asPath,
-      },
     });
   }, []);
 
